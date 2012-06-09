@@ -61,10 +61,6 @@ alias gst='git status'
 alias gd='git diff'
 alias gp='git pull'
 
-# ssh ifweb
-alias sshw='ssh 192.168.0.5'
-alias sshn='ssh if-nas.local'
-
 # Command history
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
@@ -73,7 +69,6 @@ setopt hist_ignore_dups # ignore duplication
 setopt share_history    # share command history data
 
 # Historical backward/forward search with linehead string binded to ^P/^N
-#
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
@@ -112,16 +107,12 @@ function search() {
     find $dir -name "$file" -exec grep -IHn $string {} \; ;
 }
 
-function longman() {
-    w3m http://www.ldoceonline.com/search/
-}
-
 # Ignore C-s, C-q
 setopt no_flow_control
 
 # Environment variances
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-1.7-i586/Contents/Home
-export PYTHONSTARTUP=/home/if/.pythonstartup
+export PYTHONSTARTUP=$HOME/.pythonstartup
 export EDITOR=/usr/local/bin/vim
 export HREF_DATADIR=/usr/local/share/href
 
