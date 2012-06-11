@@ -1,0 +1,16 @@
+## .screenrc
+
+autodetach on
+bell_msg "^G"
+#defkanji utf-8
+#defencoding utf-8
+#encoding utf-8 utf-8
+defscrollback 10000
+escape ^Tt
+startup_message off
+vbell off
+
+#bind h prev
+#bind l next
+
+caption always "%{= wk} %-w%{=bu dr}%n %t%{-}%+w %= %{= wk}%y/%m/%d %{= wk}%c"
