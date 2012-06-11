@@ -82,6 +82,13 @@
 
 ;;; ElScreen
 (require 'elscreen nil t)
+;; ElScreenのプレフィックス(default: C-z)
+(setq elscreen-prefix-key (kbd "C-t"))
+(when (require 'elscreen nil t)
+  ; C-z C-zをタイプした場合にデフォルトのC-zを利用する
+  (if window-system
+      (define-key elscreen-map (kbd "C-z") 'iconify-or-deiconify-frame)
+    (define-key elscreen-map (kbd "C-z") 'suspend-emacs)))
 
 ;;; Anything
 ;; (auto-intsall-batch "anything")
@@ -191,8 +198,6 @@
 (define-key global-map (kbd "M-y") 'anything-show-kill-ring)
 ;; C-x C-xにanythin-for-filesを割り当て
 (define-key global-map (kbd "C-x C-x") 'anything-for-files)
-;; ElScreenのプレフィックス(default: C-z)
-(setq elscreen-prefix-key (kbd "C-t"))
 
 ;;; C-c
 ;; 折り返し表示のトグル
@@ -215,17 +220,25 @@
 
 ;------------------------------
 
-;;;; モードライン [t/0]
+;;;; Mode line
 ;; 行番号
 (setq line-number-mode t)
 ;; 列番号
 (setq column-number-mode t)
 ;; ファイルサイズ
 (size-indication-mode 0)
-;; 時計
-(setq display-time-day-and-date t)	; 曜日/月/日
-(setq display-time-24hr-format t)	; 24h
+;; 日付と時間
+(setq display-time-string-forms
+      '((format "%s %s/%s %s:%s"
+                dayname day month 24-hours minutes
+                )))
 (display-time-mode t)
+;;; モード名を短く
+;; Eldocは表示しない
+(setq eldoc-minor-mode-string "")
+;; Undo-Treeは表示しない
+(setq undo-tree-mode-lighter "")
+      
 ;; バッテリー残量
 (display-battery-mode 0)
 
@@ -242,6 +255,7 @@
   (when (require 'eldoc nil t)
     (setq eldoc-idle-delay 0.2)
     (setq eldoc-echo-area-use-multiline-p t)
+    (setq mode-name "Elisp")            ;モード名
     (turn-on-eldoc-mode)))
 ;; elacs-lisp-modeのhookをセット
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
@@ -267,4 +281,4 @@
     (set-window-buffer (selected-window) thisbuf)))
 (global-set-key [f2] 'swap-screen)
 (global-set-key [S-f2] 'swap-screen-with-cursor)
-
+(global-set-key (kbd "C-c r") 'swap-screen-with-cursor)
