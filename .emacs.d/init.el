@@ -148,11 +148,9 @@
 (global-linum-mode t)
 ;;; 現在行をハイライト
 (defface my-hl-line-face
-  ;; 背景がdarkならば背景色を紺に
-  '((((class color) (background dark))
+  '((((class color) (background dark))  ; 背景がdarkのときの背景色
      (:background "Purple" t))
-    ;; 背景がlightならば背景色を緑に
-    (((class color) (background light))
+    (((class color) (background light)) ; 背景がlightの時の背景色
      (:background "LightGoldenrodYellow" t))
     (t (:bold t)))
   "hl-line's my face")
@@ -169,7 +167,6 @@
                     :background nil :foreground nil
                     :underline "#ffff00" :weight 'extra-bold)
 (set-face-background 'show-paren-match-face nil)		; 背景色変更
-;(set-face-underline-p 'show-paren-match-face "yellow")	; 下線
 
 ;------------------------------
 
@@ -177,8 +174,9 @@
 ;;; Key remap
 ;; C-hをBackspaceに
 (keyboard-translate ?\C-h ?\C-?) ; ?\C-?はDELのシーケンス
-;; C-x ?: Help
+;; Help
 (define-key global-map (kbd "C-x ?") 'help-command)
+(define-key global-map (kbd "C-x /") 'help-command)
 ;; ウィンドウの切り替え([C-x o]と同じ)
 (define-key global-map (kbd "C-x C-o") 'other-window)
 ;; 改行+インデント
@@ -187,6 +185,8 @@
 (define-key global-map (kbd "C-S-v") 'View-scroll-half-page-forward)
 ;; 半ページ上へ
 (define-key global-map (kbd "C-M-S-v") 'View-scroll-half-page-backward)
+;; anything起動
+(define-key global-map (kbd "C-;") 'anything)
 ;; M-yにanything-show-kill-ringを割り当て
 (define-key global-map (kbd "M-y") 'anything-show-kill-ring)
 ;; C-x C-xにanythin-for-filesを割り当て
@@ -197,6 +197,8 @@
 ;;; C-c
 ;; 折り返し表示のトグル
 (define-key global-map (kbd "C-c l") 'toggle-truncate-lines)
+;; undo-tree-visualize
+(define-key global-map (kbd "C-c C-/") 'undo-tree-visualize)
 
 ;------------------------------
 
