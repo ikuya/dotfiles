@@ -27,15 +27,121 @@
              (cons "." "~/.emacs.d/backup/"))
 (setq auto-save-file-name-transforms
       `((".*" ,(expand-file-name "~/.emacs.d/backup/") t)))
+;; auto-install
+(when (require 'auto-install nil t)
+  (setq auto-install-directory "~/.emacs.d/elisp/") ; install dir
+  (auto-install-update-emacswiki-package-name t)   ; emacswikiに登録されている名前を取得
+  ;(setq url-proxy-services '(("http" . "SERVERNAME:PORT"))) ; Proxy
+  (auto-install-compatibility-setup))
 
-;;;; color-theme
+;------------------------------
+
+;;;; Elisp読み込み設定
+;;; color-theme
 (when (require 'color-theme nil t)
   (color-theme-initialize))
+
+;;; redo+
+;; http://www.emacswiki.org/emacs/download/redo+.el
+(when (require 'redo+ nil t)
+  ;; C-' にredoを割り当て
+  (global-set-key (kbd "C-'") 'redo))
+
+;;; package (emacs24では削除 - .emacs.d/elispのpackage.el[c]も削除)
+;; http://bit.ly/pkg-el23
+(when (require 'package nil t)
+  ;; パッケージリポジトリにmarmaladeと開発者運営のELPAを追加
+  (add-to-list 'package-archives
+               '("marmalade" . "http://marmalade-repo.org/packages/"))
+  (add-to-list 'package-archives
+               '("ELPA" . "http://tromey.com/elpa/"))
+  (package-initialize)) ; .emacs.d/elpaにインストールされたパッケージを読み込む
+
+;;; color-moccur
+(when (require 'color-moccur nil t)
+  ; M-oにoccur-by-moccurを割り当て
+  (define-key global-map (kbd "M-o") 'occur-by-moccur)
+  ; スペース区切りでAND検索
+  (setq moccur-split-word t)
+  ; ディレクトリ検索時に除外するファイル
+  (add-to-list 'dmoccur-exclusion-mask "\\.DS_Store")
+  (add-to-list 'dmoccur-exclusion-mask "^#.+#$")
+  ; Migemoを利用できる環境であれば、Migemoを使う
+  (when (and (executable-find "cmigemo")
+             (require 'migemo nil t))
+    (setq moccur-use-migemo t)))
+;; moccur-editを利用可能にする
+(require 'moccur-edit nil t)
+
+;;; wgrep (ELPAでインストールしたが、wgrep-startup.elに設定を有効化する記述がないためここで有効化)
+(require 'wgrep nil t)
+
+;;; undo-tree
+(when (require 'undo-tree nil t)
+  (global-undo-tree-mode))
+
+;;; ElScreen
+(require 'elscreen nil t)
+
+;;; Anything
+;; (auto-intsall-batch "anything")
+(when (require 'anything nil t)
+  (setq
+   anything-idle-delay 0.3              ;候補を表示するまでの時間(default:0.5)
+   anything-input-idle-delay 0.2        ;タイプして再描画するまでの時間(default:0.1)
+   anything-candidate-number-limit 100  ;候補の最大表示件数(default:50)
+   anything-quick-update t              ;候補が多いときに体感速度を速く
+   anything-enable-shortcuts 'alphabet  ;候補選択ショートカットをアルファベットに
+   )
+
+  (when (require 'anything-config nil t)
+    (setq anything-su-or-sudo "sudo"))  ;root権限でアクションを実行するときにコマンド(default:su)
+
+  (require 'anything-match-plugin nil t)
+
+  (when (and (executable-find "cmigemo")
+             (require 'migemo nil t))
+    (require 'anything-migemo nil t))
+
+  (when (require 'anything-complete nil t)
+    (anything-lisp-complete-symbol-set-timer 150)) ;lispシンボルの補完候補の再検索時間
+
+  (require 'anything-show-completion nil t)
+
+  (when (require 'auto-install nil t)
+    (require 'anything-auto-install nil t))
+
+  (when (require 'descbinds-anything nil t)
+    ; describe-bindingsをAnythingに置き換える
+    (descbinds-anything-install)))
+
+;; anything-c-moccurの設定(要 color-moccur.el)
+ (when (require 'anything-c-moccur nil t)
+   (setq
+    anything-c-moccur-anything-idle-delay 0.1
+    lanything-c-moccur-highligt-info-line-flag t ;バッファの情報をハイライト
+    anything-c-moccur-enable-auto-look-flag t    ;現在選択中の候補の位置を他のwindowに表示
+    anything-c-moccur-enable-initial-pattern 0)  ;起動時ポイントの位置の単語を初期パターンにする
+ ;; C-M-oにanything-c-moccur-occur-by-moccurを割り当て
+ (global-set-key (kbd "C-M-o") 'anything-c-moccur-occur-by-moccur))
+
+;;; Auto Complete Mode
+(when (require 'auto-complete-config nil t)
+  (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/ac-dict")
+  (define-key ac-mode-map (kbd "C-S-n") 'auto-complete)
+  (ac-config-default))
+
+;------------------------------
 
 ;;;; 入力
 ;; タブ幅
 (setq-default tab-width  4)         ; タブ幅
 (setq-default indent-tabs-mode nil) ; tabではなく空白文字を使う
+;; cua-mode (矩形編集)の設定 C-RET
+(cua-mode t)
+(setq cua-enable-cua-keys nil)	;CUAキーバインドを無効にする
+
+;------------------------------
 
 ;;;; ウィンドウ
 ;;; ウィンドウに行番号を表示する
@@ -65,6 +171,8 @@
 (set-face-background 'show-paren-match-face nil)		; 背景色変更
 ;(set-face-underline-p 'show-paren-match-face "yellow")	; 下線
 
+;------------------------------
+
 ;;;; KEYBIND
 ;;; Key remap
 ;; C-hをBackspaceに
@@ -79,9 +187,18 @@
 (define-key global-map (kbd "C-S-v") 'View-scroll-half-page-forward)
 ;; 半ページ上へ
 (define-key global-map (kbd "C-M-S-v") 'View-scroll-half-page-backward)
+;; M-yにanything-show-kill-ringを割り当て
+(define-key global-map (kbd "M-y") 'anything-show-kill-ring)
+;; C-x C-xにanythin-for-filesを割り当て
+(define-key global-map (kbd "C-x C-x") 'anything-for-files)
+;; ElScreenのプレフィックス(default: C-z)
+(setq elscreen-prefix-key (kbd "C-t"))
+
 ;;; C-c
 ;; 折り返し表示のトグル
 (define-key global-map (kbd "C-c l") 'toggle-truncate-lines)
+
+;------------------------------
 
 ;;;; ファイル名の文字コード
 ;; Mac OS X
@@ -93,6 +210,8 @@
 (when (eq window-system 'w32)
   (set-file-name-coding-system 'cp932)
   (setq locale-coding-system 'cp932))
+
+;------------------------------
 
 ;;;; モードライン [t/0]
 ;; 行番号
@@ -107,4 +226,43 @@
 (display-time-mode t)
 ;; バッテリー残量
 (display-battery-mode 0)
+
+;------------------------------
+
+;;;; hook
+;;; ファイルが #! から始まる場合、+xを付けて保存n
+(add-hook 'after-save-hook
+          'executable-make-buffer-file-executable-if-script-p)
+;;; Emacs Lispモード用のhook
+;; emacs-lisp-mode-hook用の関数を定義
+(defun elisp-mode-hooks ()
+  "lisp-mode-hooks"
+  (when (require 'eldoc nil t)
+    (setq eldoc-idle-delay 0.2)
+    (setq eldoc-echo-area-use-multiline-p t)
+    (turn-on-eldoc-mode)))
+;; elacs-lisp-modeのhookをセット
+(add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
+
+;------------------------------
+
+;;;; 分割したウィンドウのバッファを入れ替え
+;; http://www.bookshelf.jp/soft/meadow_30.html#SEC400
+(defun swap-screen()
+  "Swap two screen, leaving cursor at current window."
+  (interactive)
+  (let ((thiswin (selected-window))
+        (nextbuf (window-buffer (next-window))))
+    (set-window-buffer (next-window) (window-buffer))
+    (set-window-buffer thiswin nextbuf)))
+(defun swap-screen-with-cursor()
+  "Swap two screen, with cursor in same buffer."
+  (interactive)
+  (let ((thiswin (selected-window))
+        (thisbuf (window-buffer)))
+    (other-window 1)
+    (set-window-buffer thiswin (window-buffer))
+    (set-window-buffer (selected-window) thisbuf)))
+(global-set-key [f2] 'swap-screen)
+(global-set-key [S-f2] 'swap-screen-with-cursor)
 
