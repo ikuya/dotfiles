@@ -128,7 +128,7 @@
     anything-c-moccur-anything-idle-delay 0.1
     lanything-c-moccur-highligt-info-line-flag t ;バッファの情報をハイライト
     anything-c-moccur-enable-auto-look-flag t    ;現在選択中の候補の位置を他のwindowに表示
-    anything-c-moccur-enable-initial-pattern 0)  ;起動時ポイントの位置の単語を初期パターンにする
+    anything-c-moccur-enable-initial-pattern nil)  ;起動時ポイントの位置の単語を初期パターンにする
  ;; C-M-oにanything-c-moccur-occur-by-moccurを割り当て
  (global-set-key (kbd "C-M-o") 'anything-c-moccur-occur-by-moccur))
 
@@ -142,27 +142,28 @@
 
 ;;;; 入力
 ;; タブ幅
-(setq-default tab-width  4)         ; タブ幅
+(setq-default tab-width 4)          ; タブ幅
 (setq-default indent-tabs-mode nil) ; tabではなく空白文字を使う
 ;; cua-mode (矩形編集)の設定 C-RET
 (cua-mode t)
-(setq cua-enable-cua-keys nil)	;CUAキーバインドを無効にする
-
+(setq cua-enable-cua-keys nil)      ;CUAキーバインドを無効にする
+;; バッファの最終行でnext-lineしても新しい行を作らない
+(setq next-line-add-newlines nil)
 ;------------------------------
 
 ;;;; ウィンドウ
 ;;; ウィンドウに行番号を表示する
 (global-linum-mode t)
 ;;; 現在行をハイライト
-;; (defface my-hl-line-face
-;;   '((((class color) (background dark))  ; 背景がdarkのときの背景色
-;;      (:background "Purple" t))
-;;     (((class color) (background light)) ; 背景がlightの時の背景色
-;;      (:background "LightGoldenrodYellow" t))
-;;     (t (:bold t)))
-;;   "hl-line's my face")
-;; (setq hl-line-face 'my-hl-line-face)
-;; (global-hl-line-mode t)
+;(defface my-hl-line-face
+;	'((((class color) (background dark))  ; 背景がdarkのときの背景色
+;	   (:background "Purple" t))
+;	  (((class color) (background light)) ; 背景がlightの時の背景色
+;	   (:background "LightGoldenrodYellow" t))
+;	  (t (:bold t)))
+;	"hl-line's my face")
+;(setq hl-line-face 'my-hl-line-face)
+;(global-hl-line-mode t)
 ;;; 対応する括弧のハイライト
 ;; paren-mode: 対応する括弧を強調して表示する
 (setq show-paren-delay 0)	; 表示までの秒数(初期値: 0.125)
@@ -179,7 +180,7 @@
 
 ;;;; KEYBIND
 ;;; Key remap
-;; C-hをBackspaceに
+;; Backspace
 (keyboard-translate ?\C-h ?\C-?) ; ?\C-?はDELのシーケンス
 ;; Help
 (define-key global-map (kbd "C-x ?") 'help-command)
@@ -189,16 +190,14 @@
 ;; 改行+インデント
 (define-key global-map (kbd "C-m") 'newline-and-indent)
 ;; 半ページ下へ
-(define-key global-map (kbd "C-S-v") 'View-scroll-half-page-forward)
 (define-key global-map (kbd "C-c C-v") 'View-scroll-half-page-forward)
 ;; 半ページ上へ
-(define-key global-map (kbd "C-M-S-v") 'View-scroll-half-page-backward)
 (define-key global-map (kbd "C-c M-v") 'View-scroll-half-page-backward)
 ;; anything起動
 (define-key global-map (kbd "C-c ;") 'anything)
-;; M-yにanything-show-kill-ringを割り当て
+;; anything-show-kill-ring
 (define-key global-map (kbd "M-y") 'anything-show-kill-ring)
-;; C-x C-xにanythin-for-filesを割り当て
+;; anythin-for-files
 (define-key global-map (kbd "C-x C-x") 'anything-for-files)
 ;; 折り返し表示のトグル
 (define-key global-map (kbd "C-c l") 'toggle-truncate-lines)
@@ -207,6 +206,13 @@
 (define-key global-map (kbd "C-c '") 'redo)
 ;; undo-tree-visualize
 (define-key global-map (kbd "C-c .") 'undo-tree-visualize)
+
+;------------------------------
+
+;; KEYBOARD MACRO
+(fset 'open-previous-line
+   [?\C-p ?\C-e return ?\C-a])
+(define-key global-map (kbd "C-c C-o") 'open-previous-line)
 
 ;------------------------------
 
