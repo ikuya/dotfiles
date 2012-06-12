@@ -83,7 +83,7 @@
 ;;; ElScreen
 (require 'elscreen nil t)
 ;; ElScreenのプレフィックス(default: C-z)
-(setq elscreen-prefix-key (kbd "C-t"))
+;(setq elscreen-prefix-key (kbd "C-t"))
 (when (require 'elscreen nil t)
   ; C-z C-zをタイプした場合にデフォルトのC-zを利用する
   (if window-system
@@ -154,15 +154,15 @@
 ;;; ウィンドウに行番号を表示する
 (global-linum-mode t)
 ;;; 現在行をハイライト
-(defface my-hl-line-face
-  '((((class color) (background dark))  ; 背景がdarkのときの背景色
-     (:background "Purple" t))
-    (((class color) (background light)) ; 背景がlightの時の背景色
-     (:background "LightGoldenrodYellow" t))
-    (t (:bold t)))
-  "hl-line's my face")
-(setq hl-line-face 'my-hl-line-face)
-(global-hl-line-mode t)
+;; (defface my-hl-line-face
+;;   '((((class color) (background dark))  ; 背景がdarkのときの背景色
+;;      (:background "Purple" t))
+;;     (((class color) (background light)) ; 背景がlightの時の背景色
+;;      (:background "LightGoldenrodYellow" t))
+;;     (t (:bold t)))
+;;   "hl-line's my face")
+;; (setq hl-line-face 'my-hl-line-face)
+;; (global-hl-line-mode t)
 ;;; 対応する括弧のハイライト
 ;; paren-mode: 対応する括弧を強調して表示する
 (setq show-paren-delay 0)	; 表示までの秒数(初期値: 0.125)
@@ -190,20 +190,23 @@
 (define-key global-map (kbd "C-m") 'newline-and-indent)
 ;; 半ページ下へ
 (define-key global-map (kbd "C-S-v") 'View-scroll-half-page-forward)
+(define-key global-map (kbd "C-c C-v") 'View-scroll-half-page-forward)
 ;; 半ページ上へ
 (define-key global-map (kbd "C-M-S-v") 'View-scroll-half-page-backward)
+(define-key global-map (kbd "C-c M-v") 'View-scroll-half-page-backward)
 ;; anything起動
-(define-key global-map (kbd "C-;") 'anything)
+(define-key global-map (kbd "C-c ;") 'anything)
 ;; M-yにanything-show-kill-ringを割り当て
 (define-key global-map (kbd "M-y") 'anything-show-kill-ring)
 ;; C-x C-xにanythin-for-filesを割り当て
 (define-key global-map (kbd "C-x C-x") 'anything-for-files)
-
-;;; C-c
 ;; 折り返し表示のトグル
 (define-key global-map (kbd "C-c l") 'toggle-truncate-lines)
+;; undo/redo
+(define-key global-map (kbd "C-c /") 'undo)
+(define-key global-map (kbd "C-c '") 'redo)
 ;; undo-tree-visualize
-(define-key global-map (kbd "C-c C-/") 'undo-tree-visualize)
+(define-key global-map (kbd "C-c .") 'undo-tree-visualize)
 
 ;------------------------------
 

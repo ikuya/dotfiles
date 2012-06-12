@@ -33,3 +33,14 @@
 
 ;; スクロールバー非表示
 (set-scroll-bar-mode nil)
+
+;; 現在行をハイライト
+(defface my-hl-line-face
+  '((((class color) (background dark))  ; 背景がdarkのときの背景色
+     (:background "Purple" t))
+    (((class color) (background light)) ; 背景がlightの時の背景色
+     (:background "LightGoldenrodYellow" t))
+    (t (:bold t)))
+  "hl-line's my face")
+(setq hl-line-face 'my-hl-line-face)
+(global-hl-line-mode t)
