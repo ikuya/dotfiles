@@ -1,6 +1,6 @@
 ;========== init.el ==========
 
-;; ---------- GENERAL CONFIG ==========
+;; ========== GENERAL CONFIG ==========
 ;; ~/.emacs.d/elisp ディレクトリをload pathに追加. ただしadd-to-load-path関数を定義した場合は不要
 ;(add-to-list 'load-path "~/.emacs.d/elisp")
 ; 上記のadd-to-list関数ではサブディレクトリを自動的に追加してくれないので、以下に
