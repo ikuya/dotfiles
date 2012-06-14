@@ -1,4 +1,4 @@
-;========== init.el ==========
+;; ========== init.el ==========
 
 ;; ========== GENERAL CONFIG ==========
 ;; ~/.emacs.d/elisp ディレクトリをload pathに追加. ただしadd-to-load-path関数を定義した場合は不要
@@ -44,6 +44,14 @@
 (when (eq window-system 'w32)
   (set-file-name-coding-system 'cp932)
   (setq locale-coding-system 'cp932))
+
+;;; C-x C-c をタイプした時に本当に終了するのか確認する
+; http://blog.livedoor.jp/techblog/archives/64599359.html
+(defadvice save-buffers-kill-emacs
+  (before safe-save-buffers-kill-emacs activate)
+  "safe-save-buffers-kill-emacs"
+  (unless (y-or-n-p "Exit Emacs?")
+    (keyboard-quit)))
 
 ;; ========== Elisp Config (.emacs.d/elisp) ==========
 ;;; color-theme
