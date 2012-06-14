@@ -1,6 +1,6 @@
 ;========== init.el ==========
 
-;; ---------- GENERAL CONFIG ----------
+;; ---------- GENERAL CONFIG ==========
 ;; ~/.emacs.d/elisp ディレクトリをload pathに追加. ただしadd-to-load-path関数を定義した場合は不要
 ;(add-to-list 'load-path "~/.emacs.d/elisp")
 ; 上記のadd-to-list関数ではサブディレクトリを自動的に追加してくれないので、以下に
@@ -45,7 +45,7 @@
   (set-file-name-coding-system 'cp932)
   (setq locale-coding-system 'cp932))
 
-;; ---------- Elisp Config (.emacs.d/elisp) ----------
+;; ========== Elisp Config (.emacs.d/elisp) ==========
 ;;; color-theme
 (when (require 'color-theme nil t)
   (color-theme-initialize))
@@ -147,7 +147,24 @@
   (define-key ac-mode-map (kbd "C-S-n") 'auto-complete)
   (ac-config-default))
 
-;; ---------- INPUT ----------
+;;; howm
+(setq howm-directory (concat user-emacs-directory "howm"))
+;(setq howm-menu-lang 'ja)
+(when (require 'howm-mode nil t)
+  ; C-c , , でhowm-menu起動
+  (define-key global-map (kbd "C-c ,,") 'howm-menu))
+;; メモを保存と同値に閉じる
+(defun howm-save-buffer-and-kill()
+  "Save howm note and kill immediately."
+  (interactive)
+  (when (and (buffer-file-name)
+             (string-match "\\.howm" (buffer-file-name)))
+    (save-buffer)
+    (kill-buffer nil)))
+;; C-c C-cでhowm-save-buffer-and-kill
+(define-key howm-mode-map (kbd "C-c C-c") 'howm-save-buffer-and-kill)
+
+;; ========== INPUT ==========
 ;; タブ幅
 (setq-default tab-width 4)          ; タブ幅
 (setq-default indent-tabs-mode nil) ; tabではなく空白文字を使う
@@ -157,7 +174,7 @@
 ;; バッファの最終行でnext-lineしても新しい行を作らない
 (setq next-line-add-newlines nil)
 
-;; ---------- WINDOW ----------
+;; ========== WINDOW ==========
 ;;; ウィンドウに行番号を表示する
 (global-linum-mode t)
 ;;; 現在行をハイライト
@@ -217,7 +234,7 @@
                (throw 'end-flag t)))))))
 (define-key global-map (kbd "C-c w") 'window-resizer)
 
-;; ---------- KEYBIND ----------
+;; ========== KEYBIND ==========
 ;;; Key remap
 ;; Backspace
 (keyboard-translate ?\C-h ?\C-?) ; ?\C-?はDELのシーケンス
@@ -274,7 +291,7 @@
    "\C-p\C-e\C-m")
 (define-key global-map (kbd "C-c C-o") 'open-previous-line-with-indent)
 
-;; ---------- MODE LINE ----------
+;; ========== MODE LINE ==========
 ;; 行番号
 (setq line-number-mode t)
 ;; 列番号
@@ -319,7 +336,7 @@
                 "-%-"
               ))
 
-;; ---------- HOOK ----------
+;; ========== HOOK ==========
 ;;; ファイルが #! から始まる場合、+xを付けて保存n
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
@@ -335,7 +352,7 @@
 ;; elacs-lisp-modeのhookをセット
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
 
-;; ---------- MISC ----------
+;; ========== MISC ==========
 ;;; 分割したウィンドウのバッファを入れ替え
 ;; http://www.bookshelf.jp/soft/meadow_30.html#SEC400
 (defun swap-screen()

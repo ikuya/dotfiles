@@ -1,3 +1,6 @@
 auto-save-list
 .emacs.d/backup
 .emacs.d/url
+.emacs.d/bin
+.emacs.d/howm
+.emacs.d/ac-comphist.dat
