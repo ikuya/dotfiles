@@ -1,4 +1,4 @@
-;; Cocoa Emacs用のConfig
+;========== Cocoa Emacs用のConfig ==========
 
 ;; CommandとOptionを入れ替え
 (setq ns-command-modifier (quote meta))
