@@ -1,6 +1,6 @@
-;;;; init.el
+;========== init.el ==========
 
-;;;; 全体設定等
+;; ---------- GENERAL CONFIG ----------
 ;; ~/.emacs.d/elisp ディレクトリをload pathに追加. ただしadd-to-load-path関数を定義した場合は不要
 ;(add-to-list 'load-path "~/.emacs.d/elisp")
 ; 上記のadd-to-list関数ではサブディレクトリを自動的に追加してくれないので、以下に
@@ -34,9 +34,18 @@
   ;(setq url-proxy-services '(("http" . "SERVERNAME:PORT"))) ; Proxy
   (auto-install-compatibility-setup))
 
-;------------------------------
+;;; ファイル名の文字コード
+;; Mac OS X
+(when (eq system-type 'darwin)
+  (require 'ucs-normalize)
+  (set-file-name-coding-system 'utf-8-hfs)
+  (setq locale-coding-system 'utf-8-hfs))
+;; Windows
+(when (eq window-system 'w32)
+  (set-file-name-coding-system 'cp932)
+  (setq locale-coding-system 'cp932))
 
-;;;; Elisp読み込み設定
+;; ---------- Elisp Config (.emacs.d/elisp) ----------
 ;;; color-theme
 (when (require 'color-theme nil t)
   (color-theme-initialize))
@@ -138,9 +147,7 @@
   (define-key ac-mode-map (kbd "C-S-n") 'auto-complete)
   (ac-config-default))
 
-;------------------------------
-
-;;;; 入力
+;; ---------- INPUT ----------
 ;; タブ幅
 (setq-default tab-width 4)          ; タブ幅
 (setq-default indent-tabs-mode nil) ; tabではなく空白文字を使う
@@ -149,9 +156,8 @@
 (setq cua-enable-cua-keys nil)      ;CUAキーバインドを無効にする
 ;; バッファの最終行でnext-lineしても新しい行を作らない
 (setq next-line-add-newlines nil)
-;------------------------------
 
-;;;; ウィンドウ
+;; ---------- WINDOW ----------
 ;;; ウィンドウに行番号を表示する
 (global-linum-mode t)
 ;;; 現在行をハイライト
@@ -176,9 +182,42 @@
                     :underline "#ffff00" :weight 'extra-bold)
 (set-face-background 'show-paren-match-face nil)		; 背景色変更
 
-;------------------------------
+;; 一行ずつスクロール
+(setq scroll-conservatively 1)
+;; 一画面分スクロールしたときに新しい画面内に残る行数
+(setq next-screen-context-lines 1)
 
-;;;; KEYBIND
+;; ウインドウのリサイズ(interactive)
+; http://d.hatena.ne.jp/mooz/20100119/p1
+(defun window-resizer()
+  "Control window size and position."
+  (interactive)
+  (let ((window-obj (selected-window))
+        (current-width (window-width))
+        (current-height (window-height))
+        (dx (if (= (nth 0 (window-edges)) 0) 1 -1))
+        (dy (if (= (nth 1 (window-edges)) 0) 1 -1))
+        c)
+    (catch 'end-flag
+      (while t
+        (message "size[%dx%dy]"
+                 (window-width) (window-height))
+        (setq c (read-char))
+        (cond ((= c ?l)
+               (enlarge-window-horizontally dx))
+              ((= c ?h)
+               (shrink-window-horizontally dx))
+              ((= c ?k)
+               (enlarge-window dy))
+              ((= c ?j)
+               (shrink-window dy))
+              ;; otherwise
+              (t
+               (message "Quit")
+               (throw 'end-flag t)))))))
+(define-key global-map (kbd "C-c w") 'window-resizer)
+
+;; ---------- KEYBIND ----------
 ;;; Key remap
 ;; Backspace
 (keyboard-translate ?\C-h ?\C-?) ; ?\C-?はDELのシーケンス
@@ -206,30 +245,22 @@
 (define-key global-map (kbd "C-c '") 'redo)
 ;; undo-tree-visualize
 (define-key global-map (kbd "C-c .") 'undo-tree-visualize)
+;; 行全体を(改行文字も含めて)kill
+(define-key global-map (kbd "C-c C-k") 'kill-whole-line)
+;; カーソルを移動させずに画面を一行ずつスクロール
+; Emacs24では'scroll-up-line 'scroll-down-line というコマンドがあるらしい
+(define-key global-map (kbd "M-n") (lambda() (interactive) (scroll-up 1)))
+(define-key global-map (kbd "M-p") (lambda() (interactive) (scroll-down 1)))
 
-;------------------------------
+;;; KEYBOARD MACRO
+(fset 'open-line-with-indent
+   "\C-e\C-m")
+(define-key global-map (kbd "C-c C-m") 'open-line-with-indent)
+(fset 'open-previous-line-with-indent
+   "\C-p\C-e\C-m")
+(define-key global-map (kbd "C-c C-o") 'open-previous-line-with-indent)
 
-;; KEYBOARD MACRO
-(fset 'open-previous-line
-   [?\C-p ?\C-e return ?\C-a])
-(define-key global-map (kbd "C-c C-o") 'open-previous-line)
-
-;------------------------------
-
-;;;; ファイル名の文字コード
-;; Mac OS X
-(when (eq system-type 'darwin)
-  (require 'ucs-normalize)
-  (set-file-name-coding-system 'utf-8-hfs)
-  (setq locale-coding-system 'utf-8-hfs))
-;; Windows
-(when (eq window-system 'w32)
-  (set-file-name-coding-system 'cp932)
-  (setq locale-coding-system 'cp932))
-
-;------------------------------
-
-;;;; Mode line
+;; ---------- MODE LINE ----------
 ;; 行番号
 (setq line-number-mode t)
 ;; 列番号
@@ -242,7 +273,7 @@
                 dayname day month 24-hours minutes
                 )))
 (display-time-mode t)
-;;; モード名を短く
+;;; モード名
 ;; Eldocは表示しない
 (setq eldoc-minor-mode-string "")
 ;; Undo-Treeは表示しない
@@ -251,9 +282,29 @@
 ;; バッテリー残量
 (display-battery-mode 0)
 
-;------------------------------
+;; モードラインの表示を詰める
+; http://homepage1.nifty.com/blankspace/emacs/mode-line.html
+(setq-default mode-line-format
+              '("-"
+                mode-line-mule-info
+                mode-line-modified
+                mode-line-frame-identification
+                mode-line-buffer-identification
+                " %[("
+                mode-name
+                mode-line-process
+                minor-mode-alist
+                "%n" ")%]-"
+                global-mode-string
+                " "
+                (which-func-mode ("" which-func-format "-"))
+                (line-number-mode "L%l-")
+                (column-number-mode "C%c-")
+                (-3 . "%p")
+                "-%-"
+              ))
 
-;;;; hook
+;; ---------- HOOK ----------
 ;;; ファイルが #! から始まる場合、+xを付けて保存n
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
@@ -269,9 +320,8 @@
 ;; elacs-lisp-modeのhookをセット
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
 
-;------------------------------
-
-;;;; 分割したウィンドウのバッファを入れ替え
+;; ---------- MISC ----------
+;;; 分割したウィンドウのバッファを入れ替え
 ;; http://www.bookshelf.jp/soft/meadow_30.html#SEC400
 (defun swap-screen()
   "Swap two screen, leaving cursor at current window."
