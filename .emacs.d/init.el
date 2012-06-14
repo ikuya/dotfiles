@@ -228,10 +228,21 @@
 (define-key global-map (kbd "C-x C-o") 'other-window)
 ;; 改行+インデント
 (define-key global-map (kbd "C-m") 'newline-and-indent)
-;; 半ページ下へ
-(define-key global-map (kbd "C-c C-v") 'View-scroll-half-page-forward)
-;; 半ページ上へ
-(define-key global-map (kbd "C-c M-v") 'View-scroll-half-page-backward)
+;; 半ページスクロール
+; http://archive.linux.or.jp/JF/JFdocs/mouse-wheel-scroll-12.html
+(defun scroll-down-half-a-page()
+  "Scroll-down-half-a-page"
+  (interactive)
+  (scroll-down (/ (window-height) 2)))
+(define-key global-map (kbd "C-c M-v") 'scroll-down-half-a-page)
+(defun scroll-up-half-a-page()
+  "Scroll up half a page"
+  (interactive)
+  (scroll-up (/ (window-height) 2)))
+(define-key global-map (kbd "C-c C-v") 'scroll-up-half-a-page)
+;; 他のウィンドウをスクロール(C-M-v, C-S-M-vの代替)
+(define-key global-map (kbd "C-c C-n") 'scroll-other-window)
+(define-key global-map (kbd "C-c C-p") 'scroll-other-window-down)
 ;; anything起動
 (define-key global-map (kbd "C-c ;") 'anything)
 ;; anything-show-kill-ring
@@ -251,6 +262,9 @@
 ; Emacs24では'scroll-up-line 'scroll-down-line というコマンドがあるらしい
 (define-key global-map (kbd "M-n") (lambda() (interactive) (scroll-up 1)))
 (define-key global-map (kbd "M-p") (lambda() (interactive) (scroll-down 1)))
+
+;; cua-set-rectangle-mark
+(define-key global-map (kbd "C-c c") 'cua-set-rectangle-mark)
 
 ;;; KEYBOARD MACRO
 (fset 'open-line-with-indent
@@ -273,6 +287,7 @@
                 dayname day month 24-hours minutes
                 )))
 (display-time-mode t)
+
 ;;; モード名
 ;; Eldocは表示しない
 (setq eldoc-minor-mode-string "")
