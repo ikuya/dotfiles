@@ -9,16 +9,6 @@
   ;; C-' にredoを割り当て
   (global-set-key (kbd "C-'") 'redo))
 
-;;; package (emacs24では削除 - .emacs.d/elispのpackage.el[c]も削除)
-;; http://bit.ly/pkg-el23
-(when (require 'package nil t)
-  ;; パッケージリポジトリにmarmaladeと開発者運営のELPAを追加
-  (add-to-list 'package-archives
-               '("marmalade" . "http://marmalade-repo.org/packages/"))
-  (add-to-list 'package-archives
-               '("ELPA" . "http://tromey.com/elpa/"))
-  (package-initialize)) ; .emacs.d/elpaにインストールされたパッケージを読み込む
-
 ;;; color-moccur
 (when (require 'color-moccur nil t)
   ; M-oにoccur-by-moccurを割り当て
@@ -74,3 +64,8 @@
     (kill-buffer nil)))
 ;; C-c C-cでhowm-save-buffer-and-kill
 (define-key howm-mode-map (kbd "C-c C-c") 'howm-save-buffer-and-kill)
+
+;;; multi-term
+(when (require 'multi-term nil t)
+  ;; 使用するshell
+  (setq multi-term-program "/bin/zsh"))
