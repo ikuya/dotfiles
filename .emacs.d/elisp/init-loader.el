@@ -81,6 +81,11 @@ e.x, 00_hoge.el, 01_huga.el ... 99_keybind.el"
   :group 'init-loader
   :type 'regexp)
 
+(defcustom init-loader-gnupack-emacs-regexp "^gnupack-emacs-"
+  "Windowsで起動するEmacsで読み込まれる設定ファイルにマッチする正規表現"
+  :group 'init-loader
+  :type 'regexp)
+
 ;;; Code
 (defun* init-loader-load (&optional (init-dir init-loader-directory))
   (let ((init-dir (init-loader-follow-symlink init-dir)))
@@ -95,6 +100,9 @@ e.x, 00_hoge.el, 01_huga.el ... 99_keybind.el"
     ;; cocoa emacs
     (and (equal window-system 'ns)
          (init-loader-re-load init-loader-cocoa-emacs-regexp init-dir))
+    ;; システムがwindows
+    (and (string-match "mingw" system-configuration)
+         (init-loader-re-load init-loader-gnupack-emacs-regexp init-dir))
     ;; no window
     (and (null window-system)
          (init-loader-re-load init-loader-nw-regexp init-dir))
