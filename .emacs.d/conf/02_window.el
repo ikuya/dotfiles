@@ -72,7 +72,9 @@
                 mode-name
                 mode-line-process
                 minor-mode-alist
-                "%n" ")%]-"
+                "%n" ")%]"
+                vc-mode
+                " - "
                 global-mode-string
                 " "
                 (which-func-mode ("" which-func-format "-"))
