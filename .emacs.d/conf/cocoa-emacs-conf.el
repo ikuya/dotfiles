@@ -1,5 +1,4 @@
 ;========== Cocoa Emacs用のConfig ==========
-
 ;; CommandとOptionを入れ替え
 (setq ns-command-modifier (quote meta))
 (setq ns-alternate-modifier (quote super))
@@ -26,7 +25,7 @@
                     (setq initial-frame-alist '((width . 45)
                                                 (height . 70)
                                                 (top . 0)
-                                                (left . 600)
+                                                (left . 650)
                                                 ))))
 ;; ウィンドウの透明化
 (add-to-list 'default-frame-alist '(alpha . (0.90 0.90)))
