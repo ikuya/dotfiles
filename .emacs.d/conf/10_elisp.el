@@ -69,3 +69,7 @@
 (when (require 'multi-term nil t)
   ;; 使用するshell
   (setq multi-term-program "/bin/zsh"))
+
+;;; Egg (Git Frontend)
+(when (executable-find "git")
+  (require 'egg nil t))
