@@ -82,7 +82,7 @@ e.x, 00_hoge.el, 01_huga.el ... 99_keybind.el"
   :type 'regexp)
 
 (defcustom init-loader-gnupack-emacs-regexp "^gnupack-emacs-"
-  "Windowsで起動するEmacsで読み込まれる設定ファイルにマッチする正規表現"
+  "MinGWで起動するEmacs(gnupack)で読み込まれる設定ファイルにマッチする正規表現"
   :group 'init-loader
   :type 'regexp)
 
@@ -100,7 +100,7 @@ e.x, 00_hoge.el, 01_huga.el ... 99_keybind.el"
     ;; cocoa emacs
     (and (equal window-system 'ns)
          (init-loader-re-load init-loader-cocoa-emacs-regexp init-dir))
-    ;; システムがwindows
+    ;; MinGW (gnupack)
     (and (string-match "mingw" system-configuration)
          (init-loader-re-load init-loader-gnupack-emacs-regexp init-dir))
     ;; no window
@@ -130,7 +130,10 @@ e.x, 00_hoge.el, 01_huga.el ... 99_keybind.el"
           (let ((time (car (benchmark-run (load (file-name-sans-extension el))))))
             (init-loader-log (format "loaded %s. %s" (locate-library el) time)))
         (error
-         (init-loader-error-log (error-message-string e)))))))
+         ;; エラーファイルを表示するように修正
+         ;; http://d.hatena.ne.jp/kitokitoki/20101205/p1
+         ;(init-loader-error-log (error-message-string e)))))))
+         (init-loader-error-log (format "%s. %s" (locate-library el) (error-message-string e))))))))
 
 (defun init-loader--re-load-files (re dir &optional sort)
     (loop for el in (directory-files dir t)
