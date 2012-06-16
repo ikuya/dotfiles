@@ -36,7 +36,7 @@
 ;; 現在行をハイライト
 (defface my-hl-line-face
   '((((class color) (background dark))
-     (:background "#6c6c6c" t))               ;背景がdarkのときの背景色
+     (:background "#000000" t))               ;背景がdarkのときの背景色
     (((class color) (background light))
      (:background "LightGoldenrodYellow" t)) ;背景がlightの時の背景色
     (t (:bold t)))
