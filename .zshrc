@@ -53,12 +53,13 @@ alias vim='/usr/local/bin/vim'
 alias ei='eijiro'
 alias termtter='$HOME/work/src/termtter/bin/termtter'
 alias emacs='/usr/local/bin/emacs'
-
+alias changekey-tmux='tmux set-option -t 0 prefix C-z'
+alias revertkey-tmux='tmux set-option -t 0 prefix C-t'
 # Git
 alias gad='git add'
 alias gco='git commit'
 alias gst='git status'
-alias gd='git diff'
+alias gdf='git diff'
 alias gp='git pull'
 
 # Command history
