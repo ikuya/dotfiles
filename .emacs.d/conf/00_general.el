@@ -1,4 +1,4 @@
-;; ;; ========== GENERAL CONFIG ==========
+;; ========== GENERAL CONFIG ==========
 ;; バックアップファイルを作成しない [t/nil] default:t
 ;(setq make-backup-files nil)
 ;; オートセーブファイルを作らない [t/nil] default:t
@@ -15,7 +15,7 @@
   ;(setq url-proxy-services '(("http" . "SERVERNAME:PORT"))) ; Proxy
   (auto-install-compatibility-setup))
 
-;;; ファイル名の文字コード
+;; ---------- ファイル名の文字コード ----------
 ;; Mac OS X
 (when (eq system-type 'darwin)
   (require 'ucs-normalize)
@@ -26,7 +26,7 @@
   (set-file-name-coding-system 'cp932)
   (setq locale-coding-system 'cp932))
 
-;;; C-x C-c をタイプした時に本当に終了するのか確認する
+;; ---------- C-x C-c をタイプした時に本当に終了するのか確認する ----------
 ; http://blog.livedoor.jp/techblog/archives/64599359.html
 (defadvice save-buffers-kill-emacs
   (before safe-save-buffers-kill-emacs activate)

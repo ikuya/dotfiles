@@ -1,5 +1,6 @@
 ;; ========== MISC ==========
-;;; 分割したウィンドウのバッファを入れ替え
+
+;; ---------- 分割したウィンドウのバッファを入れ替え ----------
 ;; http://www.bookshelf.jp/soft/meadow_30.html#SEC400
 (defun swap-screen()
   "Swap two screen, leaving cursor at current window."
@@ -19,3 +20,8 @@
 (global-set-key [f2] 'swap-screen)
 (global-set-key [S-f2] 'swap-screen-with-cursor)
 (global-set-key (kbd "C-c r") 'swap-screen-with-cursor)
+
+;; ---------- TRAMP ----------
+;; TRAMPでバックアップファイルを作成しない
+(add-to-list 'backup-directory-alist
+             (cons tramp-file-name-regexp nil))

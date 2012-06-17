@@ -1,19 +1,13 @@
-;========== Cocoa Emacs用のConfig ==========
+;; ========== Cocoa Emacs用のConfig ==========
+
+;; ---------- KEYBOARD ----------
 ;; CommandとOptionを入れ替え
 (setq ns-command-modifier (quote meta))
 (setq ns-alternate-modifier (quote super))
 
+;; ---------- FRAME and WINDOW ----------
 ;; タイトルバーにファイルのフルパスを表示
 (setq frame-title-format "%f")
-
-;; asciiフォント
-(set-face-attribute 'default nil
-                    :family "Ricty"
-                    :height 130)
-;; 日本語フォント
-(set-fontset-font
- nil 'japanese-jisx0208
- (font-spec :family "Ricty"))
 
 ;; テーマ
 (when (require 'color-theme nil t)
@@ -56,3 +50,14 @@
                     :underline "#ffff00" :weight 'bold)
 ; 背景色変更
 (set-face-background 'show-paren-match-face nil)
+
+;; ---------- FONTS ----------
+;; asciiフォント
+(set-face-attribute 'default nil
+                    :family "Ricty"
+                    :height 130)
+;; 日本語フォント
+(set-fontset-font
+ nil 'japanese-jisx0208
+ (font-spec :family "Ricty"))
+

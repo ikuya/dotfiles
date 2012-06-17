@@ -1,5 +1,5 @@
 ;; ========== KEYBIND ==========
-;;; Key remap
+
 ;; Backspace
 (keyboard-translate ?\C-h ?\C-?) ; ?\C-?はDELのシーケンス
 ;; Help
@@ -47,7 +47,7 @@
 ;; cua-set-rectangle-mark
 (define-key global-map (kbd "C-c c") 'cua-set-rectangle-mark)
 
-;;; KEYBOARD MACRO
+;; ========== KEYBOARD MACRO ==========
 (fset 'open-line-with-indent
    "\C-e\C-m")
 (define-key global-map (kbd "C-c C-m") 'open-line-with-indent)

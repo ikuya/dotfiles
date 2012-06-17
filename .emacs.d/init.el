@@ -18,6 +18,7 @@
 ; 各設定ファイルがあるディレクトリ(default: ~/.emacs.d/inits)
 (init-loader-load "~/.emacs.d/conf")
 
+;; ========== ELPA ==========
 ;;; package (emacs24では削除 - .emacs.d/elispのpackage.el[c]も削除)
 ;;; ELPAの利用
 ;; http://bit.ly/pkg-el23
