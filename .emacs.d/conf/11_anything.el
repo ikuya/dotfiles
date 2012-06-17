@@ -40,3 +40,21 @@
     anything-c-moccur-enable-initial-pattern nil)  ;起動時ポイントの位置の単語を初期パターンにする
  ;; C-M-oにanything-c-moccur-occur-by-moccurを割り当て
  (global-set-key (kbd "C-M-o") 'anything-c-moccur-occur-by-moccur))
+
+;; ---------- ドキュメント横断検索 ----------
+;; anything-for-documentを定義
+(setq anything-for-document-sources
+      (list anything-c-source-man-pages
+            anything-c-source-info-cl
+            anything-c-source-info-pages
+            anything-c-source-info-elisp
+            anything-c-source-apropos-emacs-commands
+            anything-c-source-apropos-emacs-functions
+            anything-c-source-apropos-emacs-variables))
+(defun anything-for-document()
+  "Preconfigured 'anything' for anything-for-document."
+  (interactive)
+  (anything anything-for-document-sources
+            (thing-at-point 'symbol) nil nil nil
+            "*anything for document*"))
+(define-key global-map (kbd "C-c d") 'anything-for-document)
