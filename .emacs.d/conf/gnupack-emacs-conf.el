@@ -496,13 +496,15 @@
    ;; (color-theme-initialize)
 
 ;; ------------------------------------------------------------------------
+;; ツールバーを非表示
+(tool-bar-mode -1)
 ;; スクロールバーを非表示
 (set-scroll-bar-mode nil)
 
 ;; 現在行をハイライト
 (defface my-hl-line-face
   '((((class color) (background dark))
-     (:background "DimGray" t))              ;背景がdarkのときの背景色
+     (:background "#000000" t))              ;背景がdarkのときの背景色
     (((class color) (background light))
      (:background "DimGray" t)) ;背景がlightの時の背景色
     (t (:bold nil)))
@@ -521,4 +523,4 @@
                     :background nil :foreground nil
                     :underline "#ffff00" :weight 'bold)
 ; 背景色変更
-(set-face-background 'show-paren-match-face nil)
+;(set-face-background 'show-paren-match-face nil)
