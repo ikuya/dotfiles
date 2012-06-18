@@ -19,7 +19,7 @@
   ; ディレクトリ検索時に除外するファイル
   (add-to-list 'dmoccur-exclusion-mask "\\.DS_Store")
   (add-to-list 'dmoccur-exclusion-mask "^#.+#$")
-oco  ; Migemoを利用できる環境であれば、Migemoを使う
+  ; Migemoを利用できる環境であれば、Migemoを使う
   (when (and (executable-find "cmigemo")
              (require 'migemo nil t))
     (setq moccur-use-migemo t)))
