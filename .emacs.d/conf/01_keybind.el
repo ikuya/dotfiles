@@ -54,3 +54,6 @@
 (fset 'open-previous-line-with-indent
    "\C-p\C-e\C-m")
 (define-key global-map (kbd "C-c C-o") 'open-previous-line-with-indent)
+(fset 'copy-line
+   "\C-a\C-@\C-e\367")
+(define-key global-map (kbd "C-c M-w") 'copy-line)
