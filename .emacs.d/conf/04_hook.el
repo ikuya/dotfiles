@@ -13,3 +13,6 @@
     (turn-on-eldoc-mode)))
 ;; elacs-lisp-modeのhookをセット
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
+
+;; ファイルの保存時に行末の空白文字を削除
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
