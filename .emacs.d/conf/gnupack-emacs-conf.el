@@ -523,4 +523,4 @@
                     :background nil :foreground nil
                     :underline "#ffff00" :weight 'bold)
 ; 背景色変更
-;(set-face-background 'show-paren-match-face nil)
+(set-face-background 'show-paren-match-face nil)
