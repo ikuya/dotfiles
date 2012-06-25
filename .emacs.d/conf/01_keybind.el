@@ -57,3 +57,6 @@
 (fset 'copy-line
    "\C-a\C-@\C-e\367")
 (define-key global-map (kbd "C-c M-w") 'copy-line)
+
+;; ========== UNSET KEYBINDS ==========
+(global-unset-key "\C-t")
