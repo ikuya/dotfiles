@@ -1,5 +1,8 @@
 ;; ========== Cocoa Emacs用のConfig ==========
 
+;; ---------- PATH ----------
+;(setq exec-path (append exec-path '("/opt/local/bin")))
+
 ;; ---------- KEYBOARD ----------
 ;; CommandとOptionを入れ替え
 (setq ns-command-modifier (quote meta))
@@ -71,3 +74,8 @@
 (setq migemo-regex-dictionary nil)
 (load-library "migemo")
 (migemo-init)
+
+;; ---------- emacs-w3m ----------
+;; w3mコマンドのPATHに依存しているので、ここに
+(setq w3m-command "/opt/local/bin/w3m")
+(require 'w3m-load)
