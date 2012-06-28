@@ -85,5 +85,5 @@
 (require 'twittering-mode)
 (require 'twittering-stream)
 ;; NEED GnuPG and (EasyPG or alpacs.el)
-(setq twittering-use-master-password nil)
+(setq twittering-use-master-password t)
 
