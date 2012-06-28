@@ -77,3 +77,13 @@
 ;; ---------- Egg (Git Frontend) ----------
 (when (executable-find "git")
   (require 'egg nil t))
+
+;; ---------- aplaca ----------
+(require 'alpaca)
+
+;; ---------- twittering-mode ----------
+(require 'twittering-mode)
+(require 'twittering-stream)
+;; NEED GnuPG and (EasyPG or alpacs.el)
+(setq twittering-use-master-password nil)
+
