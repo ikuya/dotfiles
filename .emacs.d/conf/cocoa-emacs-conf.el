@@ -2,6 +2,7 @@
 
 ;; ---------- PATH ----------
 (setq exec-path (append exec-path '("/opt/local/bin")))
+(setq exec-path (append exec-path '("/usr/local/bin")))
 
 ;; ---------- KEYBOARD ----------
 ;; CommandとOptionを入れ替え

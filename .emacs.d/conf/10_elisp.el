@@ -82,6 +82,7 @@
 (require 'alpaca)
 
 ;; ---------- twittering-mode ----------
+(add-to-list 'load-path "~/work/src/twittering-mode")
 (require 'twittering-mode)
 ;(require 'twittering-stream)
 ;; NEED GnuPG and (EasyPG or alpacs.el)
