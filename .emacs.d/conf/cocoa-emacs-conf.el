@@ -1,7 +1,7 @@
 ;; ========== Cocoa Emacs用のConfig ==========
 
 ;; ---------- PATH ----------
-;(setq exec-path (append exec-path '("/opt/local/bin")))
+(setq exec-path (append exec-path '("/opt/local/bin")))
 
 ;; ---------- KEYBOARD ----------
 ;; CommandとOptionを入れ替え

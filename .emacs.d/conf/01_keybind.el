@@ -57,6 +57,9 @@
 (fset 'copy-line
    "\C-a\C-@\C-e\367")
 (define-key global-map (kbd "C-c M-w") 'copy-line)
+(fset 'join-lines
+   "\C-n\C-a\C-?\240")
+(define-key global-map (kbd "C-c C-j") 'join-lines)
 
 ;; ========== UNSET KEYBINDS ==========
 (global-unset-key "\C-t")

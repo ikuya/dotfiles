@@ -83,7 +83,24 @@
 
 ;; ---------- twittering-mode ----------
 (require 'twittering-mode)
-(require 'twittering-stream)
+;(require 'twittering-stream)
 ;; NEED GnuPG and (EasyPG or alpacs.el)
+;; and append exec-path GnuPG path
 (setq twittering-use-master-password t)
-
+(setq twittering-timer-interval 60)
+(setq twittering-initial-timeline-spec-string
+      '("usobuku/c"
+        "usobuku/f"
+        ":home"))
+(add-hook 'twittering-new-tweets-hook
+          '(lambda()
+             (define-key twittering-mode-map (kbd "F") 'twittering-favorite)
+             (define-key twittering-mode-map (kbd "R") 'twittering-native-retweet)
+             (define-key twittering-mode-map (kbd "C-c C-h") 'twittering-home-timeline)
+             ))
+;; API残数をmodelineに表示
+(setq twittering-display-remaining t)
+;; 表示形式
+(setq twittering-status-format "%i %S(%s)%p, %@:
+%FILL{ %T // from %f%L%r%R}
+")
