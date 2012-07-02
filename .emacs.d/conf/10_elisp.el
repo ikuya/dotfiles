@@ -105,3 +105,5 @@
 (setq twittering-status-format "%i %S(%s)%p, %@:
 %FILL{ %T // from %f%L%r%R}
 ")
+(add-hook 'twittering-mode-hook '(lambda()
+                                   (setq mode-name "twmode")))
