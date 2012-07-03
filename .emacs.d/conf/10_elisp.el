@@ -101,6 +101,7 @@
              ))
 ;; API残数をmodelineに表示
 (setq twittering-display-remaining t)
+(setq twittering-display-connection-method nil)
 ;; 表示形式
 (setq twittering-status-format "%i %S(%s)%p, %@:
 %FILL{ %T // from %f%L%r%R}
