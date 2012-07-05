@@ -19,7 +19,7 @@
     (set-window-buffer (selected-window) thisbuf)))
 (global-set-key [f2] 'swap-screen)
 (global-set-key [S-f2] 'swap-screen-with-cursor)
-(global-set-key (kbd "C-c r") 'swap-screen-with-cursor)
+(global-set-key (kbd "C-c C-c r") 'swap-screen-with-cursor)
 
 ;; ---------- TRAMP ----------
 ;; TRAMPでバックアップファイルを作成しない

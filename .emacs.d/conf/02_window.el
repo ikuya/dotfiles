@@ -35,7 +35,7 @@
               (t
                (message "Quit")
                (throw 'end-flag t)))))))
-(define-key global-map (kbd "C-c w") 'window-resizer)
+(define-key global-map (kbd "C-c C-c w") 'window-resizer)
 
 ;; ========== MODE LINE ==========
 ;; 行番号
@@ -56,7 +56,7 @@
 (setq eldoc-minor-mode-string "")
 ;; Undo-Treeは表示しない
 (setq undo-tree-mode-lighter "")
-      
+
 ;; バッテリー残量
 (display-battery-mode 0)
 

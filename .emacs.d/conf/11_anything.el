@@ -57,4 +57,4 @@
   (anything anything-for-document-sources
             (thing-at-point 'symbol) nil nil nil
             "*anything for document*"))
-(define-key global-map (kbd "C-c d") 'anything-for-document)
+(define-key global-map (kbd "C-c C-c d") 'anything-for-document)

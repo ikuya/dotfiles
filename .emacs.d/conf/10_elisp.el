@@ -66,8 +66,8 @@
              (string-match "\\.howm" (buffer-file-name)))
     (save-buffer)
     (kill-buffer nil)))
-;; C-c C-cでhowm-save-buffer-and-kill
-(define-key howm-mode-map (kbd "C-c C-c") 'howm-save-buffer-and-kill)
+;; howm-save-buffer-and-kill
+(define-key howm-mode-map (kbd "C-c , k") 'howm-save-buffer-and-kill)
 
 ;; ---------- multi-term ----------
 (when (require 'multi-term nil t)
