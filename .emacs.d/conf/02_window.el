@@ -35,7 +35,7 @@
               (t
                (message "Quit")
                (throw 'end-flag t)))))))
-(define-key global-map (kbd "C-c C-c w") 'window-resizer)
+(define-key global-map (kbd "C-x C-c w") 'window-resizer)
 
 ;; ========== MODE LINE ==========
 ;; 行番号

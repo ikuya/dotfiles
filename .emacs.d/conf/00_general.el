@@ -33,3 +33,6 @@
   "safe-save-buffers-kill-emacs"
   (unless (y-or-n-p "Exit Emacs?")
     (keyboard-quit)))
+
+;; ---------- C-x C-cをunbind (save-buffers-kill-terminalは01_keybind.elでbind
+(global-unset-key (kbd "C-x C-c"))
