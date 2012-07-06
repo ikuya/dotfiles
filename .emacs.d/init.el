@@ -13,10 +13,6 @@
             (normal-top-level-add-subdirs-to-load-path))))))
 ;; 引数のディレクトリとそのサブディレクトリをload-pathに追加
 (add-to-load-path "elisp" "conf" "public_repos")
-;; init-loader.elを使用
-(require 'init-loader)
-; 各設定ファイルがあるディレクトリ(default: ~/.emacs.d/inits)
-(init-loader-load "~/.emacs.d/conf")
 
 ;; ========== ELPA ==========
 ;;; package (emacs24では削除 - .emacs.d/elispのpackage.el[c]も削除)
@@ -29,3 +25,9 @@
   (add-to-list 'package-archives
                '("ELPA" . "http://tromey.com/elpa/"))
   (package-initialize)) ; .emacs.d/elpaにインストールされたパッケージを読み込む
+
+;; ========== Conf 読み込み ==========
+;; init-loader.elを使用
+(require 'init-loader)
+; 各設定ファイルがあるディレクトリ(default: ~/.emacs.d/inits)
+(init-loader-load "~/.emacs.d/conf")
