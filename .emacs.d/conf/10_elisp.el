@@ -36,16 +36,6 @@
 (when (require 'undo-tree nil t)
   (global-undo-tree-mode))
 
-;; ----------  ElScreen ----------
-(require 'elscreen nil t)
-;; ElScreenのプレフィックス(default: C-z)
-;(setq elscreen-prefix-key (kbd "C-t"))
-(when (require 'elscreen nil t)
-  ; C-z C-zをタイプした場合にデフォルトのC-zを利用する
-  (if window-system
-      (define-key elscreen-map (kbd "C-z") 'iconify-or-deiconify-frame)
-    (define-key elscreen-map (kbd "C-z") 'suspend-emacs)))
-
 ;; ---------- Auto Complete Mode ----------
 (when (require 'auto-complete-config nil t)
   (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/ac-dict")

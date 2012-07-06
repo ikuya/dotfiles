@@ -21,3 +21,19 @@
 (setq migemo-regex-dictionary nil)
 (load-library "migemo")
 (migemo-init)
+
+;; ----------  ElScreen ----------
+(require 'elscreen nil t)
+;; ElScreenのプレフィックス(default: C-z)
+(when (require 'elscreen nil t)
+  ; C-z C-zをタイプした場合にデフォルトのC-zを利用する
+  (if window-system
+      (define-key elscreen-map (kbd "C-z") 'iconify-or-deiconify-frame)
+    (define-key elscreen-map (kbd "C-z") 'suspend-emacs)))
+
+;; ----- terminal-emulator -----
+;; C-zをPrefix-keyとする
+(add-hook 'terminal-mode-hook
+          '(lambda()
+             (define-key terminal-map (kbd "C-z")
+               (lookup-key (current-global-map) (kbd "C-z")))))

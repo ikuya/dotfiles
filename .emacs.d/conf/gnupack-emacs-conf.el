@@ -527,3 +527,20 @@
 ;; ---------- emacs-w3m ----------
 (setq w3m-command "/usr/bin/w3m")
 (require 'w3m-load)
+
+;; ----------  ElScreen ----------
+(require 'elscreen nil t)
+;; ElScreenのプレフィックス(default: C-z)
+(elscreen-set-prefix-key (kbd "C-t"))
+(when (require 'elscreen nil t)
+  ; C-z C-zをタイプした場合にデフォルトのC-zを利用する
+  (if window-system
+      (define-key elscreen-map (kbd "C-z") 'iconify-or-deiconify-frame)
+    (define-key elscreen-map (kbd "C-z") 'suspend-emacs)))
+
+;; ----- terminal-emulator -----
+;; C-tをPrefix-keyとする
+(add-hook 'terminal-mode-hook
+          '(lambda()
+             (define-key terminal-map (kbd "C-t")
+               (lookup-key (current-global-map) (kbd "C-t")))))
