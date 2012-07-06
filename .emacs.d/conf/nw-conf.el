@@ -7,10 +7,9 @@
 (setq show-paren-style 'expression)	; expressionは括弧内も強調表示
 ;; faceを変更する
 (set-face-attribute 'show-paren-match-face nil
-                    :background nil :foreground nil
                     :underline "#ffff00" :weight 'bold)
-; 背景色変更
 (set-face-background 'show-paren-match-face nil)
+(set-face-foreground 'show-paren-match-face nil)
 
 ;;---------- migemo ----------
 (require 'migemo)

@@ -518,12 +518,11 @@
 (show-paren-mode t)			; 有効化
 ;; parenのスタイル
 (setq show-paren-style 'expression)	; expressionは括弧内も強調表示
-; 背景色変更
-(set-face-background 'show-paren-match-face nil)
 ;; faceを変更する
 (set-face-attribute 'show-paren-match-face nil
-                    :background nil :foreground nil
                     :underline "#ffff00" :weight 'bold)
+(set-face-background 'show-paren-match-face nil)
+(set-face-foreground 'show-paren-match-face nil)
 
 ;; ---------- emacs-w3m ----------
 (setq w3m-command "/usr/bin/w3m")
