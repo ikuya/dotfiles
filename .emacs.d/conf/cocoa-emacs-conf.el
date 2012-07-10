@@ -81,6 +81,16 @@
 ;; w3mコマンドのPATHに依存しているので、ここに
 (setq w3m-command "/opt/local/bin/w3m")
 (require 'w3m-load)
+; alc:[検索文字列]でalc検索 (w3m-goto-url[keybind:g])
+; http://mugijiru.seesaa.net/article/205303847.html
+(eval-after-load "w3m-search"
+  '(progn
+     (add-to-list 'w3m-search-engine-alist
+                  '("alc"
+                    "http://eow.alc.co.jp/%s/UTF-8/"
+                    utf-8))
+     (add-to-list 'w3m-uri-replace-alist
+                  '("\`alc:" w3m-search-uri-replace "alc"))))
 
 ;; ----------  ElScreen ----------
 (require 'elscreen nil t)

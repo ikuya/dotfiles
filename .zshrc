@@ -128,3 +128,11 @@ precmd() {
 }
 RPROMPT="%(v|%F{cyan}%1v%f|)"
 
+# alc
+function alc() {
+    if [ $# != 0 ]; then
+        w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa" |more +38
+    else
+        w3m "http://www.alc.co.jp/"
+    fi
+}
