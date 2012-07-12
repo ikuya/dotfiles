@@ -101,6 +101,15 @@
    "\C-n\C-a\C-?\240")
 (define-key global-map (kbd "C-x C-c C-j") 'join-lines)
 
+;; カーソル行をwindow上端に移動
+(fset 'move-current-line-to-window-top
+   "\C-u0\C-l")
+(define-key global-map (kbd "C-x C-c t") 'move-current-line-to-window-top)
+;; カーソル行をwindow下端に移動
+(fset 'move-current-line-to-window-bottom
+   "\C-u-1\C-l")
+(define-key global-map (kbd "C-x C-c b") 'move-current-line-to-window-bottom)
+
 ;; ========== UNSET KEYBINDS ==========
 ;(global-unset-key "\C-t")
 (global-unset-key (kbd "C-x C-p"))
