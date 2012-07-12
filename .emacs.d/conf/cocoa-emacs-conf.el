@@ -9,6 +9,9 @@
 (setq ns-command-modifier (quote meta))
 (setq ns-alternate-modifier (quote super))
 
+; C-zを抑制
+(global-unset-key (kbd "C-z"))
+
 ;; ---------- FRAME and WINDOW ----------
 ;; タイトルバーにファイルのフルパスを表示
 (setq frame-title-format "%f")
@@ -86,11 +89,11 @@
 (require 'elscreen nil t)
 ;; ElScreenのプレフィックス(default: C-z)
 (elscreen-set-prefix-key (kbd "C-t"))
-(when (require 'elscreen nil t)
-  ; C-z C-zをタイプした場合にデフォルトのC-zを利用する
-  (if window-system
-      (define-key elscreen-map (kbd "C-z") 'iconify-or-deiconify-frame)
-    (define-key elscreen-map (kbd "C-z") 'suspend-emacs)))
+;(when (require 'elscreen nil t)
+;  ; C-z C-zをタイプした場合にデフォルトのC-zを利用する
+;  (if window-system
+;      (define-key elscreen-map (kbd "C-z") 'iconify-or-deiconify-frame)
+;    (define-key elscreen-map (kbd "C-z") 'suspend-emacs)))
 
 ;; ----- terminal-emulator -----
 ;; C-tをPrefix-keyとする
@@ -98,3 +101,5 @@
           '(lambda()
              (define-key terminal-map (kbd "C-t")
                (lookup-key (current-global-map) (kbd "C-t")))))
+(define-key term-raw-map (kbd "C-p") 'previous-line)
+(define-key term-raw-map (kbd "C-n") 'next-line)
