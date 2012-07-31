@@ -52,3 +52,11 @@
                     utf-8))
      (add-to-list 'w3m-uri-replace-alist
                   '("\`alc:" w3m-search-uri-replace "alc"))))
+
+;; ---------- wb-line-number ----------
+;; linum-modeを無効化してからwb-line-numberを有効にする
+;; (linum-modeはnw環境では不安定)
+(global-linum-mode nil)
+(require 'wb-line-number)
+(wb-line-number-toggle)
+(setq wb-line-number-text-width 4)
