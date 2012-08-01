@@ -47,6 +47,7 @@
 ;; M-fで次の単語の先頭に移動
 (define-key global-map (kbd "M-f") (lambda() (interactive) (forward-word)(forward-char)))
 ;; カーソルの後ろの連続するスペースを削除
+; http://d.hatena.ne.jp/syohex/20111017/1318857029
 (defun kill-following-whitespaces-and-tabs()
   (interactive)
   (let ((orig-point (point)))
