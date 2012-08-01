@@ -46,7 +46,14 @@
 
 ;; M-fで次の単語の先頭に移動
 (define-key global-map (kbd "M-f") (lambda() (interactive) (forward-word)(forward-char)))
-
+;; カーソルの後ろの連続するスペースを削除
+(defun kill-following-whitespaces-and-tabs()
+  (interactive)
+  (let ((orig-point (point)))
+    (save-excursion
+      (skip-chars-forward " \t")
+      (delete-region orig-point (point)))))
+(define-key global-map (kbd "C-x C-c C-d") 'kill-following-whitespaces-and-tabs)
 ;; cua-set-rectangle-mark
 (define-key global-map (kbd "C-x C-c c") 'cua-set-rectangle-mark)
 
