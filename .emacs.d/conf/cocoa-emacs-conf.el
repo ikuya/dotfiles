@@ -26,7 +26,7 @@
                     (setq initial-frame-alist '((width . 45)
                                                 (height . 70)
                                                 (top . 0)
-                                                (left . 650)
+                                                (left . 450)
                                                 ))))
 ;; ウィンドウの透明化
 (add-to-list 'default-frame-alist '(alpha . (0.90 0.90)))
