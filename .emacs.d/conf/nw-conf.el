@@ -58,5 +58,5 @@
 ;; (linum-modeはnw環境では不安定)
 (global-linum-mode nil)
 (require 'wb-line-number)
-(wb-line-number-toggle)
 (setq wb-line-number-text-width 4)
+(wb-line-number-enable)
