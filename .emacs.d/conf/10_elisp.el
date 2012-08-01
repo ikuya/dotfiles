@@ -74,27 +74,33 @@
 ;; ---------- twittering-mode ----------
 (add-to-list 'load-path "~/work/src/twittering-mode")
 (require 'twittering-mode)
-;(require 'twittering-stream)
 ;; NEED GnuPG and (EasyPG or alpacs.el)
 ;; and append exec-path GnuPG path
 (setq twittering-use-master-password t)
-(setq twittering-timer-interval 60)
 (setq twittering-initial-timeline-spec-string
       '("usobuku/c"
         "usobuku/f"
         ":home"))
+
+(defun twittering-mode-hooks()
+  (setq twittering-timer-interval 60)
+  (setq truncate-partial-width-windows nil)
+  (follow-mode t)
+  (setq mode-name "twmode")
+  ;; API残数をmodelineに表示
+  (setq twittering-display-remaining t)
+  (setq twittering-display-connection-method nil)
+  ;; 表示形式
+  (setq twittering-status-format "%i %S(%s)%p, %@:
+%FILL{ %T // from %f%L%r%R}
+"))
+
+(add-hook 'twittering-mode-hook
+          'twittering-mode-hooks)
+
 (add-hook 'twittering-new-tweets-hook
           '(lambda()
              (define-key twittering-mode-map (kbd "F") 'twittering-favorite)
              (define-key twittering-mode-map (kbd "R") 'twittering-native-retweet)
              (define-key twittering-mode-map (kbd "C-c C-h") 'twittering-home-timeline)
              ))
-;; API残数をmodelineに表示
-(setq twittering-display-remaining t)
-(setq twittering-display-connection-method nil)
-;; 表示形式
-(setq twittering-status-format "%i %S(%s)%p, %@:
-%FILL{ %T // from %f%L%r%R}
-")
-(add-hook 'twittering-mode-hook '(lambda()
-                                   (setq mode-name "twmode")))
