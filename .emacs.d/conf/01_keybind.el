@@ -121,3 +121,8 @@
 ;; ========== UNSET KEYBINDS ==========
 ;(global-unset-key "\C-t")
 (global-unset-key (kbd "C-x C-p"))
+
+;; ========== ALIAS ==========
+;; C-M-% 正規表現置換のエイリアス
+;; M-x qrr
+(defalias 'qrr 'query-replace-regexp)
