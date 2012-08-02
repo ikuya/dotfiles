@@ -54,7 +54,7 @@
     (save-excursion
       (skip-chars-forward " \t")
       (delete-region orig-point (point)))))
-(define-key global-map (kbd "C-x C-c C-d") 'kill-following-whitespaces-and-tabs)
+(define-key global-map (kbd "C-x C-c k") 'kill-following-whitespaces-and-tabs)
 ;; cua-set-rectangle-mark
 (define-key global-map (kbd "C-x C-c c") 'cua-set-rectangle-mark)
 
