@@ -73,7 +73,7 @@
 
 ;; ---------- twittering-mode ----------
 (add-to-list 'load-path "~/work/src/twittering-mode")
-(require 'twittering-mode)
+(require 'twittering-mode nil t)
 ;; NEED GnuPG and (EasyPG or alpacs.el)
 ;; and append exec-path GnuPG path
 (setq twittering-use-master-password t)
