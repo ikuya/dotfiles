@@ -37,6 +37,11 @@
                (throw 'end-flag t)))))))
 (define-key global-map (kbd "C-x C-c w") 'window-resizer)
 
+;; 入力中のマウスカーソルが邪魔
+;; banish: 右上隅に移動; exile: 右上隅に移動(しばらくすると元に戻る
+;; jump: ランダムに移動; animate: ランダムに移動(アニメーション) none:移動しない
+(if (display-mouse-p) (mouse-avoidance-mode 'exile))
+
 ;; ========== MODE LINE ==========
 ;; 行番号
 (setq line-number-mode t)
