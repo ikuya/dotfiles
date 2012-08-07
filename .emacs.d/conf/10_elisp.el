@@ -73,14 +73,14 @@
 
 ;; ---------- twittering-mode ----------
 (add-to-list 'load-path "~/work/src/twittering-mode")
-(require 'twittering-mode nil t)
-;; NEED GnuPG and (EasyPG or alpacs.el)
-;; and append exec-path GnuPG path
-(setq twittering-use-master-password t)
-(setq twittering-initial-timeline-spec-string
-      '("usobuku/c"
-        "usobuku/f"
-        ":home"))
+(when (require 'twittering-mode nil t)
+  ;; NEED GnuPG and (EasyPG or alpacs.el)
+  ;; and append exec-path GnuPG path
+  (setq twittering-use-master-password t)
+  (setq twittering-initial-timeline-spec-string
+        '("usobuku/c"
+          "usobuku/f"
+          ":home")))
 
 (defun twittering-mode-hooks()
   (setq twittering-timer-interval 60)
