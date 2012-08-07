@@ -540,6 +540,14 @@
                     utf-8))
      (add-to-list 'w3m-uri-replace-alist
                   '("\`alc:" w3m-search-uri-replace "alc"))))
+(defun w3m-goto-url-empty(url)
+  ""
+  (interactive (list (w3m-input-url nil "" nil nil t)))
+  (w3m-goto-url url))
+(add-hook 'w3m-mode-hook
+          (lambda()
+            (define-key w3m-mode-map (kbd "g") 'w3m-goto-url-empty)))
+;(define-key w3m-mode-map (kbd "g") 'w3m-goto-url-empty)
 
 ;; ----------  ElScreen ----------
 (require 'elscreen nil t)
