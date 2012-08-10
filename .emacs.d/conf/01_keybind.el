@@ -44,8 +44,11 @@
 (define-key global-map (kbd "M-n") (lambda() (interactive) (scroll-up 1)))
 (define-key global-map (kbd "M-p") (lambda() (interactive) (scroll-down 1)))
 
-;; M-fで次の単語の先頭に移動
-(define-key global-map (kbd "M-f") (lambda() (interactive) (forward-word)(forward-char)))
+;; M-f, M-bを改良(次の単語の先頭
+(require 'misc)
+(define-key global-map (kbd "M-f") 'forward-to-word)
+(define-key global-map (kbd "M-b") 'backward-to-word)
+
 ;; カーソルの後ろの連続するスペースを削除
 ; http://d.hatena.ne.jp/syohex/20111017/1318857029
 (defun kill-following-whitespaces-and-tabs()
