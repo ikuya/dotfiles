@@ -44,7 +44,7 @@
 (define-key global-map (kbd "M-n") (lambda() (interactive) (scroll-up 1)))
 (define-key global-map (kbd "M-p") (lambda() (interactive) (scroll-down 1)))
 
-;; M-f, M-bを改良(次の単語の先頭
+;; M-f, M-bを改良
 (require 'misc)
 (define-key global-map (kbd "M-f") 'forward-to-word)
 (define-key global-map (kbd "M-b") 'backward-to-word)
