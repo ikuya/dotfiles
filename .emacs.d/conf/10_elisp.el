@@ -147,3 +147,12 @@
       (setq bookmark-alist (cons latest (delq latest bookmark-alist))))
     (bookmark-save))
   (add-hook 'bookmark-after-jump-hook 'bookmark-arrange-list-top))
+
+;; ---------- text-adjust.el ----------
+;; 日本語textの整形
+(require 'text-adjust nil t)
+;; alias
+(defalias 'kutouten 'text-adjust-kutouten)
+(defalias 'kutouten-buffer 'text-adjust-kutouten-buffer)
+(defalias 'hankaku-zenkaku-space 'text-adjust-space)
+(defalias 'hankaku-zenkaku-space-buffer 'text-adjust-space-buffer)

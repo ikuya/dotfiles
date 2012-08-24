@@ -58,10 +58,11 @@
       (skip-chars-forward " \t")
       (delete-region orig-point (point)))))
 (define-key global-map (kbd "C-x C-c k") 'kill-following-whitespaces-and-tabs)
-;; cua-set-rectangle-mark
+
+;; 矩形選択 cua-set-rectangle-mark
 (define-key global-map (kbd "C-x C-c c") 'cua-set-rectangle-mark)
 
-;; 終了
+;; Emacsの終了
 (define-key global-map (kbd "C-x C-c C-c") 'save-buffers-kill-terminal)
 
 ;; ---------- 検索 ----------
@@ -99,15 +100,19 @@
 (define-key isearch-mode-map (kbd "C-b") 'isearch-with-word-under-cursor-kill-char)
 
 ;; ========== KEYBOARD MACRO ==========
+;; カーソル行の直下に空白行を挿入してインデント
 (fset 'open-line-with-indent
    "\C-e\C-m")
 (define-key global-map (kbd "C-x C-c C-m") 'open-line-with-indent)
+;; カーソル行の直上に空白行を挿入してインデント
 (fset 'open-previous-line-with-indent
    "\C-p\C-e\C-m")
 (define-key global-map (kbd "C-x C-c C-o") 'open-previous-line-with-indent)
+;; カーソル行をコピー
 (fset 'copy-line
    "\C-a\C-@\C-e\367")
 (define-key global-map (kbd "C-x C-c M-w") 'copy-line)
+;; カーソル行と直下の行を連結
 (fset 'join-lines
    "\C-n\C-a\C-?\240")
 (define-key global-map (kbd "C-x C-c C-j") 'join-lines)
