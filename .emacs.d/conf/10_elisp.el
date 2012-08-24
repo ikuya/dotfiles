@@ -104,3 +104,20 @@
              (define-key twittering-mode-map (kbd "R") 'twittering-native-retweet)
              (define-key twittering-mode-map (kbd "C-c C-h") 'twittering-home-timeline)
              ))
+
+;; ---------- IRC (rcirc.el) ----------
+;; irc-freenode.net の emacs-lisp-ja チャンネルと emacs-ja チャンネルに入る
+(setq rcirc-server-alist
+      '(("irc.freenode.net"
+         :channels ("#emacs-lisp-ja" "#emacs-ja"))))
+(setq rcirc-log-flag nil) ;ログを保存 (t/nil)
+
+;; ---------- navi2ch ----------
+(when (require 'navi2ch nil t)
+  (setq navi2ch-article-exist-message-range '(1 . 1000)) ;既存スレ
+  (setq navi2ch-article-new-message-range '(1000 . 1))   ;新スレ
+  (setq navi2ch-board-insert-subject-with-diff t)        ;レス増加数表示
+  (setq navi2ch-board-insert-subject-with-unread t)      ;未読数表示
+  (setq navi2ch-list-init-open-category t)
+  (setq navi2ch-board-expire-date nil)
+  (setq navi2ch-history-max-line nil))
