@@ -106,7 +106,7 @@
              ))
 
 ;; ---------- IRC (rcirc.el) ----------
-;; irc-freenode.net の emacs-lisp-ja チャンネルと emacs-ja チャンネルに入る
+;; irc-freenode.net サーバの emacs-lisp-ja チャンネルと emacs-ja チャンネルに入る
 (setq rcirc-server-alist
       '(("irc.freenode.net"
          :channels ("#emacs-lisp-ja" "#emacs-ja"))))
@@ -121,3 +121,29 @@
   (setq navi2ch-list-init-open-category t)
   (setq navi2ch-board-expire-date nil)
   (setq navi2ch-history-max-line nil))
+
+;; ---------- ffap.el ----------
+;; C-x C-fで、カーソル位置のファイル・URLをMini-bufferに表示
+(ffap-bindings)
+
+;; ---------- iswitchb.el ----------
+;; C-x b で部分一致を有効に
+(iswitchb-mode 1)
+;; バッファ読み取り関数をiswitchbにする
+(setq read-buffer-function 'iswitchb-read-buffer)
+;; 部分文字列の代わりに正規表現を使う場合は t を設定
+(setq iswitchb-regexp nil)
+;; 新しいバッファ作成時にいちいち聞いてこない
+(setq iswitchb-prompt-newbuffer nil)
+
+;; ---------- bookmark.el ----------
+;; Bookmarkを変更したらすぐに保存する
+(setq bookmark-save-flag 1)
+;; 最近使ったBookmarkをリストの先頭に移動
+(progn
+  (setq bookmark-sort-flag nil)
+  (defun bookmark-arrange-list-top()
+    (let ((latest (bookmark-get-bookmark bookmark)))
+      (setq bookmark-alist (cons latest (delq latest bookmark-alist))))
+    (bookmark-save))
+  (add-hook 'bookmark-after-jump-hook 'bookmark-arrange-list-top))
