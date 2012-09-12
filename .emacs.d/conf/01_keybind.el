@@ -117,10 +117,9 @@
    "\C-x\C-c\C-o\C-y")
 (define-key global-map (kbd "C-x C-c C-y") 'paste-on-a-line-above)
 ;; カーソル行と直下の行を連結
-(fset 'join-lines
-   "\C-n\C-a\C-?\240")
-(define-key global-map (kbd "C-x C-c C-j") 'join-lines)
-
+(fset 'join-lines-without-whitespace
+   [?\C-n ?\C-a backspace])
+(define-key global-map (kbd "C-x C-c C-j") 'join-lines-without-whitespace)
 ;; カーソル行をwindow上端に移動
 (fset 'move-current-line-to-window-top
    "\C-u0\C-l")
