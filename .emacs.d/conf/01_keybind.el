@@ -109,9 +109,13 @@
    "\C-p\C-e\C-m")
 (define-key global-map (kbd "C-x C-c C-o") 'open-previous-line-with-indent)
 ;; カーソル行をコピー
-(fset 'copy-line
-   "\C-a\C-@\C-e\367")
-(define-key global-map (kbd "C-x C-c M-w") 'copy-line)
+(fset 'copy-current-line
+   "\C-a\C-k\C-y")
+(define-key global-map (kbd "C-x C-c M-w") 'copy-current-line)
+;; 直上の行にヤンク
+(fset 'paste-on-a-line-above
+   "\C-x\C-c\C-o\C-y")
+(define-key global-map (kbd "C-x C-c C-y") 'paste-on-a-line-above)
 ;; カーソル行と直下の行を連結
 (fset 'join-lines
    "\C-n\C-a\C-?\240")
