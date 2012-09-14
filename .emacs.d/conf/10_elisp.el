@@ -156,3 +156,8 @@
 (defalias 'kutouten-buffer 'text-adjust-kutouten-buffer)
 (defalias 'hankaku-zenkaku-space 'text-adjust-space)
 (defalias 'hankaku-zenkaku-space-buffer 'text-adjust-space-buffer)
+
+;; ---------- yasnippet ----------
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/elpa/yasnippet-0.6.1/snippets")
