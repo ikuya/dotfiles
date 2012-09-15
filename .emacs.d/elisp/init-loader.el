@@ -86,6 +86,11 @@ e.x, 00_hoge.el, 01_huga.el ... 99_keybind.el"
   :group 'init-loader
   :type 'regexp)
 
+(defcustom init-loader-x-emacs-regexp "^x-emacs-"
+  "Xで起動するEmacsで読み込まれる設定ファイルにマッチする正規表現"
+  :group 'init-loader
+  :type 'regexp)
+
 ;;; Code
 (defun* init-loader-load (&optional (init-dir init-loader-directory))
   (let ((init-dir (init-loader-follow-symlink init-dir)))
@@ -103,6 +108,9 @@ e.x, 00_hoge.el, 01_huga.el ... 99_keybind.el"
     ;; MinGW (gnupack)
     (and (string-match "mingw" system-configuration)
          (init-loader-re-load init-loader-gnupack-emacs-regexp init-dir))
+    ;; X
+    (and (featurep 'x)
+	 (init-loader-re-load init-loader-x-emacs-regexp init-dir))
     ;; no window
     (and (null window-system)
          (init-loader-re-load init-loader-nw-regexp init-dir))
@@ -183,7 +191,7 @@ e.x, 00_hoge.el, 01_huga.el ... 99_keybind.el"
 
 (dont-compile
   (when (fboundp 'expectations)
-    (expectations 
+    (expectations
       (desc "init-loader--re-load-files")
       (expect  '("00_utils.el" "01_ik-cmd.el" "20_elisp.el" "21_javascript.el" "23_yaml.el" "25_perl.el" "96_color.el" "98_emacs-config.el" "99_global-keys.el")
         (stub directory-files => init-loader-test-files)
@@ -210,4 +218,3 @@ e.x, 00_hoge.el, 01_huga.el ... 99_keybind.el"
       )))
 
 (provide 'init-loader)
-
