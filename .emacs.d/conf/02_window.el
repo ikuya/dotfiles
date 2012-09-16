@@ -1,6 +1,4 @@
 ;; ========== WINDOW ==========
-;;; ウィンドウに行番号を表示する
-(global-linum-mode t)
 
 ;; 一行ずつスクロール
 (setq scroll-conservatively 1)
