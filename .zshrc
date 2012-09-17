@@ -77,7 +77,7 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
 # PATH
-PATH=/usr/local/bin:/usr/bin:/opt/local/bin:/opt/local/sbin:$HOME/work/src/prj/termtter/bin:$HOME/usr/local/bin:/sw/bin:/sw/sbin:/bin:/usr/sbin:/sbin:/usr/X11R6/bin:/Applications/android-sdk-mac_86/tools:$HOME/Library/Haskell/bin:$PATH
+PATH=/usr/local/bin:/usr/bin:/opt/local/bin:/opt/local/sbin:$HOME/work/src/prj/termtter/bin:$HOME/bin:$HOME/usr/local/bin:/sw/bin:/sw/sbin:/bin:/usr/sbin:/sbin:/usr/X11R6/bin:/Applications/android-sdk-mac_86/tools:$HOME/Library/Haskell/bin:$PATH
 
 # LANG
 export LANG=en_US.UTF-8
