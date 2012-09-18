@@ -58,3 +58,10 @@
             (thing-at-point 'symbol) nil nil nil
             "*anything for document*"))
 (define-key global-map (kbd "C-x C-c d") 'anything-for-document)
+
+;; ---------- ファイル検索 ----------
+;; anything-filelist+
+(require 'anything-startup)
+(global-set-key (kbd "C-x C-c x") 'anything-filelist+)
+(setq anything-c-filelist-file-name "/tmp/all.filelist")
+(setq anything-grep-candidates-fast-directory-regexp "^/tmp")
