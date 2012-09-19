@@ -492,12 +492,13 @@
 
 ;; ------------------------------------------------------------------------
 ;; @ color-theme
-   ;; (require 'color-theme)
-   ;; (color-theme-initialize)
+(when (require 'color-theme nil t)
+  (color-theme-initialize)
+  (color-theme-subtle-hacker))
 
 ;; ------------------------------------------------------------------------
 ;; ウィンドウの透明化
-(add-to-list 'default-frame-alist '(alpha . (0.90 0.90)))
+(add-to-list 'default-frame-alist '(alpha . (0.85 0.85)))
 
 ;; ツールバーを非表示
 (tool-bar-mode -1)
