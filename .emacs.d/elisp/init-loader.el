@@ -108,12 +108,13 @@ e.x, 00_hoge.el, 01_huga.el ... 99_keybind.el"
     ;; MinGW (gnupack)
     (and (string-match "mingw" system-configuration)
          (init-loader-re-load init-loader-gnupack-emacs-regexp init-dir))
-    ;; X
-    (and (featurep 'x)
-	 (init-loader-re-load init-loader-x-emacs-regexp init-dir))
     ;; no window
     (and (null window-system)
          (init-loader-re-load init-loader-nw-regexp init-dir))
+    ;; X
+    (and (equal system-type 'gnu/linux)
+         (not (null window-system))
+	 (init-loader-re-load init-loader-x-emacs-regexp init-dir))
 
     (when init-loader-show-log-after-init
       (add-hook  'after-init-hook 'init-loader-show-log))))
