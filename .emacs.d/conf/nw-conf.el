@@ -60,10 +60,21 @@
           (lambda()
             (define-key w3m-mode-map (kbd "g") 'w3m-goto-url-empty)))
 
+;; ---------- theme ----------
+(when (require 'color-theme nil t)
+  (color-theme-initialize)
+  (color-theme-dark-laptop))
+
+;; ---------- linum-mode ----------
+(require 'linum nil t)
+(global-linum-mode t)
+(set-face-attribute 'linum nil :foreground "red" :height 0.8)
+(setq linum-format "%4d")
+
 ;; ---------- wb-line-number ----------
 ;; linum-modeを無効化してからwb-line-numberを有効にする
 ;; (linum-modeはnw環境では不安定)
-(global-linum-mode nil)
-(require 'wb-line-number)
-(setq wb-line-number-text-width 4)
-(wb-line-number-enable)
+;(global-linum-mode nil)
+;(require 'wb-line-number)
+;(setq wb-line-number-text-width 4)
+;(wb-line-number-enable)
