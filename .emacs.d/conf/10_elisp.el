@@ -161,3 +161,12 @@
 (require 'yasnippet)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/elpa/yasnippet-0.6.1/snippets")
+
+;; ---------- GNU GLOBAL ----------
+
+(when (require 'gtags nil t)
+  (setq gtags-mode-hook
+       '(lambda()
+          (define-key gtags-mode-map (kbd "M-t") 'gtags-find-tag)
+          (define-key gtags-mode-map (kbd "M-r") 'gtags-find-rtag)
+          (define-key gtags-mode-map (kbd "M-s") 'gtags-find-symbol))))
