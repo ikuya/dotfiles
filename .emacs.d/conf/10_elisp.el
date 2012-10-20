@@ -170,3 +170,17 @@
           (define-key gtags-mode-map (kbd "M-t") 'gtags-find-tag)
           (define-key gtags-mode-map (kbd "M-r") 'gtags-find-rtag)
           (define-key gtags-mode-map (kbd "M-s") 'gtags-find-symbol))))
+
+
+(require 'term+)
+(require 'term+mux)
+(require 'xterm-256color)
+(require 'key-intercept)
+(require 'multi-mode-util)
+(add-hook 'term-mode-hook
+          '(lambda()
+             (setq term-default-fg-color (face-foreground 'default))
+             (setq term-default-bg-color (face-background 'default))
+             ))
+(define-key term+char-map (kbd "C-t") nil)
+(define-key term+char-map (kbd "C-z") nil)

@@ -1,0 +1,3 @@
+[submodule ".emacs.d/elisp/term-plus-el"]
+	path = .emacs.d/elisp/term-plus-el
+	url = https://github.com/tarao/term-plus-el.git
