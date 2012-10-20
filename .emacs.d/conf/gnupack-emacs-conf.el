@@ -570,25 +570,5 @@
                (lookup-key (current-global-map) (kbd "C-t")))
              (define-key term-raw-map (kbd "M-x")
                (lookup-key (current-global-map) (kbd "M-x")))
-             (linum-mode nil)
              ))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

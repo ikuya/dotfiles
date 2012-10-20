@@ -138,6 +138,6 @@
 ;; M-x qrr
 (defalias 'qrr 'query-replace-regexp)
 ;; term-plus-el
-(defalias 'term 'term+mux-new)
+(defalias 'tm 'term+mux-new)
 ;; grep-find
 (defalias 'gf 'grep-find)

@@ -41,10 +41,7 @@
              (define-key term-raw-map (kbd "M-x")
                (lookup-key (current-global-map) (kbd "M-x")))
              )
-          (linum-mode)
           )
-
-
 
 ;; ---------- emacs-w3m ----------
 ;; w3mコマンドのPATHに依存しているので、ここに
