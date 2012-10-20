@@ -23,7 +23,7 @@ setopt noautoremoveslash
 setopt auto_cd
 
 # Prompt
-PROMPT="%{${fg[green]}%}[%n@%m][%~]
+PROMPT="%{${fg[green]}%}[%n@%m:%~]
 %(!.#.$)%{${reset_color}%} "
 PROMPT2="%{${fg[green]}%}%_> %{${reset_color}%}"
 #SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
