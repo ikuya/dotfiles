@@ -30,12 +30,13 @@
   (color-theme-subtle-hacker))
 
 ;; 起動時のウィンドウサイズ
-(if window-system (progn
-                    (setq initial-frame-alist '((width . 45)
-                                                (height . 70)
-                                                (top . 0)
-                                                (left . 450)
-                                                ))))
+;(if window-system (progn
+;                    ; プライマリーFontに和文含みのものRictyを指定するとフレーム幅が倍になってしまう...
+;                    (setq initial-frame-alist '((width . 40)
+;                                                (height . 70)
+;                                                (top . 0)
+;                                                (left . 450)
+;                                                ))))
 ;; ウィンドウの透明化
 (add-to-list 'default-frame-alist '(alpha . (0.90 0.90)))
 
@@ -67,11 +68,11 @@
 (set-face-background 'show-paren-match-face nil)
 (set-face-foreground 'show-paren-match-face nil)
 
-;; ---------- FONTS ----------
-;; asciiフォント
+;;; ---------- FONTS ----------
+;;; asciiフォント
 (set-face-attribute 'default nil
-                    :family "Ricty"
-                    :height 130)
+					:family "Inconsolata"
+					:height 130)
 ;; 日本語フォント
 (set-fontset-font
  nil 'japanese-jisx0208
@@ -122,9 +123,23 @@
 
 ;; ----- terminal-emulator -----
 ;; C-tをPrefix-keyとする
-(add-hook 'terminal-mode-hook
+(add-hook 'term-mode-hook
           '(lambda()
-             (define-key terminal-map (kbd "C-t")
-               (lookup-key (current-global-map) (kbd "C-t")))))
-(define-key term-raw-map (kbd "C-p") 'previous-line)
-(define-key term-raw-map (kbd "C-n") 'next-line)
+             (define-key term-raw-map (kbd "C-t")
+               (lookup-key (current-global-map) (kbd "C-t")))
+             (define-key term-raw-map (kbd "M-x")
+               (lookup-key (current-global-map) (kbd "M-x")))
+             (linum-mode)
+             ))
+;(define-key term-raw-map (kbd "C-p") 'previous-line)
+;(define-key term-raw-map (kbd "C-n") 'next-line)
+
+
+
+
+
+
+
+
+
+

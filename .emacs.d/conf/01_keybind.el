@@ -137,3 +137,7 @@
 ;; C-M-% 正規表現置換のエイリアス
 ;; M-x qrr
 (defalias 'qrr 'query-replace-regexp)
+;; term-plus-el
+(defalias 'tm 'term+mux-new)
+;; grep-find
+(defalias 'gf 'grep-find)

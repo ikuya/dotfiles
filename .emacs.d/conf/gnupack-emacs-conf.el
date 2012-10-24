@@ -564,7 +564,11 @@
 
 ;; ----- terminal-emulator -----
 ;; C-tをPrefix-keyとする
-(add-hook 'terminal-mode-hook
+(add-hook 'term-mode-hook
           '(lambda()
-             (define-key terminal-map (kbd "C-t")
-               (lookup-key (current-global-map) (kbd "C-t")))))
+             (define-key term-raw-map (kbd "C-t")
+               (lookup-key (current-global-map) (kbd "C-t")))
+             (define-key term-raw-map (kbd "M-x")
+               (lookup-key (current-global-map) (kbd "M-x")))
+             ))
+

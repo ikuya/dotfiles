@@ -25,6 +25,7 @@
 ;; ----------  ElScreen ----------
 (require 'elscreen nil t)
 ;; ElScreenのプレフィックス(default: C-z)
+(elscreen-set-prefix-key (kbd "C-z"))
 (when (require 'elscreen nil t)
   ; C-z C-zをタイプした場合にデフォルトのC-zを利用する
   (if window-system
@@ -33,10 +34,14 @@
 
 ;; ----- terminal-emulator -----
 ;; C-zをPrefix-keyとする
-(add-hook 'terminal-mode-hook
-          '(lambda()
-             (define-key terminal-map (kbd "C-z")
-               (lookup-key (current-global-map) (kbd "C-z")))))
+(add-hook 'term-mode-hook
+		  '(lambda()
+			 (define-key term-raw-map (kbd "C-z")
+			   (lookup-key (current-global-map) (kbd "C-z")))
+             (define-key term-raw-map (kbd "M-x")
+               (lookup-key (current-global-map) (kbd "M-x")))
+             )
+          )
 
 ;; ---------- emacs-w3m ----------
 ;; w3mコマンドのPATHに依存しているので、ここに
