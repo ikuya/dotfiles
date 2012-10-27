@@ -44,23 +44,21 @@ alias cal='cal -m3'
 alias sc='screen'
 alias sls='screen -ls'
 alias scx='screen -x'
-alias tmux='/usr/local/bin/tmux'
-alias tm='/usr/local/bin/tmux'
-alias tms='/usr/local/bin/tmux ls'
-alias tma='/usr/local/bin/tmux attach'
-alias vi='/usr/local/bin/vim'
-alias vim='/usr/local/bin/vim'
+alias tm='tmux'
+alias tms='tmux ls'
+alias tma='tmux attach'
 alias ei='eijiro'
-alias termtter='$HOME/work/src/termtter/bin/termtter'
-alias emacs='/usr/local/bin/emacs'
 alias changekey-tmux='tmux set-option -t 0 prefix C-z'
 alias revertkey-tmux='tmux set-option -t 0 prefix C-t'
 # Git
 alias gad='git add'
 alias gco='git commit'
 alias gst='git status'
-alias gdf='git diff'
+alias gd='git diff'
 alias gp='git pull'
+alias gf='git fetch'
+alias gdf='git diff FETCH_HEAD'
+alias gmf='git merge FETCH_HEAD'
 
 # Command history
 HISTFILE=~/.zsh_history
@@ -77,7 +75,7 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
 # PATH
-PATH=/usr/local/bin:/usr/bin:/opt/local/bin:/opt/local/sbin:$HOME/work/src/prj/termtter/bin:$HOME/bin:$HOME/usr/local/bin:/sw/bin:/sw/sbin:/bin:/usr/sbin:/sbin:/usr/X11R6/bin:/Applications/android-sdk-mac_86/tools:$HOME/Library/Haskell/bin:$PATH
+PATH=$HOME/bin:/usr/local/bin:/usr/bin:/opt/local/bin:/opt/local/sbin:/sw/bin:/sw/sbin:/bin:/usr/sbin:/sbin:/usr/X11R6/bin:/Applications/android-sdk-mac_86/tools:$HOME/Library/Haskell/bin:$PATH
 
 # LANG
 export LANG=en_US.UTF-8
