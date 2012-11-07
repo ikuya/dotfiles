@@ -172,6 +172,16 @@
           (define-key gtags-mode-map (kbd "M-s") 'gtags-find-symbol))))
 
 
+;; ---------- dic-lookup-w3m ----------
+(require 'dic-lookup-w3m nil t)
+(define-key global-map (kbd "C-x C-c l") '(lambda()
+                                            (interactive)
+                                            (dic-lookup-w3m "ee-longman")))
+(define-key global-map (kbd "C-x C-c a") '(lambda()
+                                            (interactive)
+                                            (dic-lookup-w3m "ej-alc")))
+
+
 (require 'term+)
 (require 'term+mux)
 (require 'xterm-256color)
