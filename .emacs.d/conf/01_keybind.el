@@ -31,7 +31,7 @@
 ;; anythin-for-files
 (define-key global-map (kbd "C-x C-x") 'anything-for-files)
 ;; 折り返し表示のトグル
-(define-key global-map (kbd "C-x C-c l") 'toggle-truncate-lines)
+(define-key global-map (kbd "C-x C-c C-l") 'toggle-truncate-lines)
 ;; undo/redo
 (define-key global-map (kbd "C-x C-c /") 'undo)
 (define-key global-map (kbd "C-x C-c '") 'redo)
