@@ -1,7 +1,10 @@
 ;; ========== html mode ==========
 ;; indentation
-(add-hook 'html-mode-hook
+(add-hook 'sgml-mode-hook
           (lambda()
             ;; Default indentation is 2 spaces.
-            (set (make-local-variable 'sgml-basic-offset 4))))
+            (setq sgml-basic-offset 4)))
+(add-hook 'html-mode-hook
+          (lambda()
+            (setq indent-line-function 'indent-relative)))
 

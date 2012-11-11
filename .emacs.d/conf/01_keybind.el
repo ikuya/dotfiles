@@ -31,7 +31,7 @@
 ;; anythin-for-files
 (define-key global-map (kbd "C-x C-x") 'anything-for-files)
 ;; 折り返し表示のトグル
-(define-key global-map (kbd "C-x C-c l") 'toggle-truncate-lines)
+(define-key global-map (kbd "C-x C-c C-l") 'toggle-truncate-lines)
 ;; undo/redo
 (define-key global-map (kbd "C-x C-c /") 'undo)
 (define-key global-map (kbd "C-x C-c '") 'redo)
@@ -43,6 +43,19 @@
 ; Emacs24では'scroll-up-line 'scroll-down-line というコマンドがあるらしい
 (define-key global-map (kbd "M-n") (lambda() (interactive) (scroll-up 1)))
 (define-key global-map (kbd "M-p") (lambda() (interactive) (scroll-down 1)))
+;; カーソル位置の単語をコピー
+; http://ynomura.dip.jp/archives/2010/07/emacs.html
+(defun kill-ring-save-current-word()
+  "Save current word to kill ring"
+  (interactive)
+  (save-excursion
+    (forward-char)
+    (backward-sexp)
+    (let ((pos (point)))
+      (forward-sexp)
+      (kill-ring-save pos (point)))
+    ))
+(define-key global-map (kbd "C-x C-c C-w") 'kill-ring-save-current-word)
 
 ;; M-f, M-bを改良
 (require 'misc)
@@ -109,9 +122,9 @@
    "\C-p\C-e\C-m")
 (define-key global-map (kbd "C-x C-c C-o") 'open-previous-line-with-indent)
 ;; カーソル行をコピー
-(fset 'copy-current-line
-   "\C-a\C-k\C-y")
-(define-key global-map (kbd "C-x C-c M-w") 'copy-current-line)
+(fset 'copy-whole-line
+      "\C-x\C-c\C-k\C-y")
+(define-key global-map (kbd "C-x C-c M-w") 'copy-whole-line)
 ;; 直上の行にヤンク
 (fset 'paste-on-a-line-above
    "\C-x\C-c\C-o\C-y")
