@@ -181,17 +181,3 @@
   (define-key global-map (kbd "C-x C-c a") '(lambda()
                                               (interactive)
                                               (dic-lookup-w3m "ej-alc"))))
-
-;; ---------- term+ ----------
-(when (require 'term+ nil t)
-  (require 'term+mux)
-  (require 'xterm-256color)
-  (require 'key-intercept)
-  (require 'multi-mode-util)
-  (add-hook 'term-mode-hook
-            '(lambda()
-               (setq term-default-fg-color (face-foreground 'default))
-               (setq term-default-bg-color (face-background 'default))
-               ))
-  (define-key term+char-map (kbd "C-t") nil)
-  (define-key term+char-map (kbd "C-z") nil))
