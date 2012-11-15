@@ -86,7 +86,7 @@
 
 ;; ---------- emacs-w3m ----------
 ;; w3mコマンドのPATHに依存しているので、ここに
-(setq w3m-command "/opt/local/bin/w3m")
+(setq w3m-command "/usr/bin/w3m")
 (require 'w3m-load)
 ; alc:[検索文字列]でalc検索 (w3m-goto-url[keybind:g])
 ; http://mugijiru.seesaa.net/article/205303847.html
@@ -125,3 +125,28 @@
              (define-key term-raw-map (kbd "M-x")
                (lookup-key (current-global-map) (kbd "M-x")))
              ))
+
+;; ---------- dic-lookup-w3m ----------
+;; w3mコマンドに依存しているのでここに記述
+(when (require 'dic-lookup-w3m nil t)
+  (define-key global-map (kbd "C-x C-c C-d") 'dic-lookup-w3m)
+  (define-key global-map (kbd "C-x C-c l") '(lambda()
+                                              (interactive)
+                                              (dic-lookup-w3m "ee-longman")))
+  (define-key global-map (kbd "C-x C-c a") '(lambda()
+                                              (interactive)
+                                              (dic-lookup-w3m "ej-alc"))))
+
+;; ---------- term+ ----------
+(when (require 'term+ nil t)
+  (require 'term+mux)
+  (require 'xterm-256color)
+  (require 'key-intercept)
+  (require 'multi-mode-util)
+  (add-hook 'term-mode-hook
+            '(lambda()
+               (setq term-default-fg-color (face-foreground 'default))
+               (setq term-default-bg-color (face-background 'default))
+               ))
+  (define-key term+char-map (kbd "C-t") nil)
+  (define-key term+char-map (kbd "C-z") nil))
