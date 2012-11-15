@@ -59,6 +59,7 @@ alias gf='git fetch'
 alias gdf='git diff FETCH_HEAD'
 alias gmf='git merge FETCH_HEAD'
 alias glf='git log FETCH_HEAD'
+alias gdhf='git diff FETCH_HEAD HEAD'
 
 # Command history
 HISTFILE=~/.zsh_history
