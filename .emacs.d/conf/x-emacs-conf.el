@@ -67,7 +67,7 @@
 ;; asciiフォント
 (set-face-attribute 'default nil
                     :family "Inconsolata"
-                    :height 130)
+                    :height 120)
 ;; 日本語フォント
 (set-fontset-font
  nil 'japanese-jisx0208
