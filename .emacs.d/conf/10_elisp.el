@@ -170,3 +170,23 @@
           (define-key gtags-mode-map (kbd "M-r") 'gtags-find-rtag)
           (define-key gtags-mode-map (kbd "M-s") 'gtags-find-symbol))))
 
+;; ---------- uniquify ----------
+;; uniquify is a Built-in el
+; http://d.hatena.ne.jp/wadap/20120415/1334468285
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+
+;; ---------- evernote-mode ----------
+; http://code.google.com/p/emacs-evernote-mode/
+; **TOTICE** 最新版ソース(evernote-mode-0.41)では以下のrubyのバージョンに起因するERRORが発生する。下記の記述にしたがってソースを修正する必要あり
+; http://d.hatena.ne.jp/fujimisakari/20120213/1329119250
+(require 'evernote-mode nil t)
+(setq evernote-username "usobuki")
+;(setq evernote-enml-formatter-command '("w3m" "-dump" "-I" "UTF8" "-O" "UTF8"))
+(define-key global-map (kbd "C-x C-c e c") 'evernote-create-note)
+(define-key global-map (kbd "C-x C-c e o") 'evernote-open-note)
+(define-key global-map (kbd "C-x C-c e s") 'evernote-search-notes)
+(define-key global-map (kbd "C-x C-c e S") 'evernote-do-saved-search)
+(define-key global-map (kbd "C-x C-c e w") 'evernote-write-note)
+(define-key global-map (kbd "C-x C-c e p") 'evernote-post-region)
+(define-key global-map (kbd "C-x C-c e b") 'evernote-browser)
