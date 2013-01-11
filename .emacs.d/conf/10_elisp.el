@@ -170,6 +170,11 @@
           (define-key gtags-mode-map (kbd "M-r") 'gtags-find-rtag)
           (define-key gtags-mode-map (kbd "M-s") 'gtags-find-symbol))))
 
+;; ---------- uniquify ----------
+;; uniquify is a Built-in el
+; http://d.hatena.ne.jp/wadap/20120415/1334468285
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
 ;; ---------- popwin.el ----------
 (require 'popwin nil t)
