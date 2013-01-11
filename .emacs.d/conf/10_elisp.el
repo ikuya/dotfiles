@@ -170,3 +170,10 @@
           (define-key gtags-mode-map (kbd "M-r") 'gtags-find-rtag)
           (define-key gtags-mode-map (kbd "M-s") 'gtags-find-symbol))))
 
+
+;; ---------- popwin.el ----------
+(require 'popwin nil t)
+(setq display-buffer-function 'popwin:display-buffer)
+; anything
+(setq anything-samewindow nil)
+(push '("*anything*" :height 20) popwin:special-display-config)
