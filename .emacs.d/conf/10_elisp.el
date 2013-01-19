@@ -182,3 +182,7 @@
 ; anything
 (setq anything-samewindow nil)
 (push '("*anything*" :height 20) popwin:special-display-config)
+
+;; ---------- ispell ----------
+(require 'ispell nil t)
+(setq-default ispell-program-name "aspell")
