@@ -159,6 +159,6 @@
                                               (interactive)
                                               (dic-lookup-w3m "ej-alc")))
   (define-key global-map (kbd "C-x C-c d") '(lambda()
-                                              (ineractive)
+                                              (interactive)
                                               (dic-lookup-w3m "jj-yahoo")))
 )
