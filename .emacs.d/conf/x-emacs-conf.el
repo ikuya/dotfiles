@@ -135,7 +135,11 @@
                                               (dic-lookup-w3m "ee-longman")))
   (define-key global-map (kbd "C-x C-c a") '(lambda()
                                               (interactive)
-                                              (dic-lookup-w3m "ej-alc"))))
+                                              (dic-lookup-w3m "ej-alc")))
+  (define-key global-map (kbd "C-x C-c d") '(lambda()
+                                              (interactive)
+                                              (dic-lookup-w3m "jj-yahoo")))
+)
 
 ;; ---------- term+ ----------
 (when (require 'term+ nil t)
