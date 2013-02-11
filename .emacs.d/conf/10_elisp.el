@@ -72,7 +72,7 @@
 (require 'alpaca)
 
 ;; ---------- twittering-mode ----------
-(add-to-list 'load-path "~/work/src/twittering-mode")
+;(add-to-list 'load-path "~/.emacs.d/elisp/twittering-mode")
 (when (require 'twittering-mode nil t)
   ;; NEED GnuPG and (EasyPG or alpacs.el)
   ;; and append exec-path GnuPG path

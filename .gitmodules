@@ -1,3 +1,6 @@
 [submodule ".emacs.d/elisp/term-plus-el"]
 	path = .emacs.d/elisp/term-plus-el
 	url = https://github.com/tarao/term-plus-el.git
+[submodule ".emacs.d/elisp/twittering-mode"]
+	path = .emacs.d/elisp/twittering-mode
+	url = https://github.com/hayamiz/twittering-mode.git
