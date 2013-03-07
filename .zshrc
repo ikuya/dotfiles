@@ -111,9 +111,7 @@ function search() {
 setopt no_flow_control
 
 # Environment variances
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-1.7-i586/Contents/Home
 export PYTHONSTARTUP=$HOME/.pythonstartup
-export EDITOR=/usr/local/bin/vim
 export HREF_DATADIR=/usr/local/share/href
 
 # Gathering information from version control systems
