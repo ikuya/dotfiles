@@ -75,6 +75,9 @@
 ;; 矩形選択 cua-set-rectangle-mark
 (define-key global-map (kbd "C-x C-c c") 'cua-set-rectangle-mark)
 
+;; kill buffer
+(define-key global-map (kbd "C-x k") 'kill-buffer-and-window)
+
 ;; Emacsの終了
 (define-key global-map (kbd "C-x C-c C-c") 'save-buffers-kill-terminal)
 
