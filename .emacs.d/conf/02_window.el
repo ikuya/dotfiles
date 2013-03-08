@@ -111,3 +111,6 @@
 (define-key global-map (kbd "C-x C-c 4") '(lambda ()
                            (interactive)
                            (split-window-horizontally-n 3)))
+
+;; TOOL BARを非表示
+(tool-bar-mode -1)
