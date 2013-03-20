@@ -36,14 +36,9 @@ alias lla='ls -alFh'
 alias llt='ls -tlFh'
 alias sl='ls'
 alias ks='ls'
-alias chx='chmod +x'
 alias du='du -ch'
 alias df='df -h'
-alias vw='view'
 alias cal='cal -m3'
-alias sc='screen'
-alias sls='screen -ls'
-alias scx='screen -x'
 alias tm='tmux'
 alias tms='tmux ls'
 alias tma='tmux attach'
@@ -81,7 +76,6 @@ PATH=$HOME/bin:/usr/local/bin:/usr/bin:/opt/local/bin:/opt/local/sbin:/sw/bin:/s
 # LANG
 export LANG=en_US.UTF-8
 
-
 ## Shell functions
 # ful-text search
 function search() {
@@ -110,7 +104,7 @@ function search() {
 # Ignore C-s, C-q
 setopt no_flow_control
 
-# Environment variances
+# Env
 export PYTHONSTARTUP=$HOME/.pythonstartup
 export HREF_DATADIR=/usr/local/share/href
 
