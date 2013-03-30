@@ -23,13 +23,13 @@
   (color-theme-initialize)
   (color-theme-subtle-hacker))
 
-;; 起動時のウィンドウサイズ
-;(if window-system (progn
-;                    (setq initial-frame-alist '((width . 80)
-;                                                (height . 70)
-;                                                (top . 0)
-;                                                (left . 450)
-;                                                ))))
+; 起動時のウィンドウサイズ
+(if window-system (progn
+					(setq initial-frame-alist '((width . 80)
+												(height . 47)
+												(top . 0)
+												(left . 400)
+												))))
 ;; ウィンドウの透明化
 (add-to-list 'default-frame-alist '(alpha . (0.85 0.85)))
 
