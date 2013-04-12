@@ -45,6 +45,7 @@ alias tma='tmux attach'
 alias ei='eijiro'
 alias changekey-tmux='tmux set-option -t 0 prefix C-z'
 alias revertkey-tmux='tmux set-option -t 0 prefix C-t'
+alias vi='vim'
 # Git
 alias gst='git status'
 alias gd='git diff'
