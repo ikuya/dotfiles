@@ -4,3 +4,27 @@
 [submodule ".emacs.d/elisp/term-plus-all"]
 	path = .emacs.d/elisp/term-plus-all
 	url = https://github.com/tarao/term-plus-all.git
+[submodule ".vim/bundle/closetag.vim"]
+	path = .vim/bundle/closetag.vim
+	url = https://github.com/vim-scripts/closetag.vim.git
+[submodule ".vim/bundle/cocoa.vim"]
+	path = .vim/bundle/cocoa.vim
+	url = https://github.com/vim-scripts/cocoa.vim.git
+[submodule ".vim/bundle/FuzzyFinder"]
+	path = .vim/bundle/FuzzyFinder
+	url = https://github.com/vim-scripts/FuzzyFinder.git
+[submodule ".vim/bundle/L9"]
+	path = .vim/bundle/L9
+	url = https://github.com/vim-scripts/L9.git
+[submodule ".vim/bundle/neocomplcache"]
+	path = .vim/bundle/neocomplcache
+	url = https://github.com/vim-scripts/neocomplcache.git
+[submodule ".vim/bundle/snipMate"]
+	path = .vim/bundle/snipMate
+	url = https://github.com/vim-scripts/snipMate.git
+[submodule ".vim/bundle/quickrun.vim"]
+	path = .vim/bundle/quickrun.vim
+	url = https://github.com/vim-scripts/quickrun.vim.git
+[submodule ".vim/bundle/ref.vim"]
+	path = .vim/bundle/ref.vim
+	url = https://github.com/vim-scripts/ref.vim.git
