@@ -139,6 +139,12 @@
   (define-key global-map (kbd "C-x C-c d") '(lambda()
                                               (interactive)
                                               (dic-lookup-w3m "jj-yahoo")))
+  (define-key global-map (kbd "C-x C-c m") '(lambda()
+                                              (interactive)
+                                              (dic-lookup-w3m "ee-webster")))
+   (define-key global-map (kbd "C-x C-c t") '(lambda()
+                                              (interactive)
+                                              (dic-lookup-w3m "thesaurus-webster")))
 )
 
 ;; ---------- term+ ----------
