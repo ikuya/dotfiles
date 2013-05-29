@@ -114,3 +114,7 @@
 
 ;; TOOL BARを非表示
 (tool-bar-mode -1)
+
+;; smooth-scroll.el
+(require 'smooth-scroll nil t)
+(smooth-scroll-mode t)
