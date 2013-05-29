@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/ref.vim"]
 	path = .vim/bundle/ref.vim
 	url = https://github.com/vim-scripts/ref.vim.git
+[submodule ".emacs.d/elisp/smooth-scroll"]
+	path = .emacs.d/elisp/smooth-scroll
+	url = https://github.com/k-talo/smooth-scroll.el.git
