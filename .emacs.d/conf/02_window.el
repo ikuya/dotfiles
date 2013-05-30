@@ -118,3 +118,4 @@
 ;; smooth-scroll.el
 (require 'smooth-scroll nil t)
 (smooth-scroll-mode t)
+(define-key global-map (kbd "C-x C-c s") 'smooth-scroll-mode)
