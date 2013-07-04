@@ -31,3 +31,6 @@
 [submodule ".emacs.d/elisp/smooth-scroll"]
 	path = .emacs.d/elisp/smooth-scroll
 	url = https://github.com/k-talo/smooth-scroll.el.git
+[submodule ".emacs.d/elisp/popwin-el"]
+	path = .emacs.d/elisp/popwin-el
+	url = https://github.com/m2ym/popwin-el.git

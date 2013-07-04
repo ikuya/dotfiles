@@ -6,9 +6,10 @@
 
 ;; ---------- redo+ ----------
 ;; http://www.emacswiki.org/emacs/download/redo+.el
-(when (require 'redo+ nil t)
-  ;; C-' にredoを割り当て
-  (global-set-key (kbd "C-'") 'redo))
+;; NOTICE: 24.3では読み込み時にエラーとなる。
+;(when (require 'redo+ nil t)
+;  ;; C-' にredoを割り当て
+;  (global-set-key (kbd "C-'") 'redo))
 
 ;; ---------- color-moccur ----------
 (when (require 'color-moccur nil t)
@@ -34,7 +35,8 @@
 
 ;; ---------- undo-tree ----------
 (when (require 'undo-tree nil t)
-  (global-undo-tree-mode))
+  (global-undo-tree-mode t)
+  (global-set-key (kbd "C-'") 'undo-tree-redo))
 
 ;; ---------- Auto Complete Mode ----------
 (when (require 'auto-complete-config nil t)
@@ -178,7 +180,8 @@
 
 ;; ---------- popwin.el ----------
 (require 'popwin nil t)
-(setq display-buffer-function 'popwin:display-buffer)
+(popwin-mode t)
+;(setq display-buffer-function 'popwin:display-buffer)
 ; anything
 (setq anything-samewindow nil)
 (push '("*anything*" :height 20) popwin:special-display-config)
