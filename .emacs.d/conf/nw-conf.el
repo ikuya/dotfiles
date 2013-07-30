@@ -61,9 +61,16 @@
   ""
   (interactive (list (w3m-input-url nil "" nil nil t)))
   (w3m-goto-url url))
+(defun w3m-goto-url-new-session-empty(url)
+  ""
+  (interactive (list (w3m-input-url nil "" nil nil t)))
+  (w3m-goto-url-new-session))
 (add-hook 'w3m-mode-hook
           (lambda()
             (define-key w3m-mode-map (kbd "g") 'w3m-goto-url-empty)))
+(add-hook 'w3m-mode-hook
+          (lambda()
+            (define-key w3m-mode-map (kbd "G") 'w3m-goto-url-new-session-empty)))
 
 ;; ---------- theme ----------
 (when (require 'color-theme nil t)
