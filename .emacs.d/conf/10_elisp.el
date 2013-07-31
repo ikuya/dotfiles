@@ -195,3 +195,7 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
+
+;; ---------- json-reformat ----------
+;; http://gongo.hatenablog.com/entry/2012/02/10/222051
+(require 'json-reformat nil t)
