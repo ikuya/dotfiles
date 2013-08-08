@@ -7,6 +7,10 @@
 (add-to-list 'auto-mode-alist '("\\.cabal$" . haskell-cabal-mode))
 
 ;; ghc-mod
+;; 導入:
+;; $ cabal update
+;; $ cabal install cabal-install
+;; $ cabal install ghc-mod
 ;(add-to-list 'exec-path (concat (getenv "HOME") "/.cabal/bin"))
 (setq exec-path (append exec-path '("~/.cabal/bin")))
 (autoload 'ghc-init "ghc" nil t)
