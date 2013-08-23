@@ -72,7 +72,7 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
 # PATH
-PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
 # LANG
 export LANG=en_US.UTF-8
