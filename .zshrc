@@ -74,9 +74,6 @@ bindkey "^N" history-beginning-search-forward-end
 # PATH
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
-# LANG
-export LANG=en_US.UTF-8
-
 ## Shell functions
 # ful-text search
 function search() {
@@ -104,10 +101,6 @@ function search() {
 
 # Ignore C-s, C-q
 setopt no_flow_control
-
-# Env
-export PYTHONSTARTUP=$HOME/.pythonstartup
-export HREF_DATADIR=/usr/local/share/href
 
 # Gathering information from version control systems
 autoload -Uz vcs_info
