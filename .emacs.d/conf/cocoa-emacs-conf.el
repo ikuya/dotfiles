@@ -40,6 +40,9 @@
 ;; ウィンドウの透明化
 (add-to-list 'default-frame-alist '(alpha . (0.90 0.90)))
 
+;; TOOL BARを非表示
+(tool-bar-mode -1)
+
 ;; スクロールバー非表示
 (set-scroll-bar-mode nil)
 
