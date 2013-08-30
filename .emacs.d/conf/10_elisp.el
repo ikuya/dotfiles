@@ -36,7 +36,8 @@
 ;; ---------- undo-tree ----------
 (when (require 'undo-tree nil t)
   (global-undo-tree-mode t)
-  (global-set-key (kbd "C-'") 'undo-tree-redo))
+  (global-set-key (kbd "C-'") 'undo-tree-redo)
+  (global-set-key (kbd "C-/") 'undo-tree-undo))
 
 ;; ---------- Auto Complete Mode ----------
 (when (require 'auto-complete-config nil t)
