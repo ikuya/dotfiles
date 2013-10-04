@@ -50,7 +50,7 @@
 ;; 日付と時間
 (setq display-time-string-forms
       '((format "%s %s %s %s:%s"
-                dayname day month 24-hours minutes
+                dayname day monthname 24-hours minutes
                 )))
 (display-time-mode t)
 
