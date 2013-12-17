@@ -38,7 +38,7 @@
 												(left . 400)
 												))))
 ;; ウィンドウの透明化
-(add-to-list 'default-frame-alist '(alpha . (0.90 0.90)))
+(add-to-list 'default-frame-alist '(alpha . (0.85 0.70)))
 
 ;; TOOL BARを非表示
 (tool-bar-mode -1)

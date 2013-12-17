@@ -31,7 +31,7 @@
 												(left . 400)
 												))))
 ;; ウィンドウの透明化
-(add-to-list 'default-frame-alist '(alpha . (0.85 0.85)))
+(add-to-list 'default-frame-alist '(alpha . (0.85 0.70)))
 
 ;; スクロールバー非表示
 (set-scroll-bar-mode nil)
