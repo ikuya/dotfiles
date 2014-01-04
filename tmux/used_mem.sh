@@ -1,18 +1,13 @@
 #!/bin/sh
 
-## メモリ使用率を表示する
-# http://d.hatena.ne.jp/yonchu/20120414/1334422075
-
-#メモリ使用率を求める
 calculate_used_mem() {
     if ! type vm_stat > /dev/null 2>&1; then
-        #free
+        # free
         FREE=`free`
-        MEM_FREE=$(echo "$FREE" |awk '/Mem:/ {print $4}')
-        MEM_USED=$(echo "$FREE" |awk '/Mem:/ {print $3}')
-        MEM_TOTAL=$(echo "$FREE" |awk '/Mem:/ {print $2}')
+        MEM_USED=$(echo "$FREE" | awk 'NR==3 {print $3}')
+        MEM_FREE=$(echo "$FREE" | awk 'NR==3 {print $4}')
+        MEM_TOTAL=$(echo `echo "$MEM_USED + $MEM_FREE" | bc`)
 
-        #使用中メモリ
         USED_MEM_PERCENT_BY_FREE_COMMAND=$(echo `echo "scale=4; $MEM_USED / $MEM_TOTAL * 100" | bc | sed -e 's/^\(....\).*/\1/'`)
         echo "MEM:${USED_MEM_PERCENT_BY_FREE_COMMAND}%"
     else
@@ -51,3 +46,4 @@ RET=$?
 
 ## exit
 exit $RET
+
