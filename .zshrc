@@ -2,25 +2,23 @@
 
 autoload -U colors
 autoload -U compinit
-
 colors
 compinit
 
 # Key bind
 bindkey -e
-
 # Ignore ctrl-D
 setopt ignore_eof
-
 # cd history
 setopt auto_pushd
-
 # Command auto correct
 #setopt correct
 setopt noautoremoveslash
-
 # Auto cd
 setopt auto_cd
+
+# auto complete
+zstyle ':completion:*:default' menu select=1
 
 # Prompt
 PROMPT="%{${fg[green]}%}[%n@%m:%~]
@@ -39,13 +37,16 @@ alias ks='ls'
 alias du='du -ch'
 alias df='df -h'
 alias cal='cal -m3'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+# tmux
 alias tm='tmux'
 alias tms='tmux ls'
 alias tma='tmux attach'
 alias ei='eijiro'
 alias changekey-tmux='tmux set-option -t 0 prefix C-z'
 alias revertkey-tmux='tmux set-option -t 0 prefix C-t'
-#alias vi='vim'
 # Git
 alias gst='git status'
 alias gd='git diff'
@@ -61,8 +62,9 @@ alias gdhf='git diff HEAD FETCH_HEAD'
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
-setopt hist_ignore_dups # ignore duplication
-setopt share_history    # share command history data
+setopt hist_ignore_all_dups # ignore duplication
+setopt hist_ignore_space    # ignore command biginning with <Space>.
+setopt share_history        # share command history data
 
 # Historical backward/forward search with linehead string binded to ^P/^N
 autoload history-search-end
@@ -70,9 +72,6 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
-
-# PATH
-PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
 ## Shell functions
 # ful-text search
