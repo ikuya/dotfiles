@@ -83,6 +83,7 @@
   (setq twittering-initial-timeline-spec-string
         '("usobuku/c"
           "usobuku/f"
+          "masafuminegishi/security-jp"
           ":home")))
 
 (defun twittering-mode-hooks()
