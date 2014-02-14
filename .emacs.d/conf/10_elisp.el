@@ -84,6 +84,7 @@
         '("usobuku/c"
           "usobuku/f"
           "masafuminegishi/security-jp"
+          ":mentions"
           ":home")))
 
 (defun twittering-mode-hooks()
