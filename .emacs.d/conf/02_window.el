@@ -75,15 +75,14 @@
                 mode-name
                 mode-line-process
                 minor-mode-alist
-                "%n" ")%]"
-                vc-mode
-                " - "
+                "%n" ")%]--"
+                ;(which-func-mode ("" which-func-format "-"))
                 global-mode-string
                 " "
-                (which-func-mode ("" which-func-format "-"))
                 (line-number-mode "L%l-")
                 (column-number-mode "C%c-")
                 (-3 . "%p")
+                vc-mode
                 "-%-"
               ))
 
