@@ -34,8 +34,8 @@
 					; プライマリーFontに和文含みのものRictyを指定するとフレーム幅が倍になってしまう...
 					(setq initial-frame-alist '((width . 80)
 												(height . 50)
-												(top . 0)
-												(left . 400)
+;    											(top . 0)
+;    											(left . 400)
 												))))
 ;; ウィンドウの透明化
 (add-to-list 'default-frame-alist '(alpha . (0.85 0.70)))
@@ -74,8 +74,8 @@
 ;;; ---------- FONTS ----------
 ;;; asciiフォント
 (set-face-attribute 'default nil
-					:family "Inconsolata"
-					:height 140)
+					:family "Ricty"
+					:height 130)
 ;; 日本語フォント
 (set-fontset-font
  nil 'japanese-jisx0208
@@ -94,7 +94,7 @@
 
 ;; ---------- emacs-w3m ----------
 ;; w3mコマンドのPATHに依存しているので、ここに
-(setq w3m-command "/opt/local/bin/w3m")
+(setq w3m-command "/usr/local/bin/w3m")
 (require 'w3m-load)
 ; alc:[検索文字列]でalc検索 (w3m-goto-url[keybind:g])
 ; http://mugijiru.seesaa.net/article/205303847.html
