@@ -218,3 +218,15 @@
     (setq web-mode-code-indent-offset 4)   ;; script indent
     (setq web-mode-enable-auto-pairing t)
     ))
+
+;; ---------- markdown-mode ----------
+;; 公式: http://jblevins.org/projects/markdown-mode/
+;; プレビューするためのスクリプト: http://daringfireball.net/projects/markdown/
+;;    -> .plスクリプトをpathの通っている場所に "markdown" という名で配置
+(autoload 'markdown-mode
+  "markdown-mode.el" "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+; プレビューでマルチバイト文字を扱うための設定
+; cf. http://blog.uskanda.com/2012/02/09/emacs-markdown-mode-preview-ja/
+(setq markdown-command-needs-filename t)
