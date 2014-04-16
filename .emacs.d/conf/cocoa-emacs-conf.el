@@ -76,7 +76,7 @@
 ;;; ---------- FONTS ----------
 ;;; asciiフォント
 (set-face-attribute 'default nil
-					:family "Ricty"
+					:family "Inconsolata"
 					:height 130)
 ;; 日本語フォント
 (set-fontset-font
