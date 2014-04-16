@@ -203,3 +203,18 @@
 ;; ---------- json-reformat ----------
 ;; http://gongo.hatenablog.com/entry/2012/02/10/222051
 (require 'json-reformat nil t)
+
+;; ---------- web-mode ----------
+(when (require 'web-mode nil t)
+  (setq auto-mode-alist
+        (append '(
+                  ("\\.\\(html\\|xhtml\\|tpl\\)\\'" . web-mode)
+                  )
+                auto-mode-alist))
+  (defun web-mode-hook()
+    "Hooks for Web mode"
+    (setq web-mode-markup-indent-offset 4) ;; html indent
+    (setq web-mode-css-indent-offset 4)    ;; css indent
+    (setq web-mode-code-indent-offset 4)   ;; script indent
+    (setq web-mode-enable-auto-pairing t)
+    ))
