@@ -205,6 +205,7 @@
 (require 'json-reformat nil t)
 
 ;; ---------- web-mode ----------
+;; 公式: http://web-mode.org/
 (when (require 'web-mode nil t)
   (setq auto-mode-alist
         (append '(
