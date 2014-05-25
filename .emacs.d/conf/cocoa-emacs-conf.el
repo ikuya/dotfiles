@@ -25,11 +25,11 @@
 (setq linum-format "%4d")
 
 ;; テーマ
-(when (require 'color-theme nil t)
-  (color-theme-initialize)
-  ;(color-theme-subtle-hacker)
-  (color-theme-dark-laptop)
-  )
+;(when (require 'color-theme nil t)
+;  (color-theme-initialize)
+;  ;(color-theme-subtle-hacker)
+;  (color-theme-dark-laptop)
+;  )
 
 ; 起動時のウィンドウサイズ
 (if window-system (progn
