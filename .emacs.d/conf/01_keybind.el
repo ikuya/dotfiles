@@ -157,3 +157,5 @@
 (defalias 'tm 'term+mux-new)
 ;; grep-find
 (defalias 'gf 'grep-find)
+;;行末の余分なスペースを削除する。バッファ全体に作用する。
+(defalias 'dw 'delete-trailing-whitespace)
