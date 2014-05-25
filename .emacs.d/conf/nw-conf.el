@@ -68,15 +68,15 @@
             (define-key w3m-mode-map (kbd "g") 'w3m-goto-url-empty)))
 
 ;; ---------- theme ----------
-(when (require 'color-theme nil t)
-  (color-theme-initialize)
-  (color-theme-dark-laptop))
+;(when (require 'color-theme nil t)
+;  (color-theme-initialize)
+;  (color-theme-dark-laptop))
 
 ;; ---------- linum-mode ----------
 (require 'linum nil t)
 (global-linum-mode t)
 (set-face-attribute 'linum nil :foreground "red" :height 0.8)
-(setq linum-format "%4d")
+(setq linum-format "%4d ")
 
 ;; ---------- wb-line-number ----------
 ;; linum-modeを無効化してからwb-line-numberを有効にする
