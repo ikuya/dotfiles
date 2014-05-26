@@ -4,7 +4,9 @@
 (setq show-paren-delay 0)	; 表示までの秒数(初期値: 0.125)
 (show-paren-mode t)			; 有効化
 ;; parenのスタイル
-(setq show-paren-style 'expression)	; expressionは括弧内も強調表示
+(setq show-paren-style 'expression) -- カッコもカッコ内も強調
+;(setq show-paren-style 'parenthesis)  -- カッコのみ強調
+;(setq show-paren-style 'mixed)  -- 対応するカッコが画面外のときはカッコ内も強調
 ;; faceを変更する
 (set-face-attribute 'show-paren-match-face nil
                     :underline "#ffff00" :weight 'bold)
