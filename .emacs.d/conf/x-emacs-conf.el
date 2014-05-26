@@ -19,9 +19,9 @@
 (setq linum-format "%4d")
 
 ;; テーマ
-(when (require 'color-theme nil t)
-  (color-theme-initialize)
-  (color-theme-subtle-hacker))
+;(when (require 'color-theme nil t)
+;  (color-theme-initialize)
+;  (color-theme-subtle-hacker))
 
 ; 起動時のウィンドウサイズ
 (if window-system (progn

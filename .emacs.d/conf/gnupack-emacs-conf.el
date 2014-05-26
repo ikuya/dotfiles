@@ -492,9 +492,9 @@
 
 ;; ------------------------------------------------------------------------
 ;; @ color-theme
-(when (require 'color-theme nil t)
-  (color-theme-initialize)
-  (color-theme-subtle-hacker))
+;(when (require 'color-theme nil t)
+;  (color-theme-initialize)
+;  (color-theme-subtle-hacker))
 
 ;; ------------------------------------------------------------------------
 ;; ウィンドウの透明化
