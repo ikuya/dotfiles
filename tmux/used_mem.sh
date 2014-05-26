@@ -33,7 +33,7 @@ calculate_used_mem() {
     	##  小数点第1位まで求めて後から小数点文字(ドット)を挿入
         #USED_MEM_PERCENT=$(echo "$(($USED_MEM * 1000 / $TOTAL_MEM))" | sed -e 's/\(.*\)\([0-9]\)/\1.\2/' -e 's/^\./0./')
         #echo "Mem:${USED_MEM_PERCENT}%"
-        echo "Mem:--Unknown--"
+        echo "Mem:---%"
     fi
     # RET
     return 0
