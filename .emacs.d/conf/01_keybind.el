@@ -58,9 +58,9 @@
 (define-key global-map (kbd "C-x C-c C-w") 'kill-ring-save-current-word)
 
 ;; M-f, M-bを改良
-;(require 'misc)
-;(define-key global-map (kbd "M-f") 'forward-to-word)
-;(define-key global-map (kbd "M-b") 'backward-to-word)
+(require 'misc)
+(define-key global-map (kbd "M-f") 'forward-to-word)
+(define-key global-map (kbd "M-b") 'backward-to-word)
 
 ;; カーソルの後ろの連続するスペースを削除
 ; http://d.hatena.ne.jp/syohex/20111017/1318857029
