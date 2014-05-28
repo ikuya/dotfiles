@@ -61,6 +61,8 @@
     (kill-buffer nil)))
 ;; howm-save-buffer-and-kill
 (define-key howm-mode-map (kbd "C-c , k") 'howm-save-buffer-and-kill)
+;; メニューに表示する最近のメモ件数
+(setq howm-menu-recent-num 30)
 
 ;; ---------- multi-term ----------
 (when (require 'multi-term nil t)
