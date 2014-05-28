@@ -1,8 +1,8 @@
 ;; ========== LOAD PATH ==========
-;; ~/.emacs.d/elisp ƒfƒBƒŒƒNƒgƒŠ‚ğload path‚É’Ç‰Á. ‚½‚¾‚µadd-to-load-pathŠÖ”‚ğ’è‹`‚µ‚½ê‡‚Í•s—v
+;; ~/.emacs.d/elisp ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’load pathã«è¿½åŠ . ãŸã ã—add-to-load-pathé–¢æ•°ã‚’å®šç¾©ã—ãŸå ´åˆã¯ä¸è¦
 ;(add-to-list 'load-path "~/.emacs.d/elisp")
-; ã‹L‚Ìadd-to-listŠÖ”‚Å‚ÍƒTƒuƒfƒBƒŒƒNƒgƒŠ‚ğ©“®“I‚É’Ç‰Á‚µ‚Ä‚­‚ê‚È‚¢‚Ì‚ÅAˆÈ‰º‚É
-; add-to-load-pathŠÖ”‚ğ’è‹`‚·‚é
+; ä¸Šè¨˜ã®add-to-listé–¢æ•°ã§ã¯ã‚µãƒ–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’è‡ªå‹•çš„ã«è¿½åŠ ã—ã¦ãã‚Œãªã„ã®ã§ã€ä»¥ä¸‹ã«
+; add-to-load-pathé–¢æ•°ã‚’å®šç¾©ã™ã‚‹
 (defun add-to-load-path (&rest paths)
   (let (path)
     (dolist (path paths paths)
@@ -11,23 +11,23 @@
         (add-to-list 'load-path default-directory)
         (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
             (normal-top-level-add-subdirs-to-load-path))))))
-;; ˆø”‚ÌƒfƒBƒŒƒNƒgƒŠ‚Æ‚»‚ÌƒTƒuƒfƒBƒŒƒNƒgƒŠ‚ğload-path‚É’Ç‰Á
+;; å¼•æ•°ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¨ãã®ã‚µãƒ–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’load-pathã«è¿½åŠ 
 (add-to-load-path "elisp" "conf" "public_repos")
 
 ;; ========== ELPA ==========
-;;; package (emacs24‚Å‚Ííœ - .emacs.d/elisp‚Ìpackage.el[c]‚àíœ)
-;;; ELPA‚Ì—˜—p
+;;; package (emacs24ã§ã¯å‰Šé™¤ - .emacs.d/elispã®package.el[c]ã‚‚å‰Šé™¤)
+;;; ELPAã®åˆ©ç”¨
 ;; http://bit.ly/pkg-el23
 (when (require 'package nil t)
-  ;; ƒpƒbƒP[ƒWƒŠƒ|ƒWƒgƒŠ‚Émarmalade‚ÆŠJ”­Ò‰^‰c‚ÌELPA‚ğ’Ç‰Á
+  ;; ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ãƒªãƒã‚¸ãƒˆãƒªã«marmaladeã¨é–‹ç™ºè€…é‹å–¶ã®ELPAã‚’è¿½åŠ 
   (add-to-list 'package-archives
                '("marmalade" . "http://marmalade-repo.org/packages/"))
   (add-to-list 'package-archives
                '("ELPA" . "http://tromey.com/elpa/"))
-  (package-initialize)) ; .emacs.d/elpa‚ÉƒCƒ“ƒXƒg[ƒ‹‚³‚ê‚½ƒpƒbƒP[ƒW‚ğ“Ç‚İ‚Ş
+  (package-initialize)) ; .emacs.d/elpaã«ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã•ã‚ŒãŸãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã‚’èª­ã¿è¾¼ã‚€
 
-;; ========== Conf “Ç‚İ‚İ ==========
-;; init-loader.el‚ğg—p
+;; ========== Conf èª­ã¿è¾¼ã¿ ==========
+;; init-loader.elã‚’ä½¿ç”¨
 (require 'init-loader)
-; Šeİ’èƒtƒ@ƒCƒ‹‚ª‚ ‚éƒfƒBƒŒƒNƒgƒŠ(default: ~/.emacs.d/inits)
+; å„è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª(default: ~/.emacs.d/inits)
 (init-loader-load "~/.emacs.d/conf")
