@@ -58,8 +58,8 @@
 (define-key global-map (kbd "C-x C-c C-w") 'kill-ring-save-current-word)
 
 ;; M-f, M-bを改良
-(require 'misc)
-(define-key global-map (kbd "M-f") 'forward-to-word)
+;(require 'misc)
+;(define-key global-map (kbd "M-f") 'forward-to-word)
 ;(define-key global-map (kbd "M-b") 'backward-to-word)
 
 ;; カーソルの後ろの連続するスペースを削除
@@ -154,7 +154,7 @@
 ;; M-x qrr
 (defalias 'qrr 'query-replace-regexp)
 ;; term-plus-el
-(defalias 'tm 'term+mux-new)
+(defalias 'tm 'multi-term)
 ;; grep-find
 (defalias 'gf 'grep-find)
 ;;行末の余分なスペースを削除する。バッファ全体に作用する。
