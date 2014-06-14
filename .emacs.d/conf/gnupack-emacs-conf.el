@@ -491,7 +491,8 @@
 )
 
 ;; ------------------------------------------------------------------------
-;; @ color-theme
+;; Theme
+(load-theme 'tsdh-dark t)
 ;(when (require 'color-theme nil t)
 ;  (color-theme-initialize)
 ;  (color-theme-subtle-hacker))
