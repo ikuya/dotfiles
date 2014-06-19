@@ -36,3 +36,6 @@
 
 ;; ---------- C-x C-cをunbind (save-buffers-kill-terminalは01_keybind.elでbind
 (global-unset-key (kbd "C-x C-c"))
+
+;; Find fileのデフォルトパス
+(setq default-directory "~/")
