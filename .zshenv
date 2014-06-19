@@ -1,5 +1,8 @@
 ## .zshenv
 
+# LANG
+export LANG=en_US.UTF-8
+
 # PATH
 # path はPATHの内容と同期している配列変数。
 # 末尾に(N-/)をつけると、存在しないパスの場合に空文字に置換される。
