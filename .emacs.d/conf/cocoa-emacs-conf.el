@@ -28,13 +28,13 @@
 (load-theme 'tsdh-dark t)
 
 ; 起動時のウィンドウサイズ
-(if window-system (progn
-					; プライマリーFontに和文含みのものRictyを指定するとフレーム幅が倍になってしまう...
-					(setq initial-frame-alist '((width . 80)
-												(height . 50)
+;(if window-system (progn
+;					; プライマリーFontに和文含みのものRictyを指定するとフレーム幅が倍になってしまう...
+;					(setq initial-frame-alist '((width . 80)
+;												(height . 50)
 ;    											(top . 0)
 ;    											(left . 400)
-												))))
+;												))))
 ;; ウィンドウの透明化
 (add-to-list 'default-frame-alist '(alpha . (0.85 0.70)))
 
