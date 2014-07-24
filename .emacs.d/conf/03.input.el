@@ -7,3 +7,5 @@
 (setq cua-enable-cua-keys nil)      ;CUAキーバインドを無効にする
 ;; バッファの最終行でnext-lineしても新しい行を作らない
 (setq next-line-add-newlines nil)
+;; Automatic character pairing (e.g. parenthesis)
+(electric-pair-mode t)
