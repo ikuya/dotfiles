@@ -596,15 +596,3 @@
 ;                                              (interactive)
 ;                                              (dic-lookup-w3m "thesaurus-webster")))
 )
-
-;; auto-complete で // を入力すると固まる問題の対処
-;; http://qiita.com/tamurashingo@github/items/fa64385e4310ed3aea69
-(ac-config-default)
-(setq ac-sources '(ac-source-functions
-                   ac-source-yasnippet
-                   ac-source-variables
-                   ac-source-symbols
-                   ac-source-features
-                   ac-source-abbrev
-                   ac-source-words-in-same-mode-buffers
-                   ac-source-dictionary))
