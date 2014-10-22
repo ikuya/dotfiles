@@ -49,7 +49,8 @@
 
 ;; ---------- emacs-w3m ----------
 ;; w3mコマンドのPATHに依存しているので、ここに
-(setq w3m-command "/usr/bin/w3m")
+;(setq w3m-command "/usr/bin/w3m")
+(setq w3m-command "/usr/local/bin/w3m")
 (require 'w3m-load)
 ; alc:[検索文字列]でalc検索 (w3m-goto-url[keybind:g])
 ; http://mugijiru.seesaa.net/article/205303847.html
