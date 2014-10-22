@@ -176,7 +176,8 @@
        '(lambda()
           (define-key gtags-mode-map (kbd "M-t") 'gtags-find-tag)
           (define-key gtags-mode-map (kbd "M-r") 'gtags-find-rtag)
-          (define-key gtags-mode-map (kbd "M-s") 'gtags-find-symbol))))
+          (define-key gtags-mode-map (kbd "M-s") 'gtags-find-symbol)
+          (define-key gtags-mode-map (kbd "M-h") 'gtags-pop-stack))))
 
 ;; ---------- uniquify ----------
 ;; uniquify is a Built-in el

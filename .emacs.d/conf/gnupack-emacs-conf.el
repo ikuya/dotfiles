@@ -596,3 +596,9 @@
 ;                                              (interactive)
 ;                                              (dic-lookup-w3m "thesaurus-webster")))
 )
+
+;; !!!!!!!!!!!!!!! README !!!!!!!!!!!!!!!!!
+;; Windows+Emacs+auto-complete では、 // 入力時にファイル名補完処理が走りフリーズする。
+;; そのため、auto-complete-config.el の該当箇所をコメントアウトして対処する必要がある。
+;; (add-hook 'auto-complete-mode-hook 'ac-common-setup) ← この行をコメントアウト
+;; cf. http://qiita.com/tamurashingo@github/items/fa64385e4310ed3aea69 ← 試してみたが、ac-sources が上書きできなかったので、上記で対応することにした。
