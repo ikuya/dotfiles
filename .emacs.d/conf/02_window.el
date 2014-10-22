@@ -111,6 +111,14 @@
                            (interactive)
                            (split-window-horizontally-n 3)))
 
+;; ウィンドウの移動
+;; 反対側のウィンドウに移動できるように
+(setq windmove-wrap-around t)
+(define-key global-map (kbd "C-M-k") 'windmove-up)
+(define-key global-map (kbd "C-M-j") 'windmove-down)
+(define-key global-map (kbd "C-M-h") 'windmove-left)
+(define-key global-map (kbd "C-M-l") 'windmove-right)
+
 ;; smooth-scroll.el
 (require 'smooth-scroll nil t)
 (smooth-scroll-mode 0)
