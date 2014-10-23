@@ -65,9 +65,9 @@
 (setq howm-menu-recent-num 30)
 
 ;; ---------- multi-term ----------
-(when (require 'multi-term nil t)
-  ;; 使用するshell
-  (setq multi-term-program "/bin/zsh"))
+;(when (require 'multi-term nil t)
+;  ;; 使用するshell
+;  (setq multi-term-program "/bin/zsh"))
 
 ;; ---------- Egg (Git Frontend) ----------
 (when (executable-find "git")
