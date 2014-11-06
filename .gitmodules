@@ -34,3 +34,6 @@
 [submodule ".emacs.d/elisp/popwin-el"]
 	path = .emacs.d/elisp/popwin-el
 	url = https://github.com/m2ym/popwin-el.git
+[submodule ".emacs.d/elisp/ac-mozc"]
+	path = .emacs.d/elisp/ac-mozc
+	url = https://github.com/igjit/ac-mozc.git
