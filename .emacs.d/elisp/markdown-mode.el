@@ -3635,7 +3635,8 @@ increase the indentation by one level."
           (progn
             (unless (markdown-cur-line-blank-p)
               (insert "\n"))
-            (insert "* "))
+            ;(insert "* "))
+            (insert "-   ")) ; modified by ikuya - 12 Nov 2014
         ;; Compute indentation for a new list item
         (setq item-indent (nth 2 bounds))
         (setq marker (nth 4 bounds))
