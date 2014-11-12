@@ -85,19 +85,19 @@ function search() {
         echo usage: search STRING [DIR [FILE]]
         ;;
         1)
-        string=$1
+        string=$2
         ;;
         2)
-        string=$1
-        dir=$2
+        string=$2
+        dir=$1
         ;;
         3)
-        string=$1
-        dir=$2
-        file=$3
+        string=$3
+        dir=$1
+        file=$2
         ;;
     esac
-    find $dir -name "$file" -exec grep -IHn $string {} \; ;
+    find $dir -name "$file" -exec grep -IHn $string {} \; 2>/dev/null;
 }
 
 # Ignore C-s, C-q
