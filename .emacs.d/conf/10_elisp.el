@@ -100,7 +100,7 @@
   (setq twittering-display-connection-method nil)
   ;; 表示形式
   (setq twittering-status-format "%i %S(%s)%p, %@:
-%FILL{ %T // from %f%L%r%R}
+%FOLD{ %T // from %f%L%r%R}
 "))
 
 (add-hook 'twittering-mode-hook
@@ -237,3 +237,6 @@
 ; プレビューでマルチバイト文字を扱うための設定
 ; cf. http://blog.uskanda.com/2012/02/09/emacs-markdown-mode-preview-ja/
 (setq markdown-command-needs-filename t)
+; M-n, M-p を上書きしないように、定義を無効化
+(define-key markdown-mode-map (kbd "M-n") nil)
+(define-key markdown-mode-map (kbd "M-p") nil)
