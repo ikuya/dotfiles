@@ -238,5 +238,8 @@
 ; cf. http://blog.uskanda.com/2012/02/09/emacs-markdown-mode-preview-ja/
 (setq markdown-command-needs-filename t)
 ; M-n, M-p を上書きしないように、定義を無効化
-(define-key markdown-mode-map (kbd "M-n") nil)
-(define-key markdown-mode-map (kbd "M-p") nil)
+(setq markdown-mode-hook
+      '(lambda()
+         (define-key markdown-mode-map (kbd "M-n") nil)
+         (define-key markdown-mode-map (kbd "M-p") nil)
+         ))
