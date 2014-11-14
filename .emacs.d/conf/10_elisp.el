@@ -110,7 +110,7 @@
           '(lambda()
              (define-key twittering-mode-map (kbd "F") 'twittering-favorite)
              (define-key twittering-mode-map (kbd "R") 'twittering-native-retweet)
-             (define-key twittering-mode-map (kbd "C-c C-h") 'twittering-home-timeline)
+             (define-key twittering-mode-map (kbd "C-c h") 'twittering-home-timeline)
              ))
 
 ;; ---------- IRC (rcirc.el) ----------
