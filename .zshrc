@@ -51,14 +51,12 @@ alias revertkey-tmux='tmux set-option -t 0 prefix C-t'
 alias g='git'
 alias gst='git status'
 alias gd='git diff'
-alias gp='git pull'
 alias gl='git log'
 alias glg='git lg'
+alias gt='git today'
 alias gf='git fetch'
 alias gdf='git diff FETCH_HEAD'
 alias gmf='git merge FETCH_HEAD'
-alias glf='git log FETCH_HEAD'
-alias gdhf='git diff HEAD FETCH_HEAD'
 
 # Command history
 HISTFILE=~/.zsh_history
