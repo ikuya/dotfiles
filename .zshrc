@@ -57,6 +57,7 @@ alias gt='git today'
 alias gf='git fetch'
 alias gdf='git diff FETCH_HEAD'
 alias gmf='git merge FETCH_HEAD'
+alias gpo='git pull origin'
 
 # Command history
 HISTFILE=~/.zsh_history
