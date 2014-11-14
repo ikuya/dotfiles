@@ -83,7 +83,6 @@ alias ll='ls -lFh'
 alias lla='ls -alFh'
 alias llt='ls -tlFh'
 alias sl='ls'
-alias ks='ls'
 alias du='du -ch'
 alias df='df -h'
 alias cal='cal -m3'
@@ -94,7 +93,6 @@ alias ....='cd ../../..'
 alias tm='tmux'
 alias tms='tmux ls'
 alias tma='tmux attach'
-alias ei='eijiro'
 alias changekey-tmux='tmux set-option -t 0 prefix C-z'
 alias revertkey-tmux='tmux set-option -t 0 prefix C-t'
 ## Git
@@ -102,8 +100,6 @@ alias g='git'
 alias gst='git status'
 alias gd='git diff'
 alias gl='git log'
-alias glg='git lg'
-alias gt='git today'
 alias gf='git fetch'
 alias gdf='git diff FETCH_HEAD'
 alias gmf='git merge FETCH_HEAD'
@@ -136,7 +132,6 @@ function search() {
     esac
     find $dir -name "$file" -exec grep -IHn $string {} \; 2>/dev/null;
 }
-
 
 ##
 ## VCS
