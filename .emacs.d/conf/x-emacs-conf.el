@@ -162,3 +162,27 @@
                ))
   (define-key term+char-map (kbd "C-t") nil)
   (define-key term+char-map (kbd "C-z") nil))
+
+;; Mozc 設定
+(require 'mozc)
+(set-language-environment 'Japanese)
+(setq default-input-method 'japanese-mozc)
+(setq mozc-candidate-style 'echo-area)
+
+;; MetaとSuperを入れ替える
+(setq x-meta-keysym 'super)
+(setq x-super-keysym 'meta)
+
+;; Auto-completeを使ってMozcをモードレス入力
+;; cf. http://hiroki.jp/ac-mozc-on-mac
+(when (require 'ac-mozc nil t)
+  (defun my-ac-mozc-setup ()
+    (setq ac-sources
+          '(ac-source-mozc ac-source-ascii-words-in-same-mode-buffers))
+    (set (make-local-variable 'ac-auto-show-menu) 0.2))
+
+  ; Mozcモードレス入力を有効にするフック
+  (add-to-list 'ac-modes 'markdown-mode)
+  (add-hook 'markdown-mode-hook 'my-ac-mozc-setup)
+  )
+
