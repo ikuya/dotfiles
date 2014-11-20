@@ -11,8 +11,8 @@
 ## General Settings
 ##
 
-autoload -U colors
-autoload -U compinit
+autoload -Uz colors
+autoload -Uz compinit
 autoload -Uz add-zsh-hook
 colors
 compinit
