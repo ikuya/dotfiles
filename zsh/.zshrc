@@ -13,6 +13,7 @@
 
 autoload -U colors
 autoload -U compinit
+autoload -Uz add-zsh-hook
 colors
 compinit
 
@@ -106,7 +107,7 @@ alias gmf='git merge FETCH_HEAD'
 alias gpo='git pull origin'
 
 ##
-## Shell Functions
+## Functions
 ##
 
 ## Full-text search
@@ -132,6 +133,17 @@ function search() {
     esac
     find $dir -name "$file" -exec grep -IHn $string {} \; 2>/dev/null;
 }
+
+## Automatically rename tmux window using the current working directory.
+function rename_tmux_window() {
+   if [ $TERM = "screen" ]; then
+       local path_name=`pwd`
+       local window_name=`basename $path_name`
+       tmux rename-window $window_name
+   fi
+}
+
+add-zsh-hook precmd rename_tmux_window
 
 ##
 ## VCS
