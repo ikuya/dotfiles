@@ -13,7 +13,6 @@
 
 autoload -Uz colors
 autoload -Uz compinit
-autoload -Uz add-zsh-hook
 colors
 compinit
 
@@ -137,12 +136,12 @@ function search() {
 ## Automatically rename tmux window using the current working directory.
 function rename_tmux_window() {
    if [ $TERM = "screen" ]; then
-       local path_name=`pwd`
-       local window_name=`basename $path_name`
-       tmux rename-window $window_name
+       local current_path=`pwd`
+       local current_dir=`basename $current_path`
+       tmux rename-window $current_dir
    fi
 }
-
+autoload -Uz add-zsh-hook
 add-zsh-hook precmd rename_tmux_window
 
 ##
