@@ -43,7 +43,15 @@
 (when (require 'auto-complete-config nil t)
   (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/ac-dict")
   (define-key ac-mode-map (kbd "C-S-n") 'auto-complete)
-  (ac-config-default))
+  (ac-config-default)
+  ;; ac-disable-facesの初期値は
+  ;; (font-lock-comment-face font-lock-string-face font-lock-doc-face)
+  ;; font-lock-comment-faceがあるとコメントの中で,
+  ;; font-lock-string-faceがあるとクオートで囲まれた部分"..."で
+  ;; auto-completeが反応しなくなり、セレクタを補完できないので次のように
+  (setq ac-disable-faces '(font-lock-doc-face))
+  )
+
 
 ;; ---------- howm ----------
 (setq howm-directory (concat user-emacs-directory "howm"))
@@ -242,4 +250,5 @@
       '(lambda()
          (define-key markdown-mode-map (kbd "M-n") nil)
          (define-key markdown-mode-map (kbd "M-p") nil)
+         (set (make-local-variable 'whitespace-action) nil)
          ))
