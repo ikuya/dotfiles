@@ -1,8 +1,8 @@
 ;;========== No Window 環境用のConfig ==========
 ;;対応する括弧のハイライト
 ;; paren-mode: 対応する括弧を強調して表示する
-(setq show-paren-delay 0)	; 表示までの秒数(初期値: 0.125)
-(show-paren-mode t)			; 有効化
+(setq show-paren-delay 0)    ; 表示までの秒数(初期値: 0.125)
+(show-paren-mode t)          ; 有効化
 ;; parenのスタイル
 (setq show-paren-style 'expression)    ;カッコもカッコ内も強調
 ;(setq show-paren-style 'parenthesis)  ;カッコのみ強調
@@ -39,9 +39,9 @@
 ;; ----- terminal-emulator -----
 ;; C-zをPrefix-keyとする
 ;(add-hook 'term-mode-hook
-;    	  '(lambda()
-;    		 (define-key term-raw-map (kbd "C-z")
-;    		   (lookup-key (current-global-map) (kbd "C-z")))
+;          '(lambda()
+;             (define-key term-raw-map (kbd "C-z")
+;               (lookup-key (current-global-map) (kbd "C-z")))
 ;             (define-key term-raw-map (kbd "M-x")
 ;               (lookup-key (current-global-map) (kbd "M-x")))
 ;             )

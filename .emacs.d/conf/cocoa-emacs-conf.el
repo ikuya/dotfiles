@@ -29,12 +29,12 @@
 
 ; 起動時のウィンドウサイズ
 ;(if window-system (progn
-;					; プライマリーFontに和文含みのものRictyを指定するとフレーム幅が倍になってしまう...
-;					(setq initial-frame-alist '((width . 80)
-;												(height . 50)
-;    											(top . 0)
-;    											(left . 400)
-;												))))
+;                    ; プライマリーFontに和文含みのものRictyを指定するとフレーム幅が倍になってしまう...
+;                    (setq initial-frame-alist '((width . 80)
+;                                                (height . 50)
+;                                                (top . 0)
+;                                                (left . 400)
+;                                                ))))
 ;; ウィンドウの透明化
 (add-to-list 'default-frame-alist '(alpha . (0.85 0.70)))
 
@@ -49,7 +49,7 @@
   '((((class color) (background dark))
      (:background "#000000" t))               ;背景がdarkのときの背景色
     (((class color) (background light))
-     (:background "LightGoldenrodYellow" t)) ;背景がlightの時の背景色
+     (:background "LightGoldenrodYellow" t))  ;背景がlightの時の背景色
     (t (:bold t)))
   "hl-line's my face")
 (setq hl-line-face 'my-hl-line-face)
@@ -57,8 +57,8 @@
 
 ;;; 対応する括弧のハイライト
 ;; paren-mode: 対応する括弧を強調して表示する
-(setq show-paren-delay 0)	; 表示までの秒数(初期値: 0.125)
-(show-paren-mode t)			; 有効化
+(setq show-paren-delay 0)    ; 表示までの秒数(初期値: 0.125)
+(show-paren-mode t)          ; 有効化
 ;; parenのスタイル
 (setq show-paren-style 'expression)    ;カッコもカッコ内も強調
 ;(setq show-paren-style 'parenthesis)  ;カッコのみ強調
@@ -74,8 +74,8 @@
 ;;; ---------- FONTS ----------
 ;;; asciiフォント
 (set-face-attribute 'default nil
-					:family "Inconsolata"
-					:height 140)
+                    :family "Inconsolata"
+                    :height 140)
 ;; 日本語フォント
 (set-fontset-font
  nil 'japanese-jisx0208
@@ -178,8 +178,8 @@
 (defun markdown-preview-file ()
   "run Marked on the current file and revert the buffer"
   (interactive)
-  (shell-command 
-   (format "open -a /Applications/Marked\\ 2.app %s" 
+  (shell-command
+   (format "open -a /Applications/Marked\\ 2.app %s"
        (shell-quote-argument (buffer-file-name))))
   )
 (global-set-key (kbd "C-c m") 'markdown-preview-file)
