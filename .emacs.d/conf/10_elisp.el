@@ -175,8 +175,8 @@
 
 ;; ---------- yasnippet ----------
 (require 'yasnippet)
-(yas/initialize)
-(yas/load-directory "~/.emacs.d/elpa/yasnippet-0.6.1/snippets")
+;(yas/initialize)
+(yas/load-directory "~/.emacs.d/elpa/yasnippet-0.8.0/snippets")
 
 ;; ---------- GNU GLOBAL ----------
 (when (require 'gtags nil t)
