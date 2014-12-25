@@ -252,3 +252,7 @@
          (define-key markdown-mode-map (kbd "M-p") nil)
          (set (make-local-variable 'whitespace-action) nil)
          ))
+; Boldは "__" で挟む(default "**")
+(setq markdown-bold-underscore t)
+; Italicは "_" で挟む(default "*")
+(setq markdown-italic-underscore t)
