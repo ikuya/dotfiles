@@ -11,7 +11,7 @@
 ;; auto-install
 (when (require 'auto-install nil t)
   (setq auto-install-directory "~/.emacs.d/elisp/") ; install dir
-  (auto-install-update-emacswiki-package-name t)   ; emacswikiに登録されている名前を取得
+  ;(auto-install-update-emacswiki-package-name t)   ; emacswikiに登録されている名前を取得
   ;(setq url-proxy-services '(("http" . "SERVERNAME:PORT"))) ; Proxy
   (auto-install-compatibility-setup))
 
