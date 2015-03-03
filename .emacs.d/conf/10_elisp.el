@@ -29,10 +29,6 @@
 ;; moccur-editを利用可能にする
 (require 'moccur-edit nil t)
 
-;;---------- wgrep ----------
-;;(ELPAでインストールしたが、wgrep-startup.elに設定を有効化する記述がないためここで有効化)
-(require 'wgrep nil t)
-
 ;; ---------- undo-tree ----------
 (when (require 'undo-tree nil t)
   (global-undo-tree-mode t)
@@ -175,8 +171,9 @@
 
 ;; ---------- yasnippet ----------
 (require 'yasnippet)
-;(yas/initialize)
-(yas/load-directory "~/.emacs.d/elpa/yasnippet-0.8.0/snippets")
+(add-to-list 'yas/root-directory "~/.emacs.d/elisp/yasnippet-snippets")
+(yas/initialize)
+
 
 ;; ---------- GNU GLOBAL ----------
 (when (require 'gtags nil t)

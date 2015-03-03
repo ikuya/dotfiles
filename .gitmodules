@@ -37,3 +37,21 @@
 [submodule ".emacs.d/elisp/ac-mozc"]
 	path = .emacs.d/elisp/ac-mozc
 	url = https://github.com/igjit/ac-mozc.git
+[submodule ".emacs.d/elisp/haskell-mode"]
+	path = .emacs.d/elisp/haskell-mode
+	url = https://github.com/haskell/haskell-mode.git
+[submodule ".emacs.d/elisp/htmlize"]
+	path = .emacs.d/elisp/htmlize
+	url = https://github.com/emacsmirror/htmlize.git
+[submodule ".emacs.d/elisp/multi-term"]
+	path = .emacs.d/elisp/multi-term
+	url = https://github.com/emacsmirror/multi-term.git
+[submodule ".emacs.d/elisp/undo-tree"]
+	path = .emacs.d/elisp/undo-tree
+	url = http://www.dr-qubit.org/git/undo-tree.git
+[submodule ".emacs.d/elisp/yasnippet"]
+	path = .emacs.d/elisp/yasnippet
+	url = https://github.com/capitaomorte/yasnippet.git
+[submodule ".emacs.d/elisp/yasnippet-snippets"]
+	path = .emacs.d/elisp/yasnippet-snippets
+	url = https://github.com/AndreaCrotti/yasnippet-snippets.git
