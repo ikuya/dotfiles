@@ -42,7 +42,9 @@
 
 ;; ========== MODE LINE ==========
 ;; 行番号
-(setq line-number-mode t)
+(if (>= emacs-major-version 23)
+    (global-linum-mode t)
+  (setq line-number-mode t))
 ;; 列番号
 (setq column-number-mode t)
 ;; ファイルサイズ
