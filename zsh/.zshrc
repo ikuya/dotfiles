@@ -78,7 +78,7 @@ path=(
 
 ## General
 alias ls='ls -F'
-alias lsa='ls -aF'
+alias lsa='ls -Ah'
 alias ll='ls -lFh'
 alias lla='ls -alFh'
 alias llt='ls -tlFh'
