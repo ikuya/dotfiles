@@ -55,3 +55,6 @@
 [submodule ".emacs.d/elisp/helm-swoop"]
 	path = .emacs.d/elisp/helm-swoop
 	url = https://github.com/ShingoFukuyama/helm-swoop.git
+[submodule ".emacs.d/elisp/web-mode"]
+	path = .emacs.d/elisp/web-mode
+	url = https://github.com/fxbois/web-mode.git
