@@ -204,57 +204,9 @@
 (require 'ispell nil t)
 (setq-default ispell-program-name "aspell")
 
-;; ;; ---------- elpa ----------
-;; (require 'package)
-;; (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-;; (package-initialize)
-
 ;; ---------- json-reformat ----------
 ;; http://gongo.hatenablog.com/entry/2012/02/10/222051
 (require 'json-reformat nil t)
-
-;; ---------- web-mode ----------
-;; 公式: http://web-mode.org/
-(when (require 'web-mode nil t)
-  (setq auto-mode-alist
-        (append '(
-                  ("\\.\\(html\\|xhtml\\|tpl\\|ejs\\)\\'" . web-mode)
-                  )
-                auto-mode-alist))
-  (defun web-mode-hook()
-    "Hooks for Web mode"
-    (setq web-mode-markup-indent-offset 4) ;; html indent
-    (setq web-mode-css-indent-offset 4)    ;; css indent
-    (setq web-mode-code-indent-offset 4)   ;; script indent
-    (setq web-mode-enable-auto-pairing t)
-    ))
-(add-hook 'web-mode-hook
-          '(lambda()
-             (define-key web-mode-map (kbd "C-c m") 'web-mode)))
-
-;; ---------- markdown-mode ----------
-;; 公式: http://jblevins.org/projects/markdown-mode/
-;; プレビューするためのスクリプト: http://daringfireball.net/projects/markdown/
-;;    -> .plスクリプトをpathの通っている場所に "markdown" という名で配置
-(autoload 'markdown-mode
-  "markdown-mode.el" "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-; プレビューでマルチバイト文字を扱うための設定
-; cf. http://blog.uskanda.com/2012/02/09/emacs-markdown-mode-preview-ja/
-(setq markdown-command-needs-filename t)
-; M-n, M-p を上書きしないように、定義を無効化
-(setq markdown-mode-hook
-      '(lambda()
-         (define-key markdown-mode-map (kbd "M-n") nil)
-         (define-key markdown-mode-map (kbd "M-p") nil)
-         (set (make-local-variable 'whitespace-action) nil)
-         ))
-; Boldは "__" で挟む(default "**")
-(setq markdown-bold-underscore t)
-; Italicは "_" で挟む(default "*")
-(setq markdown-italic-underscore t)
 
 ;; ---------- helm ----------
 ;; http://d.hatena.ne.jp/a_bicky/20140104/1388822688

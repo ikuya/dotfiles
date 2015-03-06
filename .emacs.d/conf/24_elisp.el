@@ -1,8 +1,4 @@
-;; ========== HOOK ==========
-;;; ファイルが #! から始まる場合、+xを付けて保存n
-(add-hook 'after-save-hook
-          'executable-make-buffer-file-executable-if-script-p)
-;;; Emacs Lispモード用のhook
+;; ========== Emacs Lisp mode ==========
 ;; emacs-lisp-mode-hook用の関数を定義
 (defun elisp-mode-hooks ()
   "lisp-mode-hooks"
@@ -13,6 +9,3 @@
     (turn-on-eldoc-mode)))
 ;; elacs-lisp-modeのhookをセット
 (add-hook 'emacs-lisp-mode-hook 'elisp-mode-hooks)
-
-;; ファイルの保存時に行末の空白文字を削除
-;(add-hook 'before-save-hook 'delete-trailing-whitespace)

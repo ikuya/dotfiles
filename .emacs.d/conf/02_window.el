@@ -115,16 +115,33 @@
 (define-key global-map (kbd "C-M-h") 'windmove-left)
 (define-key global-map (kbd "C-M-l") 'windmove-right)
 
-;; smooth-scroll.el
+;; 分割したウィンドウのバッファを入れ替え
+;; http://www.bookshelf.jp/soft/meadow_30.html#SEC400
+(defun swap-screen()
+  "Swap two screen, leaving cursor at current window."
+  (interactive)
+  (let ((thiswin (selected-window))
+        (nextbuf (window-buffer (next-window))))
+    (set-window-buffer (next-window) (window-buffer))
+    (set-window-buffer thiswin nextbuf)))
+(defun swap-screen-with-cursor()
+  "Swap two screen, with cursor in same buffer."
+  (interactive)
+  (let ((thiswin (selected-window))
+        (thisbuf (window-buffer)))
+    (other-window 1)
+    (set-window-buffer thiswin (window-buffer))
+    (set-window-buffer (selected-window) thisbuf)))
+(global-set-key [f2] 'swap-screen)
+(global-set-key [S-f2] 'swap-screen-with-cursor)
+(global-set-key (kbd "C-x C-c r") 'swap-screen-with-cursor)
+
+;; ---------- smooth-scroll.el ----------
 (require 'smooth-scroll nil t)
 (smooth-scroll-mode 0)
 (define-key global-map (kbd "C-x C-c s") 'smooth-scroll-mode)
 
-;; scratch
-; scratchの初期メッセージを消す
-(setq initial-scratch-message "")
-
-;; Whitespace mode
+;; ---------- Whitespace mode ----------
 ;; 空白, タブ文字を可視化する
 (require 'whitespace)
 (setq whitespace-style '(face           ; faceで可視化
