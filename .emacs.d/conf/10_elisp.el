@@ -184,9 +184,10 @@
 (require 'popwin nil t)
 (popwin-mode t)
 (setq display-buffer-function 'popwin:display-buffer)
-(setq popwin:special-display-config '(("*compilatoin*" :noselect t)
-                                        ("helm" :regexp t :height 0.4)
-                                        ))
+(setq popwin:special-display-config '(("*Help*")
+                                      ("*compilatoin*" :noselect t)
+                                      ("helm" :regexp t :height 0.4)
+                                      ))
 
 ;; ---------- ispell ----------
 (require 'ispell nil t)
