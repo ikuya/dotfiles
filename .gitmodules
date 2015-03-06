@@ -55,3 +55,9 @@
 [submodule ".emacs.d/elisp/yasnippet-snippets"]
 	path = .emacs.d/elisp/yasnippet-snippets
 	url = https://github.com/AndreaCrotti/yasnippet-snippets.git
+[submodule ".emacs.d/elisp/helm"]
+	path = .emacs.d/elisp/helm
+	url = https://github.com/emacs-helm/helm.git
+[submodule ".emacs.d/elisp/helm-swoop"]
+	path = .emacs.d/elisp/helm-swoop
+	url = https://github.com/ShingoFukuyama/helm-swoop.git

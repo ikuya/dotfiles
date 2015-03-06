@@ -94,27 +94,27 @@
   (migemo-init)
 )
 
-;; ---------- emacs-w3m ----------
-;; w3mコマンドのPATHに依存しているので、ここに
-(setq w3m-command "/usr/local/bin/w3m")
-(require 'w3m-load)
-; alc:[検索文字列]でalc検索 (w3m-goto-url[keybind:g])
-; http://mugijiru.seesaa.net/article/205303847.html
-(eval-after-load "w3m-search"
-  '(progn
-     (add-to-list 'w3m-search-engine-alist
-                  '("alc"
-                    "http://eow.alc.co.jp/%s/UTF-8/"
-                    utf-8))
-     (add-to-list 'w3m-uri-replace-alist
-                  '("\`alc:" w3m-search-uri-replace "alc"))))
-(defun w3m-goto-url-empty(url)
-  ""
-  (interactive (list (w3m-input-url nil "" nil nil t)))
-  (w3m-goto-url url))
-(add-hook 'w3m-mode-hook
-          (lambda()
-            (define-key w3m-mode-map (kbd "g") 'w3m-goto-url-empty)))
+;; ;; ---------- emacs-w3m ----------
+;; ;; w3mコマンドのPATHに依存しているので、ここに
+;; (setq w3m-command "/usr/local/bin/w3m")
+;; (require 'w3m-load)
+;; ; alc:[検索文字列]でalc検索 (w3m-goto-url[keybind:g])
+;; ; http://mugijiru.seesaa.net/article/205303847.html
+;; (eval-after-load "w3m-search"
+;;   '(progn
+;;      (add-to-list 'w3m-search-engine-alist
+;;                   '("alc"
+;;                     "http://eow.alc.co.jp/%s/UTF-8/"
+;;                     utf-8))
+;;      (add-to-list 'w3m-uri-replace-alist
+;;                   '("\`alc:" w3m-search-uri-replace "alc"))))
+;; (defun w3m-goto-url-empty(url)
+;;   ""
+;;   (interactive (list (w3m-input-url nil "" nil nil t)))
+;;   (w3m-goto-url url))
+;; (add-hook 'w3m-mode-hook
+;;           (lambda()
+;;             (define-key w3m-mode-map (kbd "g") 'w3m-goto-url-empty)))
 
 ;; ----------  ElScreen ----------
 (require 'elscreen nil t)
@@ -153,26 +153,26 @@
   (define-key term+char-map (kbd "C-t") nil)
   (define-key term+char-map (kbd "C-z") nil))
 
-;; ---------- dic-lookup-w3m ----------
-;; w3mコマンドに依存しているのでここに記述
-(when (require 'dic-lookup-w3m nil t)
-  (define-key global-map (kbd "C-x C-c d") 'dic-lookup-w3m)
-  (define-key global-map (kbd "C-x C-c l") '(lambda()
-                                              (interactive)
-                                              (dic-lookup-w3m "ee-longman")))
-  (define-key global-map (kbd "C-x C-c a") '(lambda()
-                                              (interactive)
-                                              (dic-lookup-w3m "ej-alc")))
-;  (define-key global-map (kbd "C-x C-c d") '(lambda()
-;                                              (interactive)
-;                                              (dic-lookup-w3m "jj-yahoo")))
-  (define-key global-map (kbd "C-x C-c m") '(lambda()
-                                              (interactive)
-                                              (dic-lookup-w3m "ee-webster")))
-;   (define-key global-map (kbd "C-x C-c t") '(lambda()
-;                                              (interactive)
-;                                              (dic-lookup-w3m "thesaurus-webster")))
-)
+;; ;; ---------- dic-lookup-w3m ----------
+;; ;; w3mコマンドに依存しているのでここに記述
+;; (when (require 'dic-lookup-w3m nil t)
+;;   (define-key global-map (kbd "C-x C-c d") 'dic-lookup-w3m)
+;;   (define-key global-map (kbd "C-x C-c l") '(lambda()
+;;                                               (interactive)
+;;                                               (dic-lookup-w3m "ee-longman")))
+;;   (define-key global-map (kbd "C-x C-c a") '(lambda()
+;;                                               (interactive)
+;;                                               (dic-lookup-w3m "ej-alc")))
+;; ;  (define-key global-map (kbd "C-x C-c d") '(lambda()
+;; ;                                              (interactive)
+;; ;                                              (dic-lookup-w3m "jj-yahoo")))
+;;   (define-key global-map (kbd "C-x C-c m") '(lambda()
+;;                                               (interactive)
+;;                                               (dic-lookup-w3m "ee-webster")))
+;; ;   (define-key global-map (kbd "C-x C-c t") '(lambda()
+;; ;                                              (interactive)
+;; ;                                              (dic-lookup-w3m "thesaurus-webster")))
+;; )
 
 ;; Live preview in Markdown mode via Markd2.app
 (defun markdown-preview-file ()

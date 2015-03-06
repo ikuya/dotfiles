@@ -24,12 +24,6 @@
 ;; 他のウィンドウをスクロール(C-M-v, C-S-M-vの代替)
 (define-key global-map (kbd "C-x C-c C-n") 'scroll-other-window)
 (define-key global-map (kbd "C-x C-c C-p") 'scroll-other-window-down)
-;; anything起動
-;(define-key global-map (kbd "C-c ;") 'anything)
-;; anything-show-kill-ring
-(define-key global-map (kbd "M-y") 'anything-show-kill-ring)
-;; anythin-for-files
-(define-key global-map (kbd "C-x C-x") 'anything-for-files)
 ;; 折り返し表示のトグル
 (define-key global-map (kbd "C-x C-c C-l") 'toggle-truncate-lines)
 ;; undo/redo
