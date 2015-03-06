@@ -56,12 +56,6 @@
                 )))
 (display-time-mode t)
 
-;;; モード名
-;; Eldocは表示しない
-(setq eldoc-minor-mode-string "")
-;; Undo-Treeは表示しない
-(setq undo-tree-mode-lighter "")
-
 ;; バッテリー残量
 (display-battery-mode 0)
 
