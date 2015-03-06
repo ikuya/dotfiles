@@ -37,7 +37,7 @@
 
 ;; ---------- Auto Complete Mode ----------
 (when (require 'auto-complete-config nil t)
-  (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/ac-dict")
+  (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/auto-complete/ac-dict")
   (define-key ac-mode-map (kbd "C-S-n") 'auto-complete)
   (ac-config-default)
   ;; ac-disable-facesの初期値は
@@ -46,6 +46,9 @@
   ;; font-lock-string-faceがあるとクオートで囲まれた部分"..."で
   ;; auto-completeが反応しなくなり、セレクタを補完できないので次のように
   (setq ac-disable-faces '(font-lock-doc-face))
+  ;; yasnippet絡みのエラーが発生するので、その対処
+  ;; http://www.kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet/
+  (delq 'ac-source-yasnippet ac-sources)
   )
 
 
