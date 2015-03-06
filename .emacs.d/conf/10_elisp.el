@@ -304,3 +304,10 @@
                         ;; and not required because the directory name is prepended
                         (substring input-pattern 1)
                       (concat ".*" input-pattern)))))))
+
+;; ---------- diminish ----------
+(when (require 'diminish nil t)
+  (diminish 'helm-mode)
+  (diminish 'yas-minor-mode)
+  (diminish 'undo-tree-mode)
+  )
