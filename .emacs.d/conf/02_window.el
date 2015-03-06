@@ -136,11 +136,6 @@
 (global-set-key [S-f2] 'swap-screen-with-cursor)
 (global-set-key (kbd "C-x C-c r") 'swap-screen-with-cursor)
 
-;; ---------- smooth-scroll.el ----------
-(require 'smooth-scroll nil t)
-(smooth-scroll-mode 0)
-(define-key global-map (kbd "C-x C-c s") 'smooth-scroll-mode)
-
 ;; ---------- Whitespace mode ----------
 ;; 空白, タブ文字を可視化する
 (require 'whitespace)

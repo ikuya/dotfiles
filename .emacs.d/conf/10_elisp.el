@@ -4,13 +4,6 @@
 (when (require 'color-theme nil t)
   (color-theme-initialize))
 
-;; ---------- redo+ ----------
-;; http://www.emacswiki.org/emacs/download/redo+.el
-;; NOTICE: 24.3では読み込み時にエラーとなる。
-;(when (require 'redo+ nil t)
-;  ;; C-' にredoを割り当て
-;  (global-set-key (kbd "C-'") 'redo))
-
 ;; ---------- color-moccur ----------
 (when (require 'color-moccur nil t)
   ; occur-by-moccur を Keybind
@@ -70,11 +63,6 @@
 (define-key howm-mode-map (kbd "C-c , k") 'howm-save-buffer-and-kill)
 ;; メニューに表示する最近のメモ件数
 (setq howm-menu-recent-num 30)
-
-;; ---------- multi-term ----------
-;(when (require 'multi-term nil t)
-;  ;; 使用するshell
-;  (setq multi-term-program "/bin/zsh"))
 
 ;; ---------- Egg (Git Frontend) ----------
 (when (executable-find "git")

@@ -1,9 +1,6 @@
 [submodule ".emacs.d/elisp/twittering-mode"]
 	path = .emacs.d/elisp/twittering-mode
 	url = https://github.com/hayamiz/twittering-mode.git
-[submodule ".emacs.d/elisp/term-plus-all"]
-	path = .emacs.d/elisp/term-plus-all
-	url = https://github.com/tarao/term-plus-all.git
 [submodule ".vim/bundle/closetag.vim"]
 	path = .vim/bundle/closetag.vim
 	url = https://github.com/vim-scripts/closetag.vim.git
@@ -28,9 +25,6 @@
 [submodule ".vim/bundle/ref.vim"]
 	path = .vim/bundle/ref.vim
 	url = https://github.com/vim-scripts/ref.vim.git
-[submodule ".emacs.d/elisp/smooth-scroll"]
-	path = .emacs.d/elisp/smooth-scroll
-	url = https://github.com/k-talo/smooth-scroll.el.git
 [submodule ".emacs.d/elisp/popwin-el"]
 	path = .emacs.d/elisp/popwin-el
 	url = https://github.com/m2ym/popwin-el.git

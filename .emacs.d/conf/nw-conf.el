@@ -81,28 +81,6 @@
 (set-face-attribute 'linum nil :foreground "red" :height 0.8)
 (setq linum-format "%4d ")
 
-;; ---------- wb-line-number ----------
-;; linum-modeを無効化してからwb-line-numberを有効にする
-;; (linum-modeはnw環境では不安定)
-;(global-linum-mode nil)
-;(require 'wb-line-number)
-;(setq wb-line-number-text-width 4)
-;(wb-line-number-enable)
-
-;; ---------- term+ ----------
-;(when (require 'term+ nil t)
-;  (require 'term+mux)
-;  (require 'xterm-256color)
-;  (require 'key-intercept)
-;  (require 'multi-mode-util)
-;  (add-hook 'term-mode-hook
-;            '(lambda()
-;               (setq term-default-fg-color (face-foreground 'default))
-;               (setq term-default-bg-color (face-background 'default))
-;               ))
-;  (define-key term+char-map (kbd "C-t") nil)
-;  (define-key term+char-map (kbd "C-z") nil))
-
 ;; ;; ---------- dic-lookup-w3m ----------
 ;; ;; w3mコマンドに依存しているのでここに記述
 ;; (when (require 'dic-lookup-w3m nil t)
