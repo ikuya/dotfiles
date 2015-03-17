@@ -249,6 +249,14 @@
                         (substring input-pattern 1)
                       (concat ".*" input-pattern)))))))
 
+;; helm-descbinds
+(when (require 'helm-descbinds nil t)
+  (helm-descbinds-mode)
+  ;; prior to emacs24
+  ;(helm-descbinds-mode 1)
+  )
+
+
 ;; ---------- diminish ----------
 (when (require 'diminish nil t)
   (diminish 'helm-mode)

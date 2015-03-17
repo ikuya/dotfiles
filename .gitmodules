@@ -58,3 +58,6 @@
 [submodule ".emacs.d/elisp/web-mode"]
 	path = .emacs.d/elisp/web-mode
 	url = https://github.com/fxbois/web-mode.git
+[submodule ".emacs.d/elisp/helm-descbinds"]
+	path = .emacs.d/elisp/helm-descbinds
+	url = https://github.com/emacs-helm/helm-descbinds.git
