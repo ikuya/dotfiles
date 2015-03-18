@@ -90,7 +90,7 @@
           ":home")))
 
 (defun twittering-mode-hooks()
-  (setq twittering-timer-interval 90)
+  ;(setq twittering-timer-interval 90)
   (setq truncate-partial-width-windows nil)
   (follow-mode t)
   (setq mode-name "twmode")
