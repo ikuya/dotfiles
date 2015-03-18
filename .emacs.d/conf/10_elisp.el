@@ -79,6 +79,7 @@
 (when (require 'twittering-mode nil t)
   ;; NEED GnuPG and (EasyPG or alpacs.el)
   ;; and append exec-path GnuPG path
+  (setq twittering-auth-method 'oauth)
   (setq twittering-use-master-password t)
   (setq twittering-initial-timeline-spec-string
         '("usobuku/c"
@@ -89,7 +90,7 @@
           ":home")))
 
 (defun twittering-mode-hooks()
-  (setq twittering-timer-interval 60)
+  (setq twittering-timer-interval 90)
   (setq truncate-partial-width-windows nil)
   (follow-mode t)
   (setq mode-name "twmode")
