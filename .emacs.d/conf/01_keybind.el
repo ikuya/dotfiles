@@ -138,6 +138,14 @@
 (fset 'move-current-line-to-window-bottom
    "\C-u-1\C-l")
 (define-key global-map (kbd "C-x C-c b") 'move-current-line-to-window-bottom)
+;; ハイフン25個
+(fset 'line-hyphen
+      "\C-u25-")
+(global-set-key (kbd "C-x C-c h") 'line-hyphen)
+;; イコール25個
+(fset 'line-equal
+   "\C-u25=")
+(global-set-key (kbd "C-x C-c e") 'line-equal)
 
 ;; ========== UNSET KEYBINDS ==========
 ;(global-unset-key "\C-t")
