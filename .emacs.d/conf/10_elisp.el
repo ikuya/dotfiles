@@ -165,9 +165,9 @@
 (defalias 'hankaku-zenkaku-space-buffer 'text-adjust-space-buffer)
 
 ;; ---------- yasnippet ----------
-(require 'yasnippet)
-(add-to-list 'yas/root-directory "~/.emacs.d/elisp/yasnippet-snippets")
-(yas/initialize)
+;(require 'yasnippet)
+;(add-to-list 'yas/root-directory "~/.emacs.d/elisp/yasnippet-snippets")
+;(yas/initialize)
 
 ;; ---------- GNU GLOBAL ----------
 (when (require 'gtags nil t)
@@ -261,6 +261,6 @@
 ;; ---------- diminish ----------
 (when (require 'diminish nil t)
   (diminish 'helm-mode)
-  (diminish 'yas-minor-mode)
+  ;(diminish 'yas-minor-mode)
   (diminish 'undo-tree-mode)
   )
