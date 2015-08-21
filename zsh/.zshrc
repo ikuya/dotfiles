@@ -135,7 +135,7 @@ function search() {
 ## Automatically rename tmux window using the current working directory.
 function rename_tmux_window() {
    if [ $TERM = "screen" ]; then
-       local current_path=`pwd`
+       local current_path=`pwd | sed -e s/\ /_/g`
        local current_dir=`basename $current_path`
        tmux rename-window $current_dir
    fi
