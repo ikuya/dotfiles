@@ -10,4 +10,4 @@
         d = diff
 [core]
         editor = $EDITOR
-        autocrlf = true
+        autocrlf = input
