@@ -11,10 +11,16 @@
 (electric-pair-mode t)
 
 ;; M-f の改良. 「次の単語の直前のスペース」ではなく, 「次の単語の先頭」に移動する
-(defun next-word(p)
-  "Move point to the beginning of the next word, past any spaces"
-  (interactive "d")
-  (forward-word)
-  (forward-word)
-  (backward-word))
-(global-set-key (kbd "M-f") 'next-word)
+(defun forward-word-to-beginning (&optional n)
+  "Move point forward n words and place cursor at the beginning."
+  (interactive "p")
+  (let (myword)
+    (setq myword
+      (if (and transient-mark-mode mark-active)
+        (buffer-substring-no-properties (region-beginning) (region-end))
+        (thing-at-point 'symbol)))
+    (if (not (eq myword nil))
+      (forward-word n))
+    (forward-word n)
+    (backward-word n)))
+(global-set-key (kbd "M-f") 'forward-word-to-beginning)
