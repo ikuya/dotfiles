@@ -6,8 +6,8 @@
 [alias]
         lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an:%ae>%Creset' --abbrev-commit --date=relative
         today = log --since=midnight --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold green)<%an:%ae>%Creset' --abbrev-commit --date=relative
-        graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cgreen%cn %Cred%d %Creset%s'
-        g = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cgreen%cn %Cred%d %Creset%s'
+        graph = log --graph --date=local --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cgreen%cn %Cred%d %Creset%s'
+        g = log --graph --date=local --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cgreen%cn %Cred%d %Creset%s'
         st = status
         d = diff
         df = diff FETCH_HEAD
