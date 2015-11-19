@@ -61,3 +61,6 @@
 [submodule ".emacs.d/elisp/helm-descbinds"]
 	path = .emacs.d/elisp/helm-descbinds
 	url = https://github.com/emacs-helm/helm-descbinds.git
+[submodule ".emacs.d/elisp/markdown-mode"]
+	path = .emacs.d/elisp/markdown-mode
+	url = https://github.com/defunkt/markdown-mode.git
