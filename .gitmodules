@@ -64,3 +64,6 @@
 [submodule ".emacs.d/elisp/markdown-mode"]
 	path = .emacs.d/elisp/markdown-mode
 	url = https://github.com/defunkt/markdown-mode.git
+[submodule ".emacs.d/elisp/scala-mode2"]
+	path = .emacs.d/elisp/scala-mode2
+	url = https://github.com/hvesalai/scala-mode2.git
