@@ -156,8 +156,8 @@
 (setq mozc-candidate-style 'echo-area)
 
 ;; MetaとSuperを入れ替える
-(setq x-meta-keysym 'super)
-(setq x-super-keysym 'meta)
+;;(setq x-meta-keysym 'super)
+;;(setq x-super-keysym 'meta)
 
 ;; Auto-completeを使ってMozcをモードレス入力
 ;; cf. http://hiroki.jp/ac-mozc-on-mac
