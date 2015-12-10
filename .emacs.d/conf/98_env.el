@@ -48,3 +48,12 @@
 ;(add-to-list 'ac-modes 'text-mode)
 ;(add-hook 'text-mode-hook 'my-ac-mozc-setup)
 
+;; ------------------------------
+;; MetaとSuperを入れ替える
+;; ------------------------------
+;; Mac上のVMでLinuxを動かすと、CmdがSuper, OptがMeta扱いとなるので、
+;; MetaとSuperを入れ替えてCmdをmeta扱いにすると楽。
+;; Windows上のVMではこの限りではないので、確認しよう。
+;;(setq x-meta-keysym 'super)
+;;(setq x-super-keysym 'meta)
+
