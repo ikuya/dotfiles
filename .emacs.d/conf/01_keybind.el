@@ -147,6 +147,9 @@
    "\C-u25=")
 (global-set-key (kbd "C-x C-c e") 'line-equal)
 
+;; 再描画
+(global-set-key (kbd "C-;") 'redraw-display)
+
 ;; ========== UNSET KEYBINDS ==========
 ;(global-unset-key "\C-t")
 (global-unset-key (kbd "C-x C-p"))
