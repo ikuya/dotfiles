@@ -180,3 +180,6 @@
 ;;                     :weight 'bold)
 ;; (set-face-attribute 'whitespace-empty nil
 ;;                     :background my/bg-color)
+
+;; メニューバーを表示しない
+(menu-bar-mode -1)

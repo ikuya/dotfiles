@@ -8,6 +8,7 @@
   "markdown-mode.el" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.txt\\'" . markdown-mode))
 ; プレビューでマルチバイト文字を扱うための設定
 ; cf. http://blog.uskanda.com/2012/02/09/emacs-markdown-mode-preview-ja/
 (setq markdown-command-needs-filename t)
