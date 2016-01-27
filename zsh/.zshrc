@@ -7,9 +7,9 @@
 
 #==============
 
-##
+## ----------
 ## General Settings
-##
+## ----------
 
 autoload -Uz colors
 autoload -Uz compinit
@@ -72,9 +72,9 @@ path=(
     $path
 )
 
-##
+## ----------
 ## Alias
-##
+## ----------
 
 ## General
 alias ls='ls -F'
@@ -104,9 +104,9 @@ alias gdf='git diff HEAD FETCH_HEAD'
 alias gmf='git merge FETCH_HEAD'
 alias gpo='git pull origin'
 
-##
+## ----------
 ## Functions
-##
+## ----------
 
 ## Full-text search
 function search() {
@@ -143,9 +143,41 @@ function rename_tmux_window() {
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd rename_tmux_window
 
-##
+# w3mでgoogle検索
+function google() {
+    local str opt
+    if [ $ != 0 ]; then
+        for i in $*; do
+            str="$str+$i"
+        done
+        str=`echo $str | sed 's/^\+//'`
+        opt='search?num=50&hl=ja&lr=lang_ja'
+        opt="${opt}&q=${str}"
+    fi
+    w3m http://www.google.co.jp/$opt
+}
+
+# w3mでALC検索
+function alc() {
+    if [ $ != 0 ]; then
+        w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa"
+    else
+        w3m "http://www.alc.co.jp/"
+    fi
+}
+
+# w3mでLongman Dictionary検索
+function lm() {
+    if [ $ != 0 ]; then
+        w3m "http://www.ldoceonline.com/search/?q=$*"
+    else
+        w3m "http://www.ldoceonline.com/search/"
+    fi
+}
+
+## ----------
 ## VCS
-##
+## ----------
 
 ## Gathering information from version control systems
 autoload -Uz vcs_info
