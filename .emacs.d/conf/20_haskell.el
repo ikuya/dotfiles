@@ -1,6 +1,6 @@
 ;; ========== Haskell mode ==========
 (require 'haskell-mode-autoloads)
-(add-to-list 'Info-default-directory-list "~/work/dotfiles/.emacs.d/elisp/haskell-mode/")
+(add-to-list 'Info-default-directory-list "~/.emacs.d/elisp/haskell-mode/")
 
 (add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
 (add-to-list 'auto-mode-alist '("\\.lhs$" . literate-haskell-mode))
@@ -14,4 +14,6 @@
             (local-set-key [backtab] 'haskell-indent-cycle)))
 
 ;; ---------- Keybind ----------
-(define-key haskell-mode-map (kbd "C-c a") 'align-regexp)
+(add-hook 'haskell-mode-hook
+          '(lambda()
+             (define-key haskell-mode-map (kbd "C-c a") 'align-regexp)))
