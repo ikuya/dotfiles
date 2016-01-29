@@ -58,6 +58,7 @@
 ;;(setq x-super-keysym 'meta)
 
 ;; 数字列を3桁毎にcommaで区切る
+;; http://www.emacswiki.org/emacs/AddCommasToNumbers
 (defun add-commas-to-numbers (number &optional separator)
   "Add commas to NUMBER and return it as a string.
 Optional SEPARATOR is the string to use to separate groups.
