@@ -67,3 +67,12 @@
 [submodule ".emacs.d/elisp/scala-mode2"]
 	path = .emacs.d/elisp/scala-mode2
 	url = https://github.com/hvesalai/scala-mode2.git
+[submodule ".emacs.d/elisp/auto-complete"]
+	path = .emacs.d/elisp/auto-complete
+	url = https://github.com/auto-complete/auto-complete.git
+[submodule ".emacs.d/elisp/fuzzy-el"]
+	path = .emacs.d/elisp/fuzzy-el
+	url = https://github.com/auto-complete/fuzzy-el.git
+[submodule ".emacs.d/elisp/popup-el"]
+	path = .emacs.d/elisp/popup-el
+	url = https://github.com/auto-complete/popup-el.git
