@@ -170,13 +170,13 @@
 ;(yas/initialize)
 
 ;; ---------- GNU GLOBAL ----------
-(when (require 'gtags nil t)
-  (setq gtags-mode-hook
+(when (require 'helm-gtags nil t)
+  (setq helm-gtags-mode-hook
        '(lambda()
-          (define-key gtags-mode-map (kbd "M-t") 'gtags-find-tag)
-          (define-key gtags-mode-map (kbd "M-r") 'gtags-find-rtag)
-          (define-key gtags-mode-map (kbd "M-s") 'gtags-find-symbol)
-          (define-key gtags-mode-map (kbd "M-h") 'gtags-pop-stack))))
+          (define-key helm-gtags-mode-map (kbd "M-t") 'helm-gtags-find-tag)
+          (define-key helm-gtags-mode-map (kbd "M-r") 'helm-gtags-find-rtag)
+          (define-key helm-gtags-mode-map (kbd "M-s") 'helm-gtags-find-symbol)
+          (define-key helm-gtags-mode-map (kbd "M-h") 'helm-gtags-pop-stack))))
 
 ;; ---------- uniquify ----------
 ;; uniquify is a Built-in el
