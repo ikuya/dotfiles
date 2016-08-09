@@ -25,9 +25,9 @@
                (enlarge-window-horizontally dx))
               ((= c ?h)
                (shrink-window-horizontally dx))
-              ((= c ?k)
-               (enlarge-window dy))
               ((= c ?j)
+               (enlarge-window dy))
+              ((= c ?k)
                (shrink-window dy))
               ;; otherwise
               (t
