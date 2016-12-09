@@ -40,11 +40,17 @@
 ;; jump: ランダムに移動; animate: ランダムに移動(アニメーション) none:移動しない
 ;(if (display-mouse-p) (mouse-avoidance-mode 'banish))
 
+;; 行番号を表示
+(require 'linum)
+(defun linum-format-func (line)
+  (let ((w (length (number-to-string (count-lines (point-min) (point-max))))))
+     (propertize (format (format "%%%dd " w) line) 'face 'linum)))
+(setq linum-format 'linum-format-func)
+(global-linum-mode t)
+
 ;; ========== MODE LINE ==========
 ;; 行番号
-(if (>= emacs-major-version 23)
-    (global-linum-mode t)
-  (setq line-number-mode t))
+(setq line-number-mode t)
 ;; 列番号
 (setq column-number-mode t)
 ;; ファイルサイズ
