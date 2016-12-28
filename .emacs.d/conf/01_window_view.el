@@ -1,11 +1,17 @@
-;; ========== WINDOW ==========
+;; =========================
+;;   Window & View
+;; =========================
 
-;; 一行ずつスクロール
+;; color theme
+(when (require 'color-theme nil t)
+  (color-theme-initialize))
+
+;; 一行ずつスクロール
 (setq scroll-conservatively 1)
 ;; 一画面分スクロールしたときに新しい画面内に残る行数
 (setq next-screen-context-lines 1)
 
-;; ウインドウのリサイズ(interactive)
+;; ウインドウのリサイズ(interactive)
 ; http://d.hatena.ne.jp/mooz/20100119/p1
 (defun window-resizer()
   "Control window size and position."
@@ -35,9 +41,9 @@
                (throw 'end-flag t)))))))
 (define-key global-map (kbd "C-x C-c w") 'window-resizer)
 
-;; 入力中のマウスカーソルが邪魔
-;; banish: 右上隅に移動; exile: 右上隅に移動(しばらくすると元に戻る
-;; jump: ランダムに移動; animate: ランダムに移動(アニメーション) none:移動しない
+;; 入力中のマウスカーソルが邪魔
+;; banish: 右上隅に移動; exile: 右上隅に移動(しばらくすると元に戻る
+;; jump: ランダムに移動; animate: ランダムに移動(アニメーション) none:移動しない
 ;(if (display-mouse-p) (mouse-avoidance-mode 'banish))
 
 ;; 行番号を表示
@@ -48,13 +54,12 @@
 (setq linum-format 'linum-format-func)
 (global-linum-mode t)
 
-;; ========== MODE LINE ==========
-;; 行番号
-(setq line-number-mode t)
 ;; 列番号
 (setq column-number-mode t)
-;; ファイルサイズ
+
+;; ファイルサイズ
 (size-indication-mode 0)
+
 ;; 日付と時間
 (setq display-time-string-forms
       '((format "%s %s %s %s:%s"
@@ -62,10 +67,10 @@
                 )))
 (display-time-mode t)
 
-;; バッテリー残量
+;; バッテリー残量
 (display-battery-mode 0)
 
-;; モードラインの表示を詰める
+;; モードラインの表示を詰める
 ; http://homepage1.nifty.com/blankspace/emacs/mode-line.html
 (setq-default mode-line-format
               '("-"
@@ -113,15 +118,15 @@
                            (interactive)
                            (split-window-horizontally-n 3)))
 
-;; ウィンドウの移動
-;; 反対側のウィンドウに移動できるように
+;; ウィンドウの移動
+;; 反対側のウィンドウに移動できるように
 (setq windmove-wrap-around t)
 (define-key global-map (kbd "C-M-k") 'windmove-up)
 (define-key global-map (kbd "C-M-j") 'windmove-down)
 (define-key global-map (kbd "C-M-h") 'windmove-left)
 (define-key global-map (kbd "C-M-l") 'windmove-right)
 
-;; 分割したウィンドウのバッファを入れ替え
+;; 分割したウィンドウのバッファを入れ替え
 ;; http://www.bookshelf.jp/soft/meadow_30.html#SEC400
 (defun swap-screen()
   "Swap two screen, leaving cursor at current window."
@@ -142,50 +147,57 @@
 (global-set-key [S-f2] 'swap-screen-with-cursor)
 (global-set-key (kbd "C-x C-c r") 'swap-screen-with-cursor)
 
-;; ---------- Whitespace mode ----------
-;; 空白, タブ文字を可視化する
+;; Whitespace mode
 (require 'whitespace)
-;; (setq whitespace-style '(face           ; faceで可視化
-;;                          trailing       ; 行末
-;;                          tabs           ; タブ
-;;                          spaces         ; スペース
-;;                          empty          ; 先頭/末尾の空行
-;;                          space-mark     ; 表示のマッピング
-;;                          tab-mark
-;;                          ))
-
-;; (setq whitespace-display-mappings
-;;       '((space-mark ?\u3000 [?\u25a1])
-;;         ;; WARNING: the mapping below has a problem.
-;;         ;; When a TAB occupies exactly one column, it will display the
-;;         ;; character ?\xBB at that column followed by a TAB which goes to
-;;         ;; the next TAB column.
-;;         ;; If this is a problem for you, please, comment the line below.
-;;         (tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t])))
-
-;; スペースは全角のみを可視化
+;; スペースは全角のみを可視化
 (setq whitespace-space-regexp "\\(\u3000+\\)")
-
-;; 保存前に自動でクリーンアップ
+;; 保存前に自動でクリーンアップ
 (setq whitespace-action '(auto-cleanup))
 
-;; (global-whitespace-mode 1)
-
-;; (defvar my/bg-color "#232323")
-;; (set-face-attribute 'whitespace-trailing nil
-;;                     :background my/bg-color
-;;                     :foreground "DeepPink"
-;;                     :underline t)
-;; (set-face-attribute 'whitespace-tab nil
-;;                     :background my/bg-color
-;;                     :foreground "LightSkyBlue"
-;;                     :underline t)
-;; (set-face-attribute 'whitespace-space nil
-;;                     :background my/bg-color
-;;                     :foreground "GreenYellow"
-;;                     :weight 'bold)
-;; (set-face-attribute 'whitespace-empty nil
-;;                     :background my/bg-color)
-
-;; メニューバーを表示しない
+;; メニューバーを表示しない
 (menu-bar-mode -1)
+
+;; -------------------------
+;;   keybind
+;; -------------------------
+
+;; ウィンドウの切り替え([C-x o]と同じ)
+(define-key global-map (kbd "C-x C-o") 'other-window)
+;; 半ページスクロール
+; http://archive.linux.or.jp/JF/JFdocs/mouse-wheel-scroll-12.html
+(defun scroll-down-half-a-page()
+  "Scroll-down-half-a-page"
+  (interactive)
+  (scroll-down (/ (window-height) 2)))
+(define-key global-map (kbd "C-x C-c M-v") 'scroll-down-half-a-page)
+(defun scroll-up-half-a-page()
+  "Scroll up half a page"
+  (interactive)
+  (scroll-up (/ (window-height) 2)))
+(define-key global-map (kbd "C-x C-c C-v") 'scroll-up-half-a-page)
+;; 他のウィンドウをスクロール(C-M-v, C-S-M-vの代替)
+(define-key global-map (kbd "C-x C-c C-n") 'scroll-other-window)
+(define-key global-map (kbd "C-x C-c C-p") 'scroll-other-window-down)
+;; 折り返し表示のトグル
+(define-key global-map (kbd "C-x C-c C-l") 'toggle-truncate-lines)
+;; undo-tree-visualize
+(define-key global-map (kbd "C-x C-c .") 'undo-tree-visualize)
+;; カーソルを移動させずに画面を一行ずつスクロール
+; Emacs24では'scroll-up-line 'scroll-down-line というコマンドがあるらしい
+(define-key global-map (kbd "M-n") (lambda() (interactive) (scroll-up 1)))
+(define-key global-map (kbd "M-p") (lambda() (interactive) (scroll-down 1)))
+
+;; -------------------------
+;;   macro
+;; -------------------------
+
+;; カーソル行をwindow上端に移動
+(fset 'move-current-line-to-window-top
+   "\C-u0\C-l")
+(define-key global-map (kbd "C-x C-c t") 'move-current-line-to-window-top)
+;; カーソル行をwindow下端に移動
+(fset 'move-current-line-to-window-bottom
+   "\C-u-1\C-l")
+(define-key global-map (kbd "C-x C-c b") 'move-current-line-to-window-bottom)
+;; 再描画
+(global-set-key (kbd "C-:") 'redraw-display)

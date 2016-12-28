@@ -1,8 +1,6 @@
-;; ========== Elisp Config Misc (.emacs.d/elisp) ==========
-
-;; ---------- color-theme ----------
-(when (require 'color-theme nil t)
-  (color-theme-initialize))
+;; =========================
+;;   Module Settings (.emacs.d/elisp)
+;; =========================
 
 ;; ---------- color-moccur ----------
 (when (require 'color-moccur nil t)
@@ -10,12 +8,12 @@
   ;(define-key global-map (kbd "M-o") 'occur-by-moccur)
   ; moccur(multi buffer search)
   (define-key global-map (kbd "M-o") 'moccur)
-  ; スペース区切りでAND検索
+  ; スペース区切りでAND検索
   (setq moccur-split-word t)
-  ; ディレクトリ検索時に除外するファイル
+  ; ディレクトリ検索時に除外するファイル
   (add-to-list 'dmoccur-exclusion-mask "\\.DS_Store")
   (add-to-list 'dmoccur-exclusion-mask "^#.+#$")
-  ; Migemoを利用できる環境であれば、Migemoを使う
+  ; Migemoを利用できる環境であれば、Migemoを使う
   (when (and (executable-find "cmigemo")
              (require 'migemo nil t))
     (setq moccur-use-migemo t)))
@@ -38,11 +36,11 @@
   (ac-config-default)
   ;; ac-disable-facesの初期値は
   ;; (font-lock-comment-face font-lock-string-face font-lock-doc-face)
-  ;; font-lock-comment-faceがあるとコメントの中で,
-  ;; font-lock-string-faceがあるとクオートで囲まれた部分"..."で
-  ;; auto-completeが反応しなくなり、セレクタを補完できないので次のように
+  ;; font-lock-comment-faceがあるとコメントの中で,
+  ;; font-lock-string-faceがあるとクオートで囲まれた部分"..."で
+  ;; auto-completeが反応しなくなり、セレクタを補完できないので次のように
   (setq ac-disable-faces '(font-lock-doc-face))
-  ;; yasnippet絡みのエラーが発生するので、その対処
+  ;; yasnippet絡みのエラーが発生するので、その対処
   ;; http://www.kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet/
   (delq 'ac-source-yasnippet ac-sources)
   )
@@ -52,9 +50,9 @@
 (setq howm-directory (concat user-emacs-directory "howm"))
 ;(setq howm-menu-lang 'ja)
 (when (require 'howm-mode nil t)
-  ; C-c , , でhowm-menu起動
+  ; C-c , , でhowm-menu起動
   (define-key global-map (kbd "C-c ,,") 'howm-menu))
-;; メモを保存と同値に閉じる
+;; メモを保存と同値に閉じる
 (defun howm-save-buffer-and-kill()
   "Save howm note and kill immediately."
   (interactive)
@@ -83,7 +81,6 @@
   (setq twittering-use-master-password t)
   (setq twittering-initial-timeline-spec-string
         '("usobuku/c"
-          "usobuku/f"
           "masafuminegishi/security-jp"
           ;":mentions"
           "usobuku/news"
@@ -113,11 +110,11 @@
              ))
 
 ;; ---------- IRC (rcirc.el) ----------
-;; irc-freenode.net サーバの emacs-lisp-ja チャンネルと emacs-ja チャンネルに入る
+;; irc-freenode.net サーバの emacs-lisp-ja チャンネルと emacs-ja チャンネルに入る
 (setq rcirc-server-alist
       '(("irc.freenode.net"
          :channels ("#emacs-lisp-ja" "#emacs-ja"))))
-(setq rcirc-log-flag nil) ;ログを保存 (t/nil)
+(setq rcirc-log-flag nil) ;ログを保存 (t/nil)
 
 ;; ---------- navi2ch ----------
 (when (require 'navi2ch nil t)
@@ -130,21 +127,21 @@
   (setq navi2ch-history-max-line nil))
 
 ;; ---------- ffap.el ----------
-;; C-x C-fで、カーソル位置のファイル・URLをMini-bufferに表示
+;; C-x C-fで、カーソル位置のファイル・URLをMini-bufferに表示
 (ffap-bindings)
 
 ;; ---------- iswitchb.el ----------
-;; C-x b で部分一致を有効に
+;; C-x b で部分一致を有効に
 (iswitchb-mode 1)
-;; バッファ読み取り関数をiswitchbにする
+;; バッファ読み取り関数をiswitchbにする
 (setq read-buffer-function 'iswitchb-read-buffer)
 ;; 部分文字列の代わりに正規表現を使う場合は t を設定
 (setq iswitchb-regexp nil)
-;; 新しいバッファ作成時にいちいち聞いてこない
+;; 新しいバッファ作成時にいちいち聞いてこない
 (setq iswitchb-prompt-newbuffer nil)
 
 ;; ---------- bookmark.el ----------
-;; Bookmarkを変更したらすぐに保存する
+;; Bookmarkを変更したらすぐに保存する
 (setq bookmark-save-flag 1)
 ;; 最近使ったBookmarkをリストの先頭に移動
 (progn
@@ -164,12 +161,7 @@
 (defalias 'hankaku-zenkaku-space 'text-adjust-space)
 (defalias 'hankaku-zenkaku-space-buffer 'text-adjust-space-buffer)
 
-;; ---------- yasnippet ----------
-;(require 'yasnippet)
-;(add-to-list 'yas/root-directory "~/.emacs.d/elisp/yasnippet-snippets")
-;(yas/initialize)
-
-;; ---------- GNU GLOBAL ----------
+;; ---------- gnu global ----------
 (when (require 'helm-gtags nil t)
   (setq helm-gtags-mode-hook
        '(lambda()
@@ -177,12 +169,6 @@
           (define-key helm-gtags-mode-map (kbd "M-r") 'helm-gtags-find-rtag)
           (define-key helm-gtags-mode-map (kbd "M-s") 'helm-gtags-find-symbol)
           (define-key helm-gtags-mode-map (kbd "M-h") 'helm-gtags-pop-stack))))
-
-;; ---------- uniquify ----------
-;; uniquify is a Built-in el
-; http://d.hatena.ne.jp/wadap/20120415/1334468285
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
 ;; ---------- popwin.el ----------
 (require 'popwin nil t)
@@ -192,10 +178,6 @@
                                       ("*compilatoin*" :noselect t)
                                       ("helm" :regexp t :height 0.4)
                                       ))
-
-;; ---------- ispell ----------
-(require 'ispell nil t)
-(setq-default ispell-program-name "aspell")
 
 ;; ---------- json-reformat ----------
 ;; http://gongo.hatenablog.com/entry/2012/02/10/222051
@@ -259,8 +241,8 @@
 
 
 ;; ---------- diminish ----------
+;; 指定したマイナーモードを表示しない
 (when (require 'diminish nil t)
   (diminish 'helm-mode)
-  ;(diminish 'yas-minor-mode)
   (diminish 'undo-tree-mode)
   )
