@@ -37,6 +37,15 @@
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
 
+;; -------------------------
+;;   unset keybind
+;; -------------------------
+
+;(global-unset-key "\C-t")
+(global-unset-key (kbd "C-x C-p"))
+;; C-x C-cをunbind (save-buffers-kill-terminalは01_keybind.elでbind
+(global-unset-key (kbd "C-x C-c"))
+
 ;; Emacsの終了
 (define-key global-map (kbd "C-x C-c C-c") 'save-buffers-kill-terminal)
 ;; Emacs終了時に本当に終了するのか確認する
@@ -68,13 +77,4 @@
 ;; Help
 (define-key global-map (kbd "C-x ?") 'help-command)
 (define-key global-map (kbd "C-x /") 'help-command)
-
-;; -------------------------
-;;   unset keybind
-;; -------------------------
-
-;(global-unset-key "\C-t")
-(global-unset-key (kbd "C-x C-p"))
-;; C-x C-cをunbind (save-buffers-kill-terminalは01_keybind.elでbind
-(global-unset-key (kbd "C-x C-c"))
 
