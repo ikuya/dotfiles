@@ -59,8 +59,8 @@ export LANG=en_US.UTF-8
 
 ## PATH
 # path はPATHの内容と同期している配列変数。
-# 末尾に(N-/)をつけると、存在しないパスの場合に空文字に置換される。
-# echo ${(F)path} とやると配列要素を改行で連結するので見やすくなる
+# 末尾に(N-/)をつけると、存在しないパスの場合に空文字に置換される。
+# echo ${(F)path} とやると配列要素を改行で連結するので見やすくなる
 # 環境固有のPATHは zshenv に記載
 path=(
     $HOME/bin(N-/)
@@ -114,19 +114,20 @@ function search() {
     file=*
     case $# in
         0)
-        echo usage: search [DIR [FILE]] STRING
+            echo 'usage: search [DIR [FILE]] STRING'
+            return 1
         ;;
         1)
-        string=$2
+            string=$2
         ;;
         2)
-        string=$2
-        dir=$1
+            string=$2
+            dir=$1
         ;;
         3)
-        string=$3
-        dir=$1
-        file=$2
+            string=$3
+            dir=$1
+            file=$2
         ;;
     esac
     find $dir -name "$file" -exec grep -IHn $string {} \; 2>/dev/null;
@@ -143,7 +144,7 @@ function rename_tmux_window() {
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd rename_tmux_window
 
-# w3mでgoogle検索
+# w3mでgoogle検索
 function google() {
     local str opt
     if [ $ != 0 ]; then
@@ -157,7 +158,7 @@ function google() {
     w3m http://www.google.co.jp/$opt
 }
 
-# w3mでALC検索
+# w3mでALC検索
 function alc() {
     if [ $ != 0 ]; then
         w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa"
@@ -166,7 +167,7 @@ function alc() {
     fi
 }
 
-# w3mでLongman Dictionary検索
+# w3mでLongman Dictionary検索
 function lm() {
     if [ $ != 0 ]; then
         w3m "http://www.ldoceonline.com/search/?q=$*"
