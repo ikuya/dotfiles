@@ -152,4 +152,7 @@
 (fset 'line-equal
    "\C-u25=")
 (global-set-key (kbd "C-x C-c e") 'line-equal)
-
+;; 破線15個
+(fset 'line-dashed
+      "- - - - - - - - - - - - - - -")
+(global-set-key (kbd "C-x C-c d") 'line-dashed)
