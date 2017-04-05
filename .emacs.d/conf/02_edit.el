@@ -136,14 +136,10 @@
 (fset 'copy-whole-line
       "\C-x\C-c\C-k\C-y")
 (define-key global-map (kbd "C-x C-c M-w") 'copy-whole-line)
-;; 直上の行にヤンク
-(fset 'paste-on-a-line-above
-   "\C-x\C-c\C-o\C-y")
-(define-key global-map (kbd "C-x C-c C-y") 'paste-on-a-line-above)
 ;; カーソル行と直下の行を連結
 (fset 'join-lines-without-whitespace
    [?\C-n ?\C-a backspace])
-(define-key global-map (kbd "C-x C-c C-j") 'join-lines-without-whitespace)
+(define-key global-map (kbd "C-x C-c j") 'join-lines-without-whitespace)
 ;; ハイフン25個
 (fset 'line-hyphen
       "\C-u25-")
