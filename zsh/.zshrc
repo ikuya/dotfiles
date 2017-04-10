@@ -5,8 +5,6 @@
 # log in shell: /etc/zshenv -> $ZDOTDIR/.zshenv -> /etc/zprofile -> $ZDOTDIR/.zprofile -> /etc/zshrc -> $ZDOTDIR/.zshrc -> /etc/zlogin -> $ZDOTDIR/.zlogin
 # interactive shell: /etc/zshenv -> $ZDOTDIR/.zshenv -> /etc/zshrc -> $ZDOTDIR/.zshrc
 
-#==============
-
 ## ----------
 ## General Settings
 ## ----------
@@ -83,8 +81,6 @@ alias ll='ls -lF'
 alias lla='ls -AlF'
 alias llt='ls -tlF'
 alias sl='ls'
-alias du='du -c'
-alias cal='cal -m3'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -98,11 +94,6 @@ alias revertkey-tmux='tmux set-option -t 0 prefix C-t'
 alias g='git'
 alias gst='git status'
 alias gd='git diff'
-alias gl='git log'
-alias gf='git fetch'
-alias gdf='git diff HEAD FETCH_HEAD'
-alias gmf='git merge FETCH_HEAD'
-alias gpo='git pull origin'
 
 ## ----------
 ## Functions
@@ -143,38 +134,6 @@ function rename_tmux_window() {
 }
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd rename_tmux_window
-
-# w3mでgoogle検索
-function google() {
-    local str opt
-    if [ $ != 0 ]; then
-        for i in $*; do
-            str="$str+$i"
-        done
-        str=`echo $str | sed 's/^\+//'`
-        opt='search?num=50&hl=ja&lr=lang_ja'
-        opt="${opt}&q=${str}"
-    fi
-    w3m http://www.google.co.jp/$opt
-}
-
-# w3mでALC検索
-function alc() {
-    if [ $ != 0 ]; then
-        w3m "http://eow.alc.co.jp/$*/UTF-8/?ref=sa"
-    else
-        w3m "http://www.alc.co.jp/"
-    fi
-}
-
-# w3mでLongman Dictionary検索
-function lm() {
-    if [ $ != 0 ]; then
-        w3m "http://www.ldoceonline.com/search/?q=$*"
-    else
-        w3m "http://www.ldoceonline.com/search/"
-    fi
-}
 
 ## ----------
 ## VCS
