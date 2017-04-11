@@ -4,30 +4,35 @@ calculate_used_mem() {
     if ! type vm_stat > /dev/null 2>&1; then
         # free
         FREE=`free`
+
         MEM_USED=$(echo "$FREE" | awk 'NR==3 {print $3}')
         MEM_FREE=$(echo "$FREE" | awk 'NR==3 {print $4}')
         MEM_TOTAL=$(echo `echo "$MEM_USED + $MEM_FREE" | bc`)
-        USED_MEM_PERCENT_BY_FREE_COMMAND=$(echo `echo "scale=4; $MEM_USED / $MEM_TOTAL * 100" | bc | sed -e 's/^\(....\).*/\1/'`)
-        echo "Mem:${USED_MEM_PERCENT_BY_FREE_COMMAND}%"
+        USED_MEM_PERCENT=$(echo `echo "scale=4; $MEM_USED / $MEM_TOTAL * 100" | bc | sed -e 's/^\(....\).*/\1/'`)
     else
     	# vm_stat
         VM_STAT=`vm_stat`
-        PAGES_FREE=$(echo "$VM_STAT" | awk '/Pages free/ {print $NF}' | tr -d '.')
+
+        PAGES_WIRED=$(echo "$VM_STAT" | awk '/Pages wired down/ {print $NF}' | tr -d '.')
         PAGES_ACTIVE=$(echo "$VM_STAT" | awk '/Pages active/ {print $NF}' | tr -d '.')
         PAGES_INACTIVE=$(echo "$VM_STAT" | awk '/Pages inactive/ {print $NF}' | tr -d '.')
         PAGES_SPECULATIVE=$(echo "$VM_STAT" | awk '/Pages speculative/ {print $NF}' | tr -d '.')
-        PAGES_WIRED=$(echo "$VM_STAT" | awk '/Pages wired down/ {print $NF}' | tr -d '.')
-        # 空きメモリ
-        FREE_MEM=$(($PAGES_FREE + $PAGES_SPECULATIVE | bc))
-        # 使用中メモリ
-        USED_MEM=$(($PAGES_ACTIVE + $PAGES_INACTIVE + $PAGES_WIRED | bc))
-        # 合計
-        TOTAL_MEM=$(($FREE_MEM + $USED_MEM |bc))
-        # 使用中メモリ(%)
-        # 小数点第1位まで求めて後から小数点文字(ドット)を挿入
-        USED_MEM_PERCENT=$(echo "$(($USED_MEM * 1000 / $TOTAL_MEM |bc))" | sed -e 's/\(.*\)\([0-9]\)/\1.\2/' -e 's/^\./0./')
-        echo "Mem:${USED_MEM_PERCENT}%"
+        PAGES_OCCUPIED=$(echo "$VM_STAT" | awk '/Pages occupied by compressor/ {print $NF}' | tr -d '.')
+        PAGES_PURGEABLE=$(echo "$VM_STAT" | awk '/Pages purgeable/ {print $NF}' | tr -d '.')
+        FILE_BACKED_PAGES=$(echo "$VM_STAT" |awk '/File-backed pages/ {print $NF}' | tr -d '.')
+        CACHED=$(($PAGES_PURGEABLE + $FILE_BACKED_PAGES |bc))
+        USED_MEM=$(($PAGES_WIRED +
+                    $PAGES_ACTIVE +
+                    $PAGES_INACTIVE +
+                    $PAGES_SPECULATIVE +
+                    $PAGES_OCCUPIED -
+                    $CACHED | bc ))
+        FREE_MEM=$(echo "$VM_STAT" | awk '/Pages free/ {print $NF}' | tr -d '.')
+        TOTAL_MEM=$(($USED_MEM + $CACHED + $FREE_MEM | bc))
+
+        USED_MEM_PERCENT=$(echo `echo "scale=4; $USED_MEM / $TOTAL_MEM * 100" | bc | sed -e 's/^\(....\).*/\1/'`)
     fi
+    echo "Mem:${USED_MEM_PERCENT}%"
     return 0
 }
 
