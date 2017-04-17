@@ -155,18 +155,18 @@
 (setq default-input-method 'japanese-mozc)
 (setq mozc-candidate-style 'echo-area)
 
-;; Auto-completeを使ってMozcをモードレス入力
-;; cf. http://hiroki.jp/ac-mozc-on-mac
-(when (require 'ac-mozc nil t)
-  (defun my-ac-mozc-setup ()
-    (setq ac-sources
-          '(ac-source-mozc ac-source-ascii-words-in-same-mode-buffers))
-    (set (make-local-variable 'ac-auto-show-menu) 0.2))
-
-  ; Mozcモードレス入力を有効にするフック
-  (add-to-list 'ac-modes 'markdown-mode)
-  (add-hook 'markdown-mode-hook 'my-ac-mozc-setup)
-  )
+;;; Auto-completeを使ってMozcをモードレス入力
+;;; cf. http://hiroki.jp/ac-mozc-on-mac
+;(when (require 'ac-mozc nil t)
+;  (defun my-ac-mozc-setup ()
+;    (setq ac-sources
+;          '(ac-source-mozc ac-source-ascii-words-in-same-mode-buffers))
+;    (set (make-local-variable 'ac-auto-show-menu) 0.2))
+; 
+;  ; Mozcモードレス入力を有効にするフック
+;  (add-to-list 'ac-modes 'markdown-mode)
+;  (add-hook 'markdown-mode-hook 'my-ac-mozc-setup)
+;  )
 
 ;; デフォルトの文字コードをUTF-8にする
 ; 03_input に書きたいところだが、leim読み込み時にEUC-JP に上書きされてしまうため、とりあえずここに書いておく。
