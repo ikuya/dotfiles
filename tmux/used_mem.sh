@@ -2,12 +2,8 @@
 
 calculate_used_mem() {
     if ! type vm_stat > /dev/null 2>&1; then
-        # free
-        FREE=`free`
-
-        MEM_USED=$(echo "$FREE" | awk 'NR==3 {print $3}')
-        MEM_FREE=$(echo "$FREE" | awk 'NR==3 {print $4}')
-        MEM_TOTAL=$(echo `echo "$MEM_USED + $MEM_FREE" | bc`)
+        MEM_TOTAL=`free |awk 'NR==2 {print $2}'`
+        MEM_USED=`free |awk 'NR==2 {print $3}'`
         USED_MEM_PERCENT=$(echo `echo "scale=4; $MEM_USED / $MEM_TOTAL * 100" | bc | sed -e 's/^\(....\).*/\1/'`)
     else
     	# vm_stat
