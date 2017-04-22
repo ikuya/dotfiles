@@ -171,3 +171,8 @@
 ;; デフォルトの文字コードをUTF-8にする
 ; 03_input に書きたいところだが、leim読み込み時にEUC-JP に上書きされてしまうため、とりあえずここに書いておく。
 (set-default-coding-systems 'utf-8)
+
+;; set windows key to meta
+(setq x-super-keysym 'meta)
+;; set alt key to meta
+;(setq x-super-keysym 'meta)
