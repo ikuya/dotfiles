@@ -6,12 +6,12 @@
 (when (require 'color-theme nil t)
   (color-theme-initialize))
 
-;; 一行ずつスクロール
+;; 一行ずつスクロール
 (setq scroll-conservatively 1)
 ;; 一画面分スクロールしたときに新しい画面内に残る行数
 (setq next-screen-context-lines 1)
 
-;; ウインドウのリサイズ(interactive)
+;; ウインドウのリサイズ(interactive)
 ; http://d.hatena.ne.jp/mooz/20100119/p1
 (defun window-resizer()
   "Control window size and position."
@@ -41,10 +41,10 @@
                (throw 'end-flag t)))))))
 (define-key global-map (kbd "C-x C-c w") 'window-resizer)
 
-;; 入力中のマウスカーソルが邪魔
-;; banish: 右上隅に移動; exile: 右上隅に移動(しばらくすると元に戻る
-;; jump: ランダムに移動; animate: ランダムに移動(アニメーション) none:移動しない
-;(if (display-mouse-p) (mouse-avoidance-mode 'banish))
+;; 入力中のマウスカーソルが邪魔
+;; banish: 右上隅に移動; exile: 右上隅に移動(しばらくすると元に戻る
+;; jump: ランダムに移動; animate: ランダムに移動(アニメーション) none:移動しない
+(if (display-mouse-p) (mouse-avoidance-mode 'banish))
 
 ;; 行番号を表示
 (require 'linum)
@@ -57,7 +57,7 @@
 ;; 列番号
 (setq column-number-mode t)
 
-;; ファイルサイズ
+;; ファイルサイズ
 (size-indication-mode 0)
 
 ;; 日付と時間
@@ -67,10 +67,10 @@
                 )))
 (display-time-mode t)
 
-;; バッテリー残量
+;; バッテリー残量
 (display-battery-mode 0)
 
-;; モードラインの表示を詰める
+;; モードラインの表示を詰める
 ; http://homepage1.nifty.com/blankspace/emacs/mode-line.html
 (setq-default mode-line-format
               '("-"
@@ -118,15 +118,15 @@
                            (interactive)
                            (split-window-horizontally-n 3)))
 
-;; ウィンドウの移動
-;; 反対側のウィンドウに移動できるように
+;; ウィンドウの移動
+;; 反対側のウィンドウに移動できるように
 (setq windmove-wrap-around t)
 (define-key global-map (kbd "C-M-k") 'windmove-up)
 (define-key global-map (kbd "C-M-j") 'windmove-down)
 (define-key global-map (kbd "C-M-h") 'windmove-left)
 (define-key global-map (kbd "C-M-l") 'windmove-right)
 
-;; 分割したウィンドウのバッファを入れ替え
+;; 分割したウィンドウのバッファを入れ替え
 ;; http://www.bookshelf.jp/soft/meadow_30.html#SEC400
 (defun swap-screen()
   "Swap two screen, leaving cursor at current window."
@@ -149,21 +149,21 @@
 
 ;; Whitespace mode
 (require 'whitespace)
-;; スペースは全角のみを可視化
+;; スペースは全角のみを可視化
 (setq whitespace-space-regexp "\\(\u3000+\\)")
-;; 保存前に自動でクリーンアップ
+;; 保存前に自動でクリーンアップ
 (setq whitespace-action '(auto-cleanup))
 
-;; メニューバーを表示しない
+;; メニューバーを表示しない
 (menu-bar-mode -1)
 
 ;; -------------------------
 ;;   keybind
 ;; -------------------------
 
-;; ウィンドウの切り替え([C-x o]と同じ)
+;; ウィンドウの切り替え([C-x o]と同じ)
 (define-key global-map (kbd "C-x C-o") 'other-window)
-;; 半ページスクロール
+;; 半ページスクロール
 ; http://archive.linux.or.jp/JF/JFdocs/mouse-wheel-scroll-12.html
 (defun scroll-down-half-a-page()
   "Scroll-down-half-a-page"
@@ -175,15 +175,15 @@
   (interactive)
   (scroll-up (/ (window-height) 2)))
 (define-key global-map (kbd "C-x C-c C-v") 'scroll-up-half-a-page)
-;; 他のウィンドウをスクロール(C-M-v, C-S-M-vの代替)
+;; 他のウィンドウをスクロール(C-M-v, C-S-M-vの代替)
 (define-key global-map (kbd "C-x C-c C-n") 'scroll-other-window)
 (define-key global-map (kbd "C-x C-c C-p") 'scroll-other-window-down)
-;; 折り返し表示のトグル
+;; 折り返し表示のトグル
 (define-key global-map (kbd "C-x C-c C-l") 'toggle-truncate-lines)
 ;; undo-tree-visualize
 (define-key global-map (kbd "C-x C-c .") 'undo-tree-visualize)
-;; カーソルを移動させずに画面を一行ずつスクロール
-; Emacs24では'scroll-up-line 'scroll-down-line というコマンドがあるらしい
+;; カーソルを移動させずに画面を一行ずつスクロール
+; Emacs24では'scroll-up-line 'scroll-down-line というコマンドがあるらしい
 (define-key global-map (kbd "M-n") (lambda() (interactive) (scroll-up 1)))
 (define-key global-map (kbd "M-p") (lambda() (interactive) (scroll-down 1)))
 

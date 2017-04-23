@@ -2,19 +2,19 @@
 ;;   Edit
 ;; =========================
 
-;; タブ幅
+;; タブ幅
 (setq-default tab-width 4)
-;; tabではなく空白文字を使う
+;; tabではなく空白文字を使う
 (setq-default indent-tabs-mode nil)
 ;; cua-mode (矩形編集)の設定 C-RET
 (cua-mode t)
-(setq cua-enable-cua-keys nil) ; CUAキーバインドを無効にする
-;; バッファの最終行でnext-lineしても新しい行を作らない
+(setq cua-enable-cua-keys nil) ; CUAキーバインドを無効にする
+;; バッファの最終行でnext-lineしても新しい行を作らない
 (setq next-line-add-newlines nil)
 ;; Automatic character pairing (e.g. parenthesis)
 (electric-pair-mode t)
 
-;; M-f の改良. 「次の単語の直前のスペース」ではなく, 「次の単語の先頭」に移動する
+;; M-f の改良. 「次の単語の直前のスペース」ではなく, 「次の単語の先頭」に移動する
 (defun forward-word-to-beginning (&optional n)
   "Move point forward n words and place cursor at the beginning."
   (interactive "p")
@@ -29,9 +29,9 @@
     (backward-word n)))
 (global-set-key (kbd "M-f") 'forward-word-to-beginning)
 
-;; ucs-normalize-NFC-region で濁点分離を直す
-;; M-x ucs-normalize-NFC-buffer または "C-x RET u" で、
-;; バッファ全体の濁点分離を直します。
+;; ucs-normalize-NFC-region で濁点分離を直す
+;; M-x ucs-normalize-NFC-buffer または "C-x RET u" で、
+;; バッファ全体の濁点分離を直します。
 ;; 参考：
 ;; http://d.hatena.ne.jp/nakamura001/20120529/1338305696 
 ;; http://www.sakito.com/2010/05/mac-os-x-normalization.html
@@ -48,7 +48,7 @@
 
 
 ;; ---------- 検索 ----------
-;; カーソル位置の単語でi-search (このコマンドを実行後C-wで単語を検索語に追加)
+;; カーソル位置の単語でi-search (このコマンドを実行後C-wで単語を検索語に追加)
 ; http://d.hatena.ne.jp/suztomo/20081123/1227466198
 (defun isearch-with-word-under-cursor()
   "Move point to head of the word under the cursor, then begin i-search"
@@ -56,7 +56,7 @@
   (command-execute 'backward-word)
   (command-execute 'isearch-forward))
 (define-key global-map (kbd "C-x C-c C-s") 'isearch-with-word-under-cursor)
-;; 日本語用追加設定(一文字ずつ検索語に追加)
+;; 日本語用追加設定(一文字ずつ検索語に追加)
 ; http://www.bookshelf.jp/soft/meadow_49.html#SEC714
 (defun isearch-with-word-under-cursor-yank-char()
   "Add the next character from buffer into search string"
@@ -67,7 +67,7 @@
           (goto-char isearch-other-end))
      (buffer-substring (point) (1+ (point))))))
 (define-key isearch-mode-map (kbd "C-f") 'isearch-with-word-under-cursor-yank-char)
-;; 日本語用追加設定(一文字ずつ検索語から削除)
+;; 日本語用追加設定(一文字ずつ検索語から削除)
 ; http://www.bookshelf.jp/soft/meadow_49.html#SEC715
 (defun isearch-with-word-under-cursor-kill-char()
   "Delete the previous character from search string"
@@ -80,7 +80,7 @@
         isearch-yank-flag t)
   (isearch-search-and-update))
 (define-key isearch-mode-map (kbd "C-b") 'isearch-with-word-under-cursor-kill-char)
-;; カーソル位置の単語をコピー
+;; カーソル位置の単語をコピー
 ; http://ynomura.dip.jp/archives/2010/07/emacs.html
 (defun kill-ring-save-current-word()
   "Save current word to kill ring"
@@ -100,7 +100,7 @@
 ;; -------------------------
 ;; Backspace
 (keyboard-translate ?\C-h ?\C-?) ; ?\C-?はDELのシーケンス
-;; 改行+インデント
+;; 改行+インデント
 (define-key global-map (kbd "C-m") 'newline-and-indent)
 ;; undo/redo
 (define-key global-map (kbd "C-x C-c /") 'undo)
@@ -108,7 +108,7 @@
 (define-key global-map (kbd "C-;") 'redo)
 ;; 行全体を(改行文字も含めて)kill
 (define-key global-map (kbd "C-x C-c C-k") 'kill-whole-line)
-;; カーソルの後ろの連続するスペースを削除
+;; カーソルの後ろの連続するスペースを削除
 ; http://d.hatena.ne.jp/syohex/20111017/1318857029
 (defun kill-following-whitespaces-and-tabs()
   (interactive)
@@ -124,15 +124,15 @@
 ;; -------------------------
 ;;   macro
 ;; -------------------------
-;; カーソル行の直下に空白行を挿入してインデント
+;; カーソル行の直下に空白行を挿入してインデント
 (fset 'open-line-with-indent
    "\C-e\C-m")
 (define-key global-map (kbd "C-x C-c C-m") 'open-line-with-indent)
-;; カーソル行の直上に空白行を挿入してインデント
+;; カーソル行の直上に空白行を挿入してインデント
 (fset 'open-previous-line-with-indent
    "\C-p\C-e\C-m")
 (define-key global-map (kbd "C-x C-c C-o") 'open-previous-line-with-indent)
-;; カーソル行をコピー
+;; カーソル行をコピー
 (fset 'copy-whole-line
       "\C-x\C-c\C-k\C-y")
 (define-key global-map (kbd "C-x C-c M-w") 'copy-whole-line)

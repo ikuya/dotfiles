@@ -9,7 +9,7 @@
   ;(setq url-proxy-services '(("http" . "SERVERNAME:PORT"))) ; Proxy
   (auto-install-compatibility-setup))
 
-;; ファイル名の文字コード
+;; ファイル名の文字コード
 ; Mac OS X
 (when (eq system-type 'darwin)
   (require 'ucs-normalize)
@@ -20,20 +20,20 @@
   (set-file-name-coding-system 'cp932)
   (setq locale-coding-system 'cp932))
 
-;; バックアップファイルを作成しない [t/nil] default:t
+;; バックアップファイルを作成しない [t/nil] default:t
 ;(setq make-backup-files nil)
-;; オートセーブファイルを作らない [t/nil] default:t
+;; オートセーブファイルを作らない [t/nil] default:t
 ;(setq auto-save-default nil)
-;; バックアップファイルとオートセーブファイルを.emacs.d/backupに作成
+;; バックアップファイルとオートセーブファイルを.emacs.d/backupに作成
 (add-to-list 'backup-directory-alist
              (cons "." "~/.emacs.d/backup/"))
 (setq auto-save-file-name-transforms
       `((".*" ,(expand-file-name "~/.emacs.d/backup/") t)))
 
-;; Find fileのデフォルトパス
+;; Find fileのデフォルトパス
 (setq default-directory "~/")
 
-;; ファイルが #! から始まる場合、+xを付けて保存n
+;; ファイルが #! から始まる場合、+xを付けて保存n
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
 
@@ -43,7 +43,7 @@
 
 ;(global-unset-key "\C-t")
 (global-unset-key (kbd "C-x C-p"))
-;; C-x C-cをunbind (save-buffers-kill-terminalは01_keybind.elでbind
+;; C-x C-cをunbind (save-buffers-kill-terminalは01_keybind.elでbind
 (global-unset-key (kbd "C-x C-c"))
 
 ;; Emacsの終了
@@ -56,11 +56,11 @@
   (unless (y-or-n-p "Exit Emacs?")
     (keyboard-quit)))
 
-;; TRAMPでバックアップファイルを作成しない
+;; TRAMPでバックアップファイルを作成しない
 (add-to-list 'backup-directory-alist
              (cons tramp-file-name-regexp nil))
 
-;; ファイルを管理者権限で開き直す関数
+;; ファイルを管理者権限で開き直す関数
 ;; cf. http://qiita.com/k_ui/items/d9e03ea9523036970519
 (defun reopen-with-sudo ()
   "Reopen current buffer-file with sudo using tramp."
