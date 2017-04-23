@@ -19,7 +19,8 @@
 (setq linum-format "%4d")
 
 ;; テーマ
-(load-theme 'tsdh-dark t)
+;(load-theme 'tsdh-dark t)
+(load-theme 'wombat t)
 
 ; 起動時のウィンドウサイズ
 (if window-system (progn
@@ -176,3 +177,10 @@
 (setq x-super-keysym 'meta)
 ;; set alt key to meta
 ;(setq x-super-keysym 'meta)
+
+
+;; browse-url を Google Chromeに
+(setq browse-url-browser-function 'browse-url-generic)
+(setq browse-url-generic-program
+      (if (file-exists-p "/usr/bin/google-chrome")
+          "/usr/bin/google-chrome" "/usr/bin/chromium"))
