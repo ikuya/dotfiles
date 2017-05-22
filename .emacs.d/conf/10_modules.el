@@ -81,7 +81,7 @@
   (setq twittering-use-master-password t)
   (setq twittering-initial-timeline-spec-string
         '("usobuku/c"
-          "masafuminegishi/security-jp"
+          "usobuku/infosec"
           ;":mentions"
           "usobuku/news"
           ":home")))
