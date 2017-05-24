@@ -184,3 +184,6 @@
 (setq browse-url-generic-program
       (if (file-exists-p "/usr/bin/google-chrome")
           "/usr/bin/google-chrome" "/usr/bin/chromium"))
+
+;; ---------- 文字コード ----------
+(prefer-coding-system 'utf-8-unix)

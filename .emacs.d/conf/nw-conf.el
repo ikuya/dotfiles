@@ -101,3 +101,6 @@
 ;; ;                                              (interactive)
 ;; ;                                              (dic-lookup-w3m "thesaurus-webster")))
 ;; )
+
+;; ---------- 文字コード ----------
+(prefer-coding-system 'utf-8-unix)
