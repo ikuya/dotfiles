@@ -87,27 +87,6 @@
   (migemo-init)
 )
 
-;; ;; ---------- emacs-w3m ----------
-;; ;; w3mコマンドのPATHに依存しているので、ここに
-;; (setq w3m-command "/usr/bin/w3m")
-;; (require 'w3m-load)
-;; ; alc:[検索文字列]でalc検索 (w3m-goto-url[keybind:g])
-;; ; http://mugijiru.seesaa.net/article/205303847.html
-;; (eval-after-load "w3m-search"
-;;   '(progn
-;;      (add-to-list 'w3m-search-engine-alist
-;;                   '("alc"
-;;                     "http://eow.alc.co.jp/%s/UTF-8/"
-;;                     utf-8))
-;;      (add-to-list 'w3m-uri-replace-alist
-;;                   '("\`alc:" w3m-search-uri-replace "alc"))))
-;; (defun w3m-goto-url-empty(url)
-;;   ""
-;;   (interactive (list (w3m-input-url nil "" nil nil t)))
-;;   (w3m-goto-url url))
-;; (add-hook 'w3m-mode-hook
-;;           (lambda()
-;;             (define-key w3m-mode-map (kbd "g") 'w3m-goto-url-empty)))
 
 ;; ----------  ElScreen ----------
 (require 'elscreen nil t)
@@ -129,49 +108,11 @@
                (lookup-key (current-global-map) (kbd "M-x")))
              ))
 
-;; ;; ---------- dic-lookup-w3m ----------
-;; ;; w3mコマンドに依存しているのでここに記述
-;; (when (require 'dic-lookup-w3m nil t)
-;;   (define-key global-map (kbd "C-x C-c d") 'dic-lookup-w3m)
-;;   (define-key global-map (kbd "C-x C-c l") '(lambda()
-;;                                               (interactive)
-;;                                               (dic-lookup-w3m "ee-longman")))
-;;   (define-key global-map (kbd "C-x C-c a") '(lambda()
-;;                                               (interactive)
-;;                                               (dic-lookup-w3m "ej-alc")))
-;; ;  (define-key global-map (kbd "C-x C-c d") '(lambda()
-;; ;                                              (interactive)
-;; ;                                              (dic-lookup-w3m "jj-yahoo")))
-;;   (define-key global-map (kbd "C-x C-c m") '(lambda()
-;;                                               (interactive)
-;;                                               (dic-lookup-w3m "ee-webster")))
-;; ;   (define-key global-map (kbd "C-x C-c t") '(lambda()
-;; ;                                              (interactive)
-;; ;                                              (dic-lookup-w3m "thesaurus-webster")))
-;; )
-
 ;; Mozc 設定
 (require 'mozc)
 (set-language-environment 'Japanese)
 (setq default-input-method 'japanese-mozc)
 (setq mozc-candidate-style 'echo-area)
-
-;;; Auto-completeを使ってMozcをモードレス入力
-;;; cf. http://hiroki.jp/ac-mozc-on-mac
-;(when (require 'ac-mozc nil t)
-;  (defun my-ac-mozc-setup ()
-;    (setq ac-sources
-;          '(ac-source-mozc ac-source-ascii-words-in-same-mode-buffers))
-;    (set (make-local-variable 'ac-auto-show-menu) 0.2))
-; 
-;  ; Mozcモードレス入力を有効にするフック
-;  (add-to-list 'ac-modes 'markdown-mode)
-;  (add-hook 'markdown-mode-hook 'my-ac-mozc-setup)
-;  )
-
-;; デフォルトの文字コードをUTF-8にする
-; 03_input に書きたいところだが、leim読み込み時にEUC-JP に上書きされてしまうため、とりあえずここに書いておく。
-(set-default-coding-systems 'utf-8)
 
 ;; set windows key to meta
 (setq x-super-keysym 'meta)
