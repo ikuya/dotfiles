@@ -246,3 +246,7 @@
   (diminish 'helm-mode)
   (diminish 'undo-tree-mode)
   )
+
+;; ---------- scratch-log ----------
+;; https://github.com/mori-dev/scratch-log
+(require 'scratch-log nil t)
