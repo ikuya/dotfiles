@@ -3,4 +3,5 @@ auto-save-list
 .emacs.d/url
 .emacs.d/howm
 .emacs.d/ac-comphist.dat
+.emacs.d/.scratch-log*
 zsh/.zcompdump
