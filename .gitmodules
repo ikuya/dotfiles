@@ -43,12 +43,6 @@
 [submodule ".emacs.d/elisp/undo-tree"]
 	path = .emacs.d/elisp/undo-tree
 	url = http://www.dr-qubit.org/git/undo-tree.git
-[submodule ".emacs.d/elisp/yasnippet"]
-	path = .emacs.d/elisp/yasnippet
-	url = https://github.com/capitaomorte/yasnippet.git
-[submodule ".emacs.d/elisp/yasnippet-snippets"]
-	path = .emacs.d/elisp/yasnippet-snippets
-	url = https://github.com/AndreaCrotti/yasnippet-snippets.git
 [submodule ".emacs.d/elisp/helm"]
 	path = .emacs.d/elisp/helm
 	url = https://github.com/emacs-helm/helm.git
