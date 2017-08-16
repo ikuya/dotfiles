@@ -82,6 +82,7 @@
   (setq twittering-initial-timeline-spec-string
         '("usobuku/c"
           "usobuku/infosec"
+          "laparisa/security"
           ;":mentions"
           "usobuku/news"
           ":home")))
@@ -108,6 +109,8 @@
              (define-key twittering-mode-map (kbd "R") 'twittering-native-retweet)
              (define-key twittering-mode-map (kbd "C-c h") 'twittering-home-timeline)
              ))
+
+(setq twittering-allow-insecure-server-cert t)
 
 ;; ---------- IRC (rcirc.el) ----------
 ;; irc-freenode.net サーバの emacs-lisp-ja チャンネルと emacs-ja チャンネルに入る
@@ -197,6 +200,7 @@
   (define-key global-map (kbd "C-x C-b") 'helm-buffers-list)
   (when (require 'helm-swoop nil t)
     (define-key global-map (kbd "C-M-o") 'helm-multi-swoop-all)
+    (define-key global-map (kbd "M-O") 'helm-swoop)
     )
 
   (define-key helm-map (kbd "C-h") 'delete-backward-char)
