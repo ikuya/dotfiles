@@ -73,7 +73,14 @@
 (set-face-foreground 'show-paren-match-face nil)
 
 ;;; ---------- FONTS ----------
-(add-to-list 'default-frame-alist '(font . "ricty-15"))
+;; asciiフォント
+(set-face-attribute 'default nil
+                    :family "Ricty"
+                    :height 140)
+;; 日本語フォント
+(set-fontset-font
+ nil 'japanese-jisx0208
+ (font-spec :family "Ricty"))
 
 ;; ---------- migemo ----------
 (setq migemo-command "/usr/local/bin/cmigemo")
