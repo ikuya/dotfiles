@@ -62,7 +62,7 @@ export LANG=en_US.UTF-8
 # 環境固有のPATHは zshenv に記載
 path=(
     $HOME/bin(N-/)
-#    /usr/local/bin
+    /usr/local/bin
 #    /usr/bin
 #    /bin
 #    /usr/sbin

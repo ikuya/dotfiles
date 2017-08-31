@@ -1,7 +1,7 @@
 auto-save-list
-.emacs.d/backup
+.emacs.d/backup/*
+!dummy
 .emacs.d/url
 .emacs.d/howm
 .emacs.d/ac-comphist.dat
-.emacs.d/.scratch-log*
 zsh/.zcompdump

@@ -42,3 +42,27 @@ cnoremap! <C-g> <Esc>
 " コマンドモード、インサートモードでの C-n/C-p で↓↑
 cnoremap! <C-n> <down>
 cnoremap! <C-p> <up>
+
+"ビープ音を鳴らさずビジュアルベルを使用
+set visualbell
+"ビジュアルベルを無効化
+"set visualbellstyle=display:none;
+
+" 自動補完
+set complete=sl
+
+" Wikiなどの独自キーボードショートカット対策
+noremap gj <C-f>
+noremap gk <C-b>
+noremap gh <C-h>
+noremap gl <C-l>
+
+" タブの位置変更(Shift + ←→)
+noremap <S-Right> :tabmove! +1<CR>
+noremap <S-Left>  :tabmove! -1<CR>
+
+" スクロールバーを非表示
+"set noscrollbars
+
+" Title
+set titlestring="Firefox"
