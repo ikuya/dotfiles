@@ -498,8 +498,14 @@
 ;  (color-theme-subtle-hacker))
 
 ;; ------------------------------------------------------------------------
-;; ウィンドウの透明化
-(add-to-list 'default-frame-alist '(alpha . (0.85 0.70)))
+
+;; 透明度を変更するコマンド M-x set-alpha
+;; http://qiita.com/marcy@github/items/ba0d018a03381a964f24
+(defun set-alpha (alpha-num)
+  "set frame parameter 'alpha"
+  (interactive "nAlpha: ")
+  (set-frame-parameter nil 'alpha (cons alpha-num '(75))))
+(set-alpha '75)
 
 ;; ツールバーを非表示
 (tool-bar-mode -1)

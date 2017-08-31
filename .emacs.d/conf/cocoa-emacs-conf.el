@@ -36,8 +36,14 @@
 ;                                                (top . 0)
 ;                                                (left . 400)
 ;                                                ))))
-;; ウィンドウの透明化
-(add-to-list 'default-frame-alist '(alpha . (0.85 0.70)))
+
+;; 透明度を変更するコマンド M-x set-alpha
+;; http://qiita.com/marcy@github/items/ba0d018a03381a964f24
+(defun set-alpha (alpha-num)
+  "set frame parameter 'alpha"
+  (interactive "nAlpha: ")
+  (set-frame-parameter nil 'alpha (cons alpha-num '(75))))
+(set-alpha '75)
 
 ;; TOOL BARを非表示
 (tool-bar-mode -1)
@@ -73,7 +79,8 @@
 (set-face-foreground 'show-paren-match-face nil)
 
 ;;; ---------- FONTS ----------
-(add-to-list 'default-frame-alist '(font . "ricty-15"))
+(set-fontset-font t 'japanese-jisx0208 (font-spec :family "Ricty-14"))
+(add-to-list 'default-frame-alist '(font . "Ricty-14"))
 
 ;; ---------- migemo ----------
 (setq migemo-command "/usr/local/bin/cmigemo")
