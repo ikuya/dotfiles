@@ -105,6 +105,9 @@ e.x, 00_hoge.el, 01_huga.el ... 99_keybind.el"
     ;; cocoa emacs
     (and (equal window-system 'ns)
          (init-loader-re-load init-loader-cocoa-emacs-regexp init-dir))
+    ;; emacs-mac
+    (and (equal window-system 'mac)
+         (init-loader-re-load init-loader-cocoa-emacs-regexp init-dir))
     ;; MinGW (gnupack)
     (and (string-match "mingw" system-configuration)
          (init-loader-re-load init-loader-gnupack-emacs-regexp init-dir))
