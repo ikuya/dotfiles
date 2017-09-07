@@ -25,7 +25,7 @@ nnoremap s :open<Space>google<Space>
 nnoremap O :tabopen<Space>
 
 " コマンドモードではIMEをoff
-style! -name=commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive:}
+style! -name=commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 
 " 入力欄に自動フォーカスさせない
 set focuscontent
