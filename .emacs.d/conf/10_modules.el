@@ -8,15 +8,16 @@
   ;(define-key global-map (kbd "M-o") 'occur-by-moccur)
   ; moccur(multi buffer search)
   (define-key global-map (kbd "M-o") 'moccur)
-  ; スペース区切りでAND検索
+  ; スペース区切りでAND検索
   (setq moccur-split-word t)
-  ; ディレクトリ検索時に除外するファイル
+  ; ディレクトリ検索時に除外するファイル
   (add-to-list 'dmoccur-exclusion-mask "\\.DS_Store")
   (add-to-list 'dmoccur-exclusion-mask "^#.+#$")
-  ; Migemoを利用できる環境であれば、Migemoを使う
-  (when (and (executable-find "cmigemo")
-             (require 'migemo nil t))
-    (setq moccur-use-migemo t)))
+;  ; Migemoを利用できる環境であれば、Migemoを使う
+;  (when (and (executable-find "cmigemo")
+;             (require 'migemo nil t))
+;    (setq moccur-use-migemo t))
+  )
 ;; moccur-editを利用可能にする
 (require 'moccur-edit nil t)
 
@@ -36,11 +37,11 @@
   (ac-config-default)
   ;; ac-disable-facesの初期値は
   ;; (font-lock-comment-face font-lock-string-face font-lock-doc-face)
-  ;; font-lock-comment-faceがあるとコメントの中で,
-  ;; font-lock-string-faceがあるとクオートで囲まれた部分"..."で
-  ;; auto-completeが反応しなくなり、セレクタを補完できないので次のように
+  ;; font-lock-comment-faceがあるとコメントの中で,
+  ;; font-lock-string-faceがあるとクオートで囲まれた部分"..."で
+  ;; auto-completeが反応しなくなり、セレクタを補完できないので次のように
   (setq ac-disable-faces '(font-lock-doc-face))
-  ;; yasnippet絡みのエラーが発生するので、その対処
+  ;; yasnippet絡みのエラーが発生するので、その対処
   ;; http://www.kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet/
   (delq 'ac-source-yasnippet ac-sources)
   )
@@ -50,9 +51,9 @@
 (setq howm-directory (concat user-emacs-directory "howm"))
 ;(setq howm-menu-lang 'ja)
 (when (require 'howm-mode nil t)
-  ; C-c , , でhowm-menu起動
+  ; C-c , , でhowm-menu起動
   (define-key global-map (kbd "C-c ,,") 'howm-menu))
-;; メモを保存と同値に閉じる
+;; メモを保存と同値に閉じる
 (defun howm-save-buffer-and-kill()
   "Save howm note and kill immediately."
   (interactive)
@@ -113,11 +114,11 @@
 (setq twittering-allow-insecure-server-cert t)
 
 ;; ---------- IRC (rcirc.el) ----------
-;; irc-freenode.net サーバの emacs-lisp-ja チャンネルと emacs-ja チャンネルに入る
+;; irc-freenode.net サーバの emacs-lisp-ja チャンネルと emacs-ja チャンネルに入る
 (setq rcirc-server-alist
       '(("irc.freenode.net"
          :channels ("#emacs-lisp-ja" "#emacs-ja"))))
-(setq rcirc-log-flag nil) ;ログを保存 (t/nil)
+(setq rcirc-log-flag nil) ;ログを保存 (t/nil)
 
 ;; ---------- navi2ch ----------
 (when (require 'navi2ch nil t)
@@ -130,21 +131,21 @@
   (setq navi2ch-history-max-line nil))
 
 ;; ---------- ffap.el ----------
-;; C-x C-fで、カーソル位置のファイル・URLをMini-bufferに表示
+;; C-x C-fで、カーソル位置のファイル・URLをMini-bufferに表示
 (ffap-bindings)
 
 ;; ---------- iswitchb.el ----------
-;; C-x b で部分一致を有効に
+;; C-x b で部分一致を有効に
 (iswitchb-mode 1)
-;; バッファ読み取り関数をiswitchbにする
+;; バッファ読み取り関数をiswitchbにする
 (setq read-buffer-function 'iswitchb-read-buffer)
 ;; 部分文字列の代わりに正規表現を使う場合は t を設定
 (setq iswitchb-regexp nil)
-;; 新しいバッファ作成時にいちいち聞いてこない
+;; 新しいバッファ作成時にいちいち聞いてこない
 (setq iswitchb-prompt-newbuffer nil)
 
 ;; ---------- bookmark.el ----------
-;; Bookmarkを変更したらすぐに保存する
+;; Bookmarkを変更したらすぐに保存する
 (setq bookmark-save-flag 1)
 ;; 最近使ったBookmarkをリストの先頭に移動
 (progn
@@ -245,7 +246,7 @@
 
 
 ;; ---------- diminish ----------
-;; 指定したマイナーモードを表示しない
+;; 指定したマイナーモードを表示しない
 (when (require 'diminish nil t)
   (diminish 'helm-mode)
   (diminish 'undo-tree-mode)
@@ -257,7 +258,7 @@
 ;; (setq sl-scratch-log-file "~/.emacs.d/.scratch-log")
 ;; (setq sl-prev-scratch-string-file "~/.emacs.d/.scratch-log-prev")
 
-;; nil なら emacs 起動時に，最後に終了したときの スクラッチバッファの内容を復元しない。初期値は t です。
+;; nil なら emacs 起動時に，最後に終了したときの スクラッチバッファの内容を復元しない。初期値は t です。
 ;; (setq sl-restore-scratch-p nil)
-;; nil なら スクラッチバッファを削除できるままにする。初期値は t です。
+;; nil なら スクラッチバッファを削除できるままにする。初期値は t です。
 ;; (setq sl-prohibit-kill-scratch-buffer-p nil)
