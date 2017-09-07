@@ -44,7 +44,7 @@
 ;; 入力中のマウスカーソルが邪魔
 ;; banish: 右上隅に移動; exile: 右上隅に移動(しばらくすると元に戻る
 ;; jump: ランダムに移動; animate: ランダムに移動(アニメーション) none:移動しない
-(if (display-mouse-p) (mouse-avoidance-mode 'banish))
+(if (display-mouse-p) (mouse-avoidance-mode 'none))
 
 ;; 行番号を表示
 (require 'linum)
