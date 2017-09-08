@@ -70,6 +70,9 @@
         (find-alternate-file (concat "/sudo::" file-name))
       (error "Cannot get a file name"))))
 
+;; Bell無効化
+(setq ring-bell-function 'ignore)
+
 ;; -------------------------
 ;;   keybind
 ;; -------------------------
