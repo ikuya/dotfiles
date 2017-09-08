@@ -137,3 +137,7 @@
 
 ;; ---------- 文字コード ----------
 (prefer-coding-system 'utf-8-unix)
+
+;; ---------- misc ----------
+;; ミニバッファでIMEを無効化
+(mac-auto-ascii-mode 1)
