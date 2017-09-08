@@ -20,7 +20,9 @@
          (define-key markdown-mode-map (kbd "M-p") nil)
          ; M-l, M-h でリストの深さを操作
          (define-key markdown-mode-map (kbd "M-l") 'markdown-demote)
+         (define-key markdown-mode-map (kbd "C-c C-c l") 'markdown-demote)
          (define-key markdown-mode-map (kbd "M-h") 'markdown-promote)
+         (define-key markdown-mode-map (kbd "C-c C-c h") 'markdown-promote)
          (set (make-local-variable 'whitespace-action) nil)
          ))
 ; Boldは "__" で挟む(default "**")
