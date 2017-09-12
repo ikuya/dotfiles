@@ -28,7 +28,7 @@ nnoremap O :tabopen<Space>
 style! -name=commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 
 " 入力欄に自動フォーカスさせない
-set focuscontent
+set focuscontent=true
 
 " エラーメッセージの色
 hi ErrorMsg color:white; background-color: #ec6aa1;
