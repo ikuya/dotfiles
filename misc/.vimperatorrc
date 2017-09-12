@@ -66,3 +66,6 @@ noremap <S-Left>  :tabmove! -1<CR>
 
 " Title
 set titlestring="Firefox"
+
+" ステータスバーを常に表示
+set statuslinevisibility=visible
