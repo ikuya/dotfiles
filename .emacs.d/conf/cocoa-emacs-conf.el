@@ -42,8 +42,8 @@
 (defun set-alpha (alpha-num)
   "set frame parameter 'alpha"
   (interactive "nAlpha: ")
-  (set-frame-parameter nil 'alpha (cons alpha-num '(75))))
-(set-alpha '75)
+  (set-frame-parameter nil 'alpha (cons alpha-num '(80))))
+(set-alpha '80)
 
 ;; TOOL BARを非表示
 (tool-bar-mode -1)
@@ -82,7 +82,7 @@
 ;; asciiフォント
 (set-face-attribute 'default nil
                     :family "Ricty"
-                    :height 140)
+                    :height 150)
 ;; 日本語フォント
 (set-fontset-font
  nil 'japanese-jisx0208
