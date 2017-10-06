@@ -79,3 +79,6 @@
 [submodule ".emacs.d/elisp/php-mode"]
 	path = .emacs.d/elisp/php-mode
 	url = https://github.com/ejmr/php-mode.git
+[submodule ".emacs.d/elisp/emacs-async"]
+	path = .emacs.d/elisp/emacs-async
+	url = https://github.com/jwiegley/emacs-async.git
