@@ -76,3 +76,6 @@
 [submodule ".emacs.d/elisp/scratch-log"]
 	path = .emacs.d/elisp/scratch-log
 	url = https://github.com/mori-dev/scratch-log.git
+[submodule ".emacs.d/elisp/php-mode"]
+	path = .emacs.d/elisp/php-mode
+	url = https://github.com/ejmr/php-mode.git
