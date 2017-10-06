@@ -2,6 +2,10 @@
 ;;   Module Settings (.emacs.d/elisp)
 ;; =========================
 
+;; ---------- emacs-async ----------
+(autoload 'dired-async-mode "dired-async.el" nil t)
+(dired-async-mode 1)
+
 ;; ---------- color-moccur ----------
 (when (require 'color-moccur nil t)
   ; occur-by-moccur を Keybind
@@ -262,3 +266,4 @@
 ;; (setq sl-restore-scratch-p nil)
 ;; nil なら スクラッチバッファを削除できるままにする。初期値は t です。
 ;; (setq sl-prohibit-kill-scratch-buffer-p nil)
+
