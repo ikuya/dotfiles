@@ -18,6 +18,8 @@ ln -s $DOTFILE_DIR/misc/.inputrc $HOME/.inputrc
 ln -s $DOTFILE_DIR/misc/.screenrc $HOME/.screenrc
 
 ## Emacs
+touch $DOTFILE_DIR/.emacs.d/.scratch-log-prev
+touch $DOTFILE_DIR/.emacs.d/.scratch-log
 cd $DOTFILE_DIR/.emacs.d/elisp/helm
 EMACSLOADPATH="$DOTFILE_DIR/.emacs.d/elisp/emacs-async:"
 make
