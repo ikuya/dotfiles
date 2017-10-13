@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DOTFILE_DIR=`dirname $0`
+DOTFILE_DIR=`pwd`
 cd $DOTFILE_DIR
 
 git submodule update --init --recursive
@@ -20,6 +20,8 @@ ln -s $DOTFILE_DIR/misc/.screenrc $HOME/.screenrc
 ## Emacs
 touch $DOTFILE_DIR/.emacs.d/.scratch-log-prev
 touch $DOTFILE_DIR/.emacs.d/.scratch-log
-cd $DOTFILE_DIR/.emacs.d/elisp/helm
-EMACSLOADPATH="$DOTFILE_DIR/.emacs.d/elisp/emacs-async:"
-make
+
+echo "export PATH=$DOTFILE_DIR/.emacs.d/.cask/bin:$PATH" >> $HOME/.zlogin
+cd $DOTFILE_DIR/.emacs.d
+cask init
+cask

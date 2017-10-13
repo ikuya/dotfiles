@@ -1,8 +1,6 @@
-;; ========== LOAD PATH ==========
-;; ~/.emacs.d/elisp ディレクトリをload pathに追加. ただしadd-to-load-path関数を定義した場合は不要
-;(add-to-list 'load-path "~/.emacs.d/elisp")
-; 上記のadd-to-list関数ではサブディレクトリを自動的に追加してくれないので、以下に
-; add-to-load-path関数を定義する
+(package-initialize)
+
+;; 引数のディレクトリとそのサブディレクトリをload-pathに追加
 (defun add-to-load-path (&rest paths)
   (let (path)
     (dolist (path paths paths)
@@ -11,8 +9,12 @@
         (add-to-list 'load-path default-directory)
         (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
             (normal-top-level-add-subdirs-to-load-path))))))
-;; 引数のディレクトリとそのサブディレクトリをload-pathに追加
-(add-to-load-path "elisp" "conf" "public_repos")
+(add-to-load-path "conf" "public_repos")
+
+
+;; ========== Cask ==========
+(require 'cask "~/.emacs.d/.cask/cask.el")
+(cask-initialize)
 
 ;; ========== Conf 読み込み ==========
 ;; init-loader.elを使用
