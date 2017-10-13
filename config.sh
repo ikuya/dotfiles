@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DOTFILE_DIR=`dirname $0`
+DOTFILE_DIR=`pwd`
 cd $DOTFILE_DIR
 
 git submodule update --init --recursive
