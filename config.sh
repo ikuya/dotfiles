@@ -23,5 +23,5 @@ touch $DOTFILE_DIR/.emacs.d/.scratch-log
 
 echo "export PATH=$DOTFILE_DIR/.emacs.d/.cask/bin:$PATH" >> $HOME/.zlogin
 cd $DOTFILE_DIR/.emacs.d
-cask init
-cask
+#cask init  # Caskファイルはすでにあるので、このコマンドは不要
+./.cask/bin/cask
