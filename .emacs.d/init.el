@@ -9,7 +9,7 @@
         (add-to-list 'load-path default-directory)
         (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
             (normal-top-level-add-subdirs-to-load-path))))))
-(add-to-load-path "conf" "public_repos")
+(add-to-load-path "conf")
 
 
 ;; ========== Cask ==========
