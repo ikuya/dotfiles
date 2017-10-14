@@ -58,6 +58,9 @@ deploy $M $HOME/bin
 deploy $L $HOME/bin/loadaverage.sh $TMUX/loadaverage.sh
 deploy $L $HOME/bin/used_mem.sh $TMUX/used_mem.sh
 
+## Vi
+deploy $L $HOME/.vimrc $DOTFILES/.vimrc
+
 ## Misc.
 deploy $L $HOME/.inputrc $MISC/.inputrc
 deploy $L $HOME/.screenrc $MISC/.screenrc
