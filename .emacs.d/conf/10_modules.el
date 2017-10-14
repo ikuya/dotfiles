@@ -3,8 +3,8 @@
 ;; =========================
 
 ;; ---------- emacs-async ----------
-(autoload 'dired-async-mode "dired-async.el" nil t)
-(dired-async-mode 1)
+;(autoload 'dired-async-mode "dired-async.el" nil t)
+;(dired-async-mode 1)
 
 ;; ---------- color-moccur ----------
 (when (require 'color-moccur nil t)
