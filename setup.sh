@@ -7,6 +7,8 @@ TMUX=$DOTFILES/tmux
 GIT=$DOTFILES/git
 MISC=$DOTFILES/misc
 
+EMACS_VER_ENABLED=24.4
+
 deploy() {
     if [ ! -e $2 ]; then
         case $1 in
@@ -22,13 +24,19 @@ cd $DOTFILES
 git submodule update --init --recursive
 
 # Emacs
-deploy 'l' $HOME/.emacs.d $EMACSD
-deploy 't' $EMACSD/.scratch-log
-deploy 't' $EMACSD/.scratch-log-prev
-## Cask
-### Caskファイルはすでにあるので、cask init は不要
-cd $EMACSD
-./.cask/bin/cask
+which emacs > /dev/null
+if [ $? = 0 ];then
+    EMACS_VER=$(emacs --version | awk 'NR == 1 {print $3}' | cut -f1,2 -d.)
+    if [ $(echo "$EMACS_VER >= $EMACS_VER_ENABLED" | bc) = 1 ]; then
+        deploy 'l' $HOME/.emacs.d $EMACSD
+        deploy 't' $EMACSD/.scratch-log
+        deploy 't' $EMACSD/.scratch-log-prev
+        ## Cask
+        ### Caskファイルはすでにあるので、cask init は不要
+        cd $EMACSD
+        ./.cask/bin/cask
+    fi
+fi
 
 # zsh
 deploy 'l' $HOME/.zshrc $ZSH/.zshrc
