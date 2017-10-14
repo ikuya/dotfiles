@@ -7,5 +7,6 @@ auto-save-list
 .emacs.d/.scratch-log-prev
 .emacs.d/.scratch-log
 .emacs.d/recentf
+#.emacs.d/.cask
 zsh/.zcompdump
 .DS_Store

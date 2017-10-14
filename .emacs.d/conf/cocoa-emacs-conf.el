@@ -13,11 +13,11 @@
 (global-unset-key (kbd "C-z"))
 
 ;; ---------- FRAME and WINDOW ----------
-;; タイトルバーにファイルのフルパスを表示
+;; タイトルバーにファイルのフルパスを表示
 (setq frame-title-format "%f")
 
 ;; 行番号
-;; バッファ中の行番号表示
+;; バッファ中の行番号表示
 (global-linum-mode t)
 ;; 行番号のフォーマット
 ;; (set-face-attribute 'linum nil :foreground "red" :height 0.8)
@@ -28,16 +28,16 @@
 ;; http://aoe-tk.hatenablog.com/entry/20130210/1360506829
 (load-theme 'wombat t)
 
-; 起動時のウィンドウサイズ
+; 起動時のウィンドウサイズ
 ;(if window-system (progn
-;                    ; プライマリーFontに和文含みのものRictyを指定するとフレーム幅が倍になってしまう...
+;                    ; プライマリーFontに和文含みのものRictyを指定するとフレーム幅が倍になってしまう...
 ;                    (setq initial-frame-alist '((width . 80)
 ;                                                (height . 50)
 ;                                                (top . 0)
 ;                                                (left . 400)
 ;                                                ))))
 
-;; 透明度を変更するコマンド M-x set-alpha
+;; 透明度を変更するコマンド M-x set-alpha
 ;; http://qiita.com/marcy@github/items/ba0d018a03381a964f24
 (defun set-alpha (alpha-num)
   "set frame parameter 'alpha"
@@ -48,15 +48,15 @@
 ;; TOOL BARを非表示
 (tool-bar-mode -1)
 
-;; スクロールバー非表示
+;; スクロールバー非表示
 (set-scroll-bar-mode nil)
 
 ;; 現在行をハイライト
 (defface my-hl-line-face
   '((((class color) (background dark))
-     (:background "#000000" t))               ;背景がdarkのときの背景色
+     (:background "#000000" t))               ;背景がdarkのときの背景色
     (((class color) (background light))
-     (:background "LightGoldenrodYellow" t))  ;背景がlightの時の背景色
+     (:background "LightGoldenrodYellow" t))  ;背景がlightの時の背景色
     (t (:bold t)))
   "hl-line's my face")
 (setq hl-line-face 'my-hl-line-face)
@@ -64,12 +64,12 @@
 
 ;;; 対応する括弧のハイライト
 ;; paren-mode: 対応する括弧を強調して表示する
-(setq show-paren-delay 0)    ; 表示までの秒数(初期値: 0.125)
+(setq show-paren-delay 0)    ; 表示までの秒数(初期値: 0.125)
 (show-paren-mode t)          ; 有効化
 ;; parenのスタイル
 (setq show-paren-style 'expression)    ;カッコもカッコ内も強調
 ;(setq show-paren-style 'parenthesis)  ;カッコのみ強調
-;(setq show-paren-style 'mixed)        ;対応するカッコが画面外のときはカッコ内も強調
+;(setq show-paren-style 'mixed)        ;対応するカッコが画面外のときはカッコ内も強調
 ;; 背景色変更
 ;(set-face-background 'show-paren-match-face nil)
 ;; faceを変更する
@@ -102,14 +102,16 @@
 )
 
 ;; ----------  ElScreen ----------
-(require 'elscreen nil t)
-;; ElScreenのプレフィックス(default: C-z)
-(elscreen-set-prefix-key (kbd "C-t"))
+;(require 'elscreen nil t)
+;; ElScreenのプレフィックス(default: C-z)
+;(elscreen-set-prefix-key (kbd "C-t"))
 ;(when (require 'elscreen nil t)
-;  ; C-z C-zをタイプした場合にデフォルトのC-zを利用する
+;  ; C-z C-zをタイプした場合にデフォルトのC-zを利用する
 ;  (if window-system
 ;      (define-key elscreen-map (kbd "C-z") 'iconify-or-deiconify-frame)
 ;    (define-key elscreen-map (kbd "C-z") 'suspend-emacs)))
+(setq elscreen-prefix-key (kbd "C-t"))
+(elscreen-start)
 
 ;; ---------- terminal-emulator ----------
 ;; C-tをPrefix-keyとする
@@ -135,9 +137,9 @@
   )
 (global-set-key (kbd "C-c m") 'markdown-preview-file)
 
-;; ---------- 文字コード ----------
+;; ---------- 文字コード ----------
 (prefer-coding-system 'utf-8-unix)
 
 ;; ---------- misc ----------
-;; ミニバッファでIMEを無効化
+;; ミニバッファでIMEを無効化
 (mac-auto-ascii-mode 1)

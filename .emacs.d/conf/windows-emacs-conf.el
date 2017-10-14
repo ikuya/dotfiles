@@ -561,9 +561,9 @@
 ;; ;(define-key w3m-mode-map (kbd "g") 'w3m-goto-url-empty)
 
 ;; ----------  ElScreen ----------
-(require 'elscreen nil t)
 ;; ElScreenのプレフィックス(default: C-z)
 (elscreen-set-prefix-key (kbd "C-t"))
+(elscreen-start)
 ;(when (require 'elscreen nil t)
 ;  ; C-z C-zをタイプした場合にデフォルトのC-zを利用する
 ;  (if window-system
