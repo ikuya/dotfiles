@@ -9,12 +9,16 @@ MISC=$DOTFILES/misc
 
 EMACS_VER_ENABLED=24.4
 
+M="mkdir"
+T="touch"
+L="ln"
+
 deploy() {
     if [ ! -e $2 ]; then
         case $1 in
-            "m") mkdir $2 ;;
-            "t") touch $2 ;;
-            "l") ln -s $3 $2 ;;
+            $M) mkdir $2 ;;
+            $T) touch $2 ;;
+            $L) ln -s $3 $2 ;;
         esac
     fi
 }
@@ -28,9 +32,9 @@ which emacs > /dev/null
 if [ $? = 0 ];then
     EMACS_VER=$(emacs --version | awk 'NR == 1 {print $3}' | cut -f1,2 -d.)
     if [ $(echo "$EMACS_VER >= $EMACS_VER_ENABLED" | bc) = 1 ]; then
-        deploy 'l' $HOME/.emacs.d $EMACSD
-        deploy 't' $EMACSD/.scratch-log
-        deploy 't' $EMACSD/.scratch-log-prev
+        deploy $L $HOME/.emacs.d $EMACSD
+        deploy $T $EMACSD/.scratch-log
+        deploy $T $EMACSD/.scratch-log-prev
         ## Cask
         ### Caskファイルはすでにあるので、cask init は不要
         cd $EMACSD
@@ -39,21 +43,21 @@ if [ $? = 0 ];then
 fi
 
 # zsh
-deploy 'l' $HOME/.zshrc $ZSH/.zshrc
-deploy 't' $HOME/.zlogin
+deploy $L $HOME/.zshrc $ZSH/.zshrc
+deploy $T $HOME/.zlogin
 echo "export PATH=$EMACSD/.cask/bin:$PATH" >> $HOME/.zlogin
 
 # Tmux
-deploy 'l' $HOME/.tmux.conf $TMUX/.tmux.conf
+deploy $L $HOME/.tmux.conf $TMUX/.tmux.conf
 
 # Git
-deploy 'l' $HOME/.gitconfig $GIT/.gitconfig
+deploy $L $HOME/.gitconfig $GIT/.gitconfig
 
 # bin
-deploy 'm' $HOME/bin
-deploy 'l' $HOME/bin/loadaverage.sh $TMUX/loadaverage.sh
-deploy 'l' $HOME/bin/used_mem.sh $TMUX/used_mem.sh
+deploy $M $HOME/bin
+deploy $L $HOME/bin/loadaverage.sh $TMUX/loadaverage.sh
+deploy $L $HOME/bin/used_mem.sh $TMUX/used_mem.sh
 
 ## Misc.
-deploy 'l' $HOME/.inputrc $MISC/.inputrc
-deploy 'l' $HOME/.screenrc $MISC/.screenrc
+deploy $L $HOME/.inputrc $MISC/.inputrc
+deploy $L $HOME/.screenrc $MISC/.screenrc
