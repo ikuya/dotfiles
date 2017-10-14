@@ -99,7 +99,7 @@
 
 ;; ----------  ElScreen ----------
 ;; ElScreenのプレフィックス(default: C-z)
-(elscreen-set-prefix-key (kbd "C-t"))
+(setq elscreen-prefix-key (kbd "C-t"))
 (elscreen-start)
 ;(when (require 'elscreen nil t)
 ;  ; C-z C-zをタイプした場合にデフォルトのC-zを利用する
