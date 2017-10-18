@@ -42,3 +42,4 @@
 (depends-on "scratch-log")
 (depends-on "twittering-mode")
 (depends-on "haskell-mode")
+(depends-on "redo+")

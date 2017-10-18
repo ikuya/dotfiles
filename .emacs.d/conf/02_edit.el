@@ -103,9 +103,11 @@
 ;; 改行+インデント
 (define-key global-map (kbd "C-m") 'newline-and-indent)
 ;; undo/redo
-(define-key global-map (kbd "C-x C-c /") 'undo)
-(define-key global-map (kbd "C-x C-c '") 'redo)
+(define-key global-map (kbd "C-/") 'undo)
+(define-key global-map (kbd "C-c u") 'undo)
 (define-key global-map (kbd "C-;") 'redo)
+(define-key global-map (kbd "C-c r") 'redo)
+
 ;; 行全体を(改行文字も含めて)kill
 (define-key global-map (kbd "C-x C-c C-k") 'kill-whole-line)
 ;; カーソルの後ろの連続するスペースを削除
@@ -148,7 +150,7 @@
 (fset 'line-equal
    "\C-u25=")
 (global-set-key (kbd "C-x C-c e") 'line-equal)
-;; 破線15個
+;; 破線
 (fset 'line-dashed
-      "- - - - - - - - - - - - - - -")
+      "- - - - - - - - - - - - - - ")
 (global-set-key (kbd "C-x C-c d") 'line-dashed)
