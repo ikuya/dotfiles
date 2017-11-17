@@ -124,7 +124,7 @@ function search() {
             file=$2
         ;;
     esac
-    find $dir -name "$file" -exec grep -IHn $string {} \; 2>/dev/null;
+    find $dir -name "$file" -exec grep -iIHn $string {} \; 2>/dev/null;
 }
 
 ## Automatically rename tmux window using the current working directory.
