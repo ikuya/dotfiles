@@ -16,13 +16,16 @@ calculate_used_mem() {
         PAGES_OCCUPIED=$(echo "$VM_STAT" | awk '/Pages occupied by compressor/ {print $NF}' | tr -d '.')
         PAGES_PURGEABLE=$(echo "$VM_STAT" | awk '/Pages purgeable/ {print $NF}' | tr -d '.')
         FILE_BACKED_PAGES=$(echo "$VM_STAT" |awk '/File-backed pages/ {print $NF}' | tr -d '.')
-        CACHED=$(($PAGES_PURGEABLE + $FILE_BACKED_PAGES |bc))
-        USED_MEM=$(($PAGES_WIRED +
-                    $PAGES_ACTIVE +
-                    $PAGES_INACTIVE +
-                    $PAGES_SPECULATIVE +
-                    $PAGES_OCCUPIED -
-                    $CACHED | bc ))
+        CACHED=$(($PAGES_PURGEABLE
+                  + $FILE_BACKED_PAGES
+                | bc))
+        USED_MEM=$(($PAGES_WIRED
+                    + $PAGES_ACTIVE
+                    + $PAGES_INACTIVE
+                    + $PAGES_SPECULATIVE
+                    + $PAGES_OCCUPIED
+                    - $CACHED
+                | bc ))
         FREE_MEM=$(echo "$VM_STAT" | awk '/Pages free/ {print $NF}' | tr -d '.')
         TOTAL_MEM=$(($USED_MEM + $CACHED + $FREE_MEM | bc))
 
