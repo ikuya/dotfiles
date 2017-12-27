@@ -26,6 +26,7 @@ deploy() {
 # Submodules initialization
 cd $DOTFILES
 git submodule update --init --recursive
+git submodule foreach git pull origin master
 
 # Emacs
 which emacs > /dev/null
