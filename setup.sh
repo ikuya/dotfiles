@@ -65,3 +65,5 @@ deploy $L $HOME/.vimrc $DOTFILES/.vimrc
 ## Misc.
 deploy $L $HOME/.inputrc $MISC/.inputrc
 deploy $L $HOME/.screenrc $MISC/.screenrc
+
+exit 0
