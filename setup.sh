@@ -36,9 +36,8 @@ if [ $? = 0 ];then
         deploy $L $HOME/.emacs.d $EMACSD
         deploy $T $EMACSD/.scratch-log
         deploy $T $EMACSD/.scratch-log-prev
-        ## Cask
-        ### Caskファイルはすでにあるので、cask init は不要
         cd $EMACSD
+        # No need to call cask init. Cask file already exists.
         ./.cask/bin/cask
     fi
 fi
