@@ -43,3 +43,4 @@
 (depends-on "twittering-mode")
 (depends-on "haskell-mode")
 (depends-on "redo+")
+(depends-on "jade-mode")
