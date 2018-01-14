@@ -10,7 +10,7 @@
         df = diff FETCH_HEAD
         mf = merge FETCH_HEAD
 [core]
-        editor = 'vim -c "set fenc=utf-8"'
+        editor = vi
         autocrlf = input
 [diff]
         ignoreSubmodules = dirty
