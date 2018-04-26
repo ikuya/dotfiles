@@ -129,7 +129,7 @@ function search() {
 function rename_tmux_window() {
    if [ $TERM = "screen" ]; then
        local current_path=`pwd | sed -e s/\ /_/g`
-       local current_dir=`basename $current_path`
+       local current_dir=`basename $current_path |cut -c 1-8`
        tmux rename-window $current_dir
    fi
 }
