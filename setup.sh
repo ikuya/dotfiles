@@ -60,6 +60,7 @@ deploy $L $HOME/bin/used_mem.sh $TMUX/used_mem.sh
 
 ## Vi
 deploy $L $HOME/.vimrc $DOTFILES/.vimrc
+deploy $M $HOME/.vim_swp
 
 ## Misc.
 deploy $L $HOME/.inputrc $MISC/.inputrc
