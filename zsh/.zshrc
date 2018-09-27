@@ -67,10 +67,7 @@ path=(
     $HOME/bin(N-/)
     /usr/local/bin
     /anaconda3/bin
-#    /usr/bin
-#    /bin
-#    /usr/sbin
-#    /sbin
+    $HOME/.emacs.d/.cask/bin(N-/)
     $path
 )
 
