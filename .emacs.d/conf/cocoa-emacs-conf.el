@@ -73,10 +73,9 @@
 ;; 背景色変更
 ;(set-face-background 'show-paren-match-face nil)
 ;; faceを変更する
-(set-face-attribute 'show-paren-match-face nil
-                    :underline "#ffff00" :weight 'bold)
-(set-face-background 'show-paren-match-face nil)
-(set-face-foreground 'show-paren-match-face nil)
+(set-face-attribute 'show-paren-match nil
+                    :background 'unspecified
+                    :underline "turquoise")
 
 ;;; ---------- FONTS ----------
 ;; asciiフォント

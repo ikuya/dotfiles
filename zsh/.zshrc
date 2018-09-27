@@ -94,8 +94,6 @@ alias changekey-tmux='tmux set-option -t 0 prefix C-z'
 alias revertkey-tmux='tmux set-option -t 0 prefix C-t'
 ## Git
 alias g='git'
-alias gst='git status'
-alias gd='git diff'
 
 alias vag='vagrant'
 

@@ -124,29 +124,9 @@
          :channels ("#emacs-lisp-ja" "#emacs-ja"))))
 (setq rcirc-log-flag nil) ;ログを保存 (t/nil)
 
-;; ---------- navi2ch ----------
-(when (require 'navi2ch nil t)
-  (setq navi2ch-article-exist-message-range '(1 . 1000)) ;既存スレ
-  (setq navi2ch-article-new-message-range '(1000 . 1))   ;新スレ
-  (setq navi2ch-board-insert-subject-with-diff t)        ;レス増加数表示
-  (setq navi2ch-board-insert-subject-with-unread t)      ;未読数表示
-  (setq navi2ch-list-init-open-category t)
-  (setq navi2ch-board-expire-date nil)
-  (setq navi2ch-history-max-line nil))
-
 ;; ---------- ffap.el ----------
 ;; C-x C-fで、カーソル位置のファイル・URLをMini-bufferに表示
 (ffap-bindings)
-
-;; ---------- iswitchb.el ----------
-;; C-x b で部分一致を有効に
-(iswitchb-mode 1)
-;; バッファ読み取り関数をiswitchbにする
-(setq read-buffer-function 'iswitchb-read-buffer)
-;; 部分文字列の代わりに正規表現を使う場合は t を設定
-(setq iswitchb-regexp nil)
-;; 新しいバッファ作成時にいちいち聞いてこない
-(setq iswitchb-prompt-newbuffer nil)
 
 ;; ---------- bookmark.el ----------
 ;; Bookmarkを変更したらすぐに保存する
@@ -177,15 +157,6 @@
           (define-key helm-gtags-mode-map (kbd "M-r") 'helm-gtags-find-rtag)
           (define-key helm-gtags-mode-map (kbd "M-s") 'helm-gtags-find-symbol)
           (define-key helm-gtags-mode-map (kbd "M-h") 'helm-gtags-pop-stack))))
-
-;; ---------- popwin.el ----------
-(require 'popwin nil t)
-(popwin-mode t)
-(setq display-buffer-function 'popwin:display-buffer)
-(setq popwin:special-display-config '(("*Help*")
-                                      ("*compilatoin*" :noselect t)
-                                      ("helm" :regexp t :height 0.4)
-                                      ))
 
 ;; ---------- json-reformat ----------
 ;; http://gongo.hatenablog.com/entry/2012/02/10/222051
@@ -266,6 +237,3 @@
 ;; (setq sl-restore-scratch-p nil)
 ;; nil なら スクラッチバッファを削除できるままにする。初期値は t です。
 ;; (setq sl-prohibit-kill-scratch-buffer-p nil)
-
-;; ---------- redo+ ----------
-(require 'redo+)

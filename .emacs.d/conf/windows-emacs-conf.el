@@ -533,10 +533,9 @@
 ;(setq show-paren-style 'mixed)        ;対応するカッコが画面外のときはカッコ内も強調
 
 ;; faceを変更する
-(set-face-attribute 'show-paren-match-face nil
-                    :underline "#ffff00" :weight 'bold)
-(set-face-background 'show-paren-match-face nil)
-(set-face-foreground 'show-paren-match-face nil)
+(set-face-attribute 'show-paren-match nil
+                    :background 'unspecified
+                    :underline "turquoise")
 
 ;; ;; ---------- emacs-w3m ----------
 ;; (setq w3m-command "/usr/bin/w3m")
