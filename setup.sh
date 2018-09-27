@@ -45,8 +45,6 @@ fi
 
 # zsh
 deploy $L $HOME/.zshrc $ZSH/.zshrc
-deploy $T $HOME/.zlogin
-echo "export PATH=$EMACSD/.cask/bin:$PATH" >> $HOME/.zlogin
 
 # Tmux
 deploy $L $HOME/.tmux.conf $TMUX/.tmux.conf
