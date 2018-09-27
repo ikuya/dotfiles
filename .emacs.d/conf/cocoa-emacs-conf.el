@@ -28,15 +28,6 @@
 ;; http://aoe-tk.hatenablog.com/entry/20130210/1360506829
 (load-theme 'wombat t)
 
-; 起動時のウィンドウサイズ
-;(if window-system (progn
-;                    ; プライマリーFontに和文含みのものRictyを指定するとフレーム幅が倍になってしまう...
-;                    (setq initial-frame-alist '((width . 80)
-;                                                (height . 50)
-;                                                (top . 0)
-;                                                (left . 400)
-;                                                ))))
-
 ;; 透明度を変更するコマンド M-x set-alpha
 ;; http://qiita.com/marcy@github/items/ba0d018a03381a964f24
 (defun set-alpha (alpha-num)
@@ -45,7 +36,7 @@
   (set-frame-parameter nil 'alpha (cons alpha-num '(80))))
 (set-alpha '80)
 
-;; TOOL BARを非表示
+;; ツールバー非表示
 (tool-bar-mode -1)
 
 ;; スクロールバー非表示
@@ -87,19 +78,6 @@
  nil 'japanese-jisx0208
  (font-spec :family "Ricty"))
 
-;; ---------- migemo ----------
-(setq migemo-command "/usr/local/bin/cmigemo")
-(setq migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict")
-(when (and (executable-find "cmigemo")
-           (require 'migemo nil t))
-  (setq migemo-options '("-q" "--emacs"))
-  (setq migemo-user-dictionary nil)
-  (setq migemo-coding-system 'utf-8-unix)
-  (setq migemo-regex-dictionary nil)
-  (load-library "migemo")
-  (migemo-init)
-)
-
 ;; ----------  ElScreen ----------
 ;(require 'elscreen nil t)
 ;; ElScreenのプレフィックス(default: C-z)
@@ -135,9 +113,6 @@
        (shell-quote-argument (buffer-file-name))))
   )
 (global-set-key (kbd "C-c m") 'markdown-preview-file)
-
-;; ---------- 文字コード ----------
-(prefer-coding-system 'utf-8-unix)
 
 ;; ---------- misc ----------
 ;; ミニバッファでIMEを無効化

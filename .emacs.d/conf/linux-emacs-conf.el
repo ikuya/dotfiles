@@ -82,20 +82,6 @@
 (set-fontset-font t 'japanese-jisx0208 (font-spec :family "Ricty-14"))
 (add-to-list 'default-frame-alist '(font . "Ricty-14"))
 
-;; ---------- migemo ----------
-(setq migemo-command "/usr/local/bin/cmigemo")
-(setq migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict")
-(when (and (executable-find "cmigemo")
-           (require 'migemo nil t))
-  (setq migemo-options '("-q" "--emacs"))
-  (setq migemo-user-dictionary nil)
-  (setq migemo-coding-system 'utf-8-unix)
-  (setq migemo-regex-dictionary nil)
-  (load-library "migemo")
-  (migemo-init)
-)
-
-
 ;; ----------  ElScreen ----------
 ;; ElScreenのプレフィックス(default: C-z)
 (setq elscreen-prefix-key (kbd "C-t"))
@@ -133,6 +119,3 @@
 (setq browse-url-generic-program
       (if (file-exists-p "/usr/bin/google-chrome")
           "/usr/bin/google-chrome" "/usr/bin/chromium"))
-
-;; ---------- 文字コード ----------
-(prefer-coding-system 'utf-8-unix)

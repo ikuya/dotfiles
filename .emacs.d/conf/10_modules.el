@@ -1,55 +1,6 @@
 ;; =========================
-;;   Module Settings (.emacs.d/elisp)
+;;   Modules
 ;; =========================
-
-;; ---------- emacs-async ----------
-;(autoload 'dired-async-mode "dired-async.el" nil t)
-;(dired-async-mode 1)
-
-;; ---------- color-moccur ----------
-(when (require 'color-moccur nil t)
-  ; occur-by-moccur を Keybind
-  ;(define-key global-map (kbd "M-o") 'occur-by-moccur)
-  ; moccur(multi buffer search)
-  (define-key global-map (kbd "M-o") 'moccur)
-  ; スペース区切りでAND検索
-  (setq moccur-split-word t)
-  ; ディレクトリ検索時に除外するファイル
-  (add-to-list 'dmoccur-exclusion-mask "\\.DS_Store")
-  (add-to-list 'dmoccur-exclusion-mask "^#.+#$")
-;  ; Migemoを利用できる環境であれば、Migemoを使う
-;  (when (and (executable-find "cmigemo")
-;             (require 'migemo nil t))
-;    (setq moccur-use-migemo t))
-  )
-;; moccur-editを利用可能にする
-(require 'moccur-edit nil t)
-
-;; ---------- undo-tree ----------
-(when (require 'undo-tree nil t)
-  (global-undo-tree-mode t)
-  (global-set-key (kbd "C-/") 'undo-tree-undo)
-  (global-set-key (kbd "C-_") 'undo-tree-undo)
-  (global-set-key (kbd "C-'") 'undo-tree-redo)
-  (global-set-key (kbd "C-]") 'undo-tree-redo)
-  )
-
-;; ---------- Auto Complete Mode ----------
-(when (require 'auto-complete-config nil t)
-  (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/auto-complete/ac-dict")
-  (define-key ac-mode-map (kbd "C-S-n") 'auto-complete)
-  (ac-config-default)
-  ;; ac-disable-facesの初期値は
-  ;; (font-lock-comment-face font-lock-string-face font-lock-doc-face)
-  ;; font-lock-comment-faceがあるとコメントの中で,
-  ;; font-lock-string-faceがあるとクオートで囲まれた部分"..."で
-  ;; auto-completeが反応しなくなり、セレクタを補完できないので次のように
-  (setq ac-disable-faces '(font-lock-doc-face))
-  ;; yasnippet絡みのエラーが発生するので、その対処
-  ;; http://www.kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet/
-  (delq 'ac-source-yasnippet ac-sources)
-  )
-
 
 ;; ---------- howm ----------
 (setq howm-directory (concat user-emacs-directory "howm"))
@@ -73,9 +24,6 @@
 ;; ---------- Egg (Git Frontend) ----------
 (when (executable-find "git")
   (require 'egg nil t))
-
-;; ---------- aplaca ----------
-;(require 'alpaca)
 
 ;; ---------- twittering-mode ----------
 ;(add-to-list 'load-path "~/.emacs.d/elisp/twittering-mode")
@@ -127,27 +75,6 @@
 ;; ---------- ffap.el ----------
 ;; C-x C-fで、カーソル位置のファイル・URLをMini-bufferに表示
 (ffap-bindings)
-
-;; ---------- bookmark.el ----------
-;; Bookmarkを変更したらすぐに保存する
-(setq bookmark-save-flag 1)
-;; 最近使ったBookmarkをリストの先頭に移動
-(progn
-  (setq bookmark-sort-flag nil)
-  (defun bookmark-arrange-list-top()
-    (let ((latest (bookmark-get-bookmark bookmark)))
-      (setq bookmark-alist (cons latest (delq latest bookmark-alist))))
-    (bookmark-save))
-  (add-hook 'bookmark-after-jump-hook 'bookmark-arrange-list-top))
-
-;; ---------- text-adjust.el ----------
-;; 日本語textの整形
-(require 'text-adjust nil t)
-;; alias
-(defalias 'kutouten 'text-adjust-kutouten)
-(defalias 'kutouten-buffer 'text-adjust-kutouten-buffer)
-(defalias 'hankaku-zenkaku-space 'text-adjust-space)
-(defalias 'hankaku-zenkaku-space-buffer 'text-adjust-space-buffer)
 
 ;; ---------- gnu global ----------
 (when (require 'helm-gtags nil t)
@@ -218,7 +145,6 @@
   ;; prior to emacs24
   ;(helm-descbinds-mode 1)
   )
-
 
 ;; ---------- diminish ----------
 ;; 指定したマイナーモードを表示しない
