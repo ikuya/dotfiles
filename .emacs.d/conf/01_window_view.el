@@ -183,9 +183,8 @@
 ;; undo-tree-visualize
 (define-key global-map (kbd "C-x C-c .") 'undo-tree-visualize)
 ;; カーソルを移動させずに画面を一行ずつスクロール
-; Emacs24では'scroll-up-line 'scroll-down-line というコマンドがあるらしい
-(define-key global-map (kbd "M-n") (lambda() (interactive) (scroll-up 1)))
-(define-key global-map (kbd "M-p") (lambda() (interactive) (scroll-down 1)))
+(define-key global-map (kbd "M-n") 'scroll-up-line)
+(define-key global-map (kbd "M-p") 'scroll-down-line)
 
 ;; -------------------------
 ;;   macro
