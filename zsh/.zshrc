@@ -81,18 +81,27 @@ alias lsa='ls -AF'
 alias ll='ls -lF'
 alias lla='ls -AlF'
 alias llt='ls -tlF'
-alias sl='ls'
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
 alias ..='cd ../'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
 ## Tmux
 alias tm='tmux'
 alias tms='tmux ls'
 alias tma='tmux attach'
 alias changekey-tmux='tmux set-option -t 0 prefix C-z'
 alias revertkey-tmux='tmux set-option -t 0 prefix C-t'
-## Git
+## Misc
 alias g='git'
-
 alias vag='vagrant'
+alias zshrc="vi $HOME/.zshrc"
+alias mem='top -o rsize'
+alias cpu='top -o cpu'
+alias psall='ps aux'
+alias grep='grep --color=auto'
 
 ## ----------
 ## Functions
