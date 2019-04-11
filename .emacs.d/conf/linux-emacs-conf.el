@@ -103,10 +103,10 @@
              ))
 
 ;; Mozc 設定
-(require 'mozc)
-(set-language-environment 'Japanese)
-(setq default-input-method 'japanese-mozc)
-(setq mozc-candidate-style 'echo-area)
+(when (require 'mozc nil t)
+  (set-language-environment 'Japanese)
+  (setq default-input-method 'japanese-mozc)
+  (setq mozc-candidate-style 'echo-area))
 
 ;; set windows key to meta
 (setq x-super-keysym 'meta)

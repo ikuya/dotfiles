@@ -68,6 +68,8 @@ path=(
     /usr/local/bin
     /anaconda3/bin
     $HOME/.emacs.d/.cask/bin(N-/)
+    /usr/sbin
+    /sbin
     $path
 )
 
@@ -98,8 +100,8 @@ alias revertkey-tmux='tmux set-option -t 0 prefix C-t'
 alias g='git'
 alias vag='vagrant'
 alias zshrc="vi $HOME/.zshrc"
-alias mem='top -o rsize'
-alias cpu='top -o cpu'
+alias mem='top -o %MEM'
+alias cpu='top -o $CPU'
 alias psall='ps aux'
 alias grep='grep --color=auto'
 
@@ -129,7 +131,7 @@ function search() {
             file=$2
         ;;
     esac
-    find $dir -name "$file" -exec grep -iIHn $string {} \; 2>/dev/null;
+    find $dir -name "$file" -exec grep -iIHn --color=auto $string {} \; 2>/dev/null;
 }
 
 ## Automatically rename tmux window using the current working directory.
