@@ -42,6 +42,6 @@
 (depends-on "scratch-log")
 (depends-on "twittering-mode")
 (depends-on "haskell-mode")
-;(depends-on "redo+")
 (depends-on "undo-tree")
 (depends-on "jade-mode")
+(depends-on "diminish")
