@@ -32,16 +32,16 @@ set incsearch
 set nowrapscan
 
 " 検索結果のハイライトを停止
-set nohlsearch
+"set nohlsearch
 
 " 検索結果の文字色を白に変更
-highlight Search ctermfg=white
+"highlight Search ctermfg=white
 
 " swapファイルの場所
 set directory=$HOME/.vim_swp
 
 """ Filetype
-filetype plugin indent on
+"filetype plugin indent on
 "autocmd FileType html,xml,xsl, source ~/.vim/bundle/closetag.vim
 
 """ 改行時のコメント自動挿入をオフ
