@@ -98,7 +98,7 @@ alias changekey-tmux='tmux set-option -t 0 prefix C-z'
 alias revertkey-tmux='tmux set-option -t 0 prefix C-t'
 ## Misc
 alias g='git'
-alias vag='vagrant'
+alias va='vagrant'
 alias zshrc="vi $HOME/.zshrc"
 alias mem='top -o %MEM'
 alias cpu='top -o $CPU'
