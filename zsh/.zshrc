@@ -98,6 +98,7 @@ alias changekey-tmux='tmux set-option -t 0 prefix C-z'
 alias revertkey-tmux='tmux set-option -t 0 prefix C-t'
 ## Misc
 alias g='git'
+alias vag='vagrant'
 alias va='vagrant'
 alias zshrc="vi $HOME/.zshrc"
 alias mem='top -o %MEM'
@@ -139,7 +140,7 @@ function rename_tmux_window() {
    if [ $TERM = "screen" ]; then
        local current_path=`pwd | sed -e s/\ /_/g`
        local current_dir=`basename $current_path |cut -c 1-5`
-       tmux rename-window $current_dir
+       tmux rename-window $current_dir >/dev/null 2>&1
    fi
 }
 autoload -Uz add-zsh-hook
