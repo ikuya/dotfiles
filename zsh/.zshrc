@@ -101,10 +101,19 @@ alias g='git'
 alias vag='vagrant'
 alias va='vagrant'
 alias zshrc="vi $HOME/.zshrc"
-alias mem='top -o %MEM'
-alias cpu='top -o $CPU'
 alias psall='ps aux'
 alias grep='grep --color=auto'
+
+case ${OSTYPE} in
+    darwin*)
+    alias mem='top -o mem'
+    alias cpu='top -o cpu'
+    ;;
+    linux*)
+    alias mem='top -o %MEM'
+    alias cpu='top -o %CPU'
+    ;;
+esac
 
 ## ----------
 ## Functions

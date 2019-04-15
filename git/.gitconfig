@@ -9,9 +9,9 @@
     d = diff
     df = diff FETCH_HEAD
     mf = merge FETCH_HEAD
+    co = checkout
 [core]
     editor = vi
-    autocrlf = input
     quotepath = false
     pager = LESSCHARSET=utf-8 less -m
 [diff]
