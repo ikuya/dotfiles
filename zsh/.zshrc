@@ -106,12 +106,12 @@ alias grep='grep --color=auto'
 
 case ${OSTYPE} in
     darwin*)
-    alias mem='top -o mem'
-    alias cpu='top -o cpu'
+    alias tmem='top -o mem'
+    alias tcpu='top -o cpu'
     ;;
     linux*)
-    alias mem='top -o %MEM'
-    alias cpu='top -o %CPU'
+    alias tmem='top -o %MEM'
+    alias tcpu='top -o %CPU'
     ;;
 esac
 

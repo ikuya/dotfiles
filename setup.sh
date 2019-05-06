@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 DOTFILES=$(cd $(dirname $0); pwd)
 EMACSD=$DOTFILES/.emacs.d
@@ -54,8 +54,11 @@ deploy $L $HOME/.gitconfig $GIT/.gitconfig
 
 # bin
 deploy $M $HOME/bin
-deploy $L $HOME/bin/loadaverage.sh $TMUX/loadaverage.sh
-deploy $L $HOME/bin/used_mem.sh $TMUX/used_mem.sh
+deploy $L $HOME/bin/loadaverage $TMUX/loadaverage.sh
+deploy $L $HOME/bin/used_mem $TMUX/used_mem.sh
+if [[ ${OSTYPE} =~ darwin* ]]; then
+    deploy $L $HOME/bin/mem $MISC/mem.sh
+fi
 
 ## Vi
 deploy $L $HOME/.vimrc $DOTFILES/.vimrc
