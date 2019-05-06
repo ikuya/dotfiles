@@ -18,7 +18,7 @@ deploy() {
         case $1 in
             $M) mkdir $2 ;;
             $T) touch $2 ;;
-            $L) ln -s $3 $2 ;;
+            $L) ln -s $2 $3 ;;
         esac
     fi
 }
@@ -33,7 +33,7 @@ which emacs > /dev/null
 if [ $? = 0 ];then
     EMACS_VER=$(emacs --version | awk 'NR == 1 {print $3}' | cut -f1,2 -d.)
     if [ $(echo "$EMACS_VER >= $EMACS_VER_ENABLED" | bc) = 1 ]; then
-        deploy $L $HOME/.emacs.d $EMACSD
+        deploy $L $EMACSD $HOME/.emacs.d
         deploy $T $EMACSD/.scratch-log
         deploy $T $EMACSD/.scratch-log-prev
         deploy $M $EMACSD/backup
@@ -44,28 +44,28 @@ if [ $? = 0 ];then
 fi
 
 # zsh
-deploy $L $HOME/.zshrc $ZSH/.zshrc
+deploy $L $ZSH/.zshrc $HOME/.zshrc
 
 # Tmux
-deploy $L $HOME/.tmux.conf $TMUX/.tmux.conf
+deploy $L $TMUX/.tmux.conf $HOME/.tmux.conf
 
 # Git
-deploy $L $HOME/.gitconfig $GIT/.gitconfig
+deploy $L $GIT/.gitconfig $HOME/.gitconfig
 
 # bin
 deploy $M $HOME/bin
-deploy $L $HOME/bin/loadaverage $TMUX/loadaverage.sh
-deploy $L $HOME/bin/used_mem $TMUX/used_mem.sh
+deploy $L $TMUX/loadaverage.sh $HOME/bin/loadaverage
+deploy $L $TMUX/used_mem.sh $HOME/bin/used_mem
 if [[ ${OSTYPE} =~ darwin* ]]; then
-    deploy $L $HOME/bin/mem $MISC/mem.sh
+    deploy $L $MISC/mem.sh $HOME/bin/mem
 fi
 
 ## Vi
-deploy $L $HOME/.vimrc $DOTFILES/.vimrc
+deploy $L $DOTFILES/.vimrc $HOME/.vimrc
 deploy $M $HOME/.vim_swp
 
 ## Misc.
-deploy $L $HOME/.inputrc $MISC/.inputrc
-deploy $L $HOME/.screenrc $MISC/.screenrc
+deploy $L $MISC/.inputrc $HOME/.inputrc
+deploy $L $MISC/.screenrc $HOME/.screenrc
 
 exit 0
