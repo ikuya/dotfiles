@@ -16,7 +16,7 @@ L="ln"
 deploy() {
     if [ ! -e $2 ]; then
         case $1 in
-            $M) mkdir $2 ;;
+            $M) mkdir -p $2 ;;
             $T) touch $2 ;;
             $L) ln -s $2 $3 ;;
         esac
@@ -26,7 +26,8 @@ deploy() {
 # Submodules initialization
 cd $DOTFILES
 git submodule update --init --recursive
-git submodule foreach git pull origin master
+cd $ZSH
+git submodule update --init --recursive
 
 # Emacs
 which emacs > /dev/null
@@ -45,6 +46,8 @@ fi
 
 # zsh
 deploy $L $ZSH/.zshrc $HOME/.zshrc
+deploy $M $HOME/.cache/shell
+deploy $L $ZSH/zaw $HOME/.zaw
 
 # Tmux
 deploy $L $TMUX/.tmux.conf $HOME/.tmux.conf
