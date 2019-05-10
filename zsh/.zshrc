@@ -186,3 +186,5 @@ zstyle ':chpwd:*' recent-dirs-pushd true
 # See. https://github.com/zsh-users/zaw
 source $HOME/.zaw/zaw.zsh
 bindkey '^X' zaw
+bindkey '^R' zaw-history
+bindkey '^X^D' zaw-cdr
