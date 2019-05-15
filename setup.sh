@@ -14,12 +14,24 @@ T="touch"
 L="ln"
 
 deploy() {
-    if [ ! -e $2 ]; then
-        case $1 in
-            $M) mkdir -p $2 ;;
-            $T) touch $2 ;;
-            $L) ln -s $2 $3 ;;
-        esac
+    if [ $1 = $M ]; then
+        if [ ! -e $2 ]; then
+            mkdir -p $2
+        else
+            echo $2 'is already exists.'
+        fi
+    elif [ $1 = $T ]; then
+        if [ ! -e $2 ]; then
+            touch $2
+        else
+            echo $2 'is already exists.'
+        fi
+    elif [ $1 = $L ]; then
+        if [ ! -e $3 ]; then
+            ln -s $2 $3
+        else
+            echo $3 'is already exists.'
+        fi
     fi
 }
 
@@ -41,7 +53,11 @@ if [ $? = 0 ];then
         cd $EMACSD
         # No need to call cask init. Cask file already exists.
         ./.cask/bin/cask
+    else
+        echo 'Required Emacs version ' $EMACS_VER_ENABLED ' or later.'
     fi
+else
+    echo 'Emacs is not installed.'
 fi
 
 # zsh
