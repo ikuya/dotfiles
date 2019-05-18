@@ -68,6 +68,7 @@ else
 fi
 
 # zsh
+deploy $L $ZSH/.zshenv $HOME/.zshenv
 deploy $L $ZSH/.zshrc $HOME/.zshrc
 deploy $M $HOME/.cache/shell
 deploy $L $ZSH/zaw $HOME/.zaw

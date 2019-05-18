@@ -1,12 +1,12 @@
 # =======
-# zlogin
+# zshenv
 # =======
 
 # -------
 # Env
 # -------
 
-export EDITOR=/usr/bin/vi
+export EDITOR=$(which vi)
 
 # -------
 # PATH
