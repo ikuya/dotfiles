@@ -94,4 +94,5 @@ deploy $M $HOME/.vim_swp
 deploy $L $MISC/.inputrc $HOME/.inputrc
 deploy $L $MISC/.screenrc $HOME/.screenrc
 
+echo 'Setup.sh successfully finished.'
 exit 0
