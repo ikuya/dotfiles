@@ -33,11 +33,11 @@
       (if (file-exists-p "/usr/bin/google-chrome")
           "/usr/bin/google-chrome" "/usr/bin/chromium"))
 
-;; ----- kill-ringをclipbordに送る -----
-;; See. https://www.reddit.com/r/emacs/comments/9qvssh/copy_text_from_emacs_to_other_programs/e8cxlfu/
-(defun text-to-clipboard (text &optional push)
-  ;; I ignore push since I dunno what it does; I suspect only older emacsen require it
- (with-temp-buffer
-  (insert text)
-  (call-process-region (point-min) (point-max) "pbcopy")))
-(setq interprogram-cut-function 'text-to-clipboard)
+;;; ----- kill-ringをclipbordに送る -----
+;;; See. https://www.reddit.com/r/emacs/comments/9qvssh/copy_text_from_emacs_to_other_programs/e8cxlfu/
+;(defun text-to-clipboard (text &optional push)
+;  ;; I ignore push since I dunno what it does; I suspect only older emacsen require it
+; (with-temp-buffer
+;  (insert text)
+;  (call-process-region (point-min) (point-max) "xsel --clipboard --input")))
+;(setq interprogram-cut-function 'text-to-clipboard)
