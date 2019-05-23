@@ -53,7 +53,8 @@ bindkey "^N" history-beginning-search-forward-end
 setopt no_flow_control
 
 ## LANG
-export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=$LANGUAGE
 
 ## Editor
 export EDITOR=$(which vi)
