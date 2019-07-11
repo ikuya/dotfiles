@@ -17,3 +17,8 @@
 (add-hook 'web-mode-hook
           '(lambda()
              (define-key web-mode-map (kbd "C-c m") 'web-mode)))
+
+;; 閉じタグを自動で追加する
+(setq web-mode-enable-auto-closing t)
+; ERBのタグ <% %> を自動で閉じる
+(setq web-mode-enable-auto-pairing t)
