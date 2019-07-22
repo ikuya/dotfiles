@@ -141,6 +141,19 @@
 
 ;; Whitespace mode
 (require 'whitespace)
+(setq whitespace-style '(face
+                         tabs
+                         spaces
+                         trailing
+                         lines
+                         space-before-tab
+                         newline
+                         indentation::space
+                         empty
+                         space-after-tab
+                         space-mark
+                         tab-mark
+                         newline-mark))
 ;; スペースは全角のみを可視化
 (setq whitespace-space-regexp "\\(\u3000+\\)")
 ;; 保存前に自動でクリーンアップ
