@@ -67,7 +67,6 @@ export EDITOR=$(which vi)
 path=(
     $HOME/bin(N-/)
     /usr/local/bin
-    /anaconda3/bin
     $HOME/.emacs.d/.cask/bin(N-/)
     /usr/sbin
     /sbin
