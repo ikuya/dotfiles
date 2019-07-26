@@ -6,4 +6,3 @@
 (setq initial-scratch-message "")
 ;; scratchのメジャーモード
 (setq initial-major-mode 'markdown-mode)
-

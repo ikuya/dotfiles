@@ -7,4 +7,3 @@
 (add-hook 'html-mode-hook
           (lambda()
             (setq indent-line-function 'indent-relative)))
-

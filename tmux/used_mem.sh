@@ -6,7 +6,7 @@ calculate_used_mem() {
         MEM_USED=`free |awk 'NR==2 {print $3}'`
         USED_MEM_PERCENT=$(echo `echo "scale=4; $MEM_USED / $MEM_TOTAL * 100" | bc | sed -e 's/^\(....\).*/\1/'`)
     else
-    	# vm_stat
+        # vm_stat
         VM_STAT=`vm_stat`
 
         PAGES_WIRED=$(echo "$VM_STAT" | awk '/Pages wired down/ {print $NF}' | tr -d '.')

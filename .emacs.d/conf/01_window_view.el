@@ -151,13 +151,16 @@
                          indentation::space
                          empty
                          space-after-tab
-                         space-mark
+;                         space-mark
                          tab-mark
-                         newline-mark))
+;                         newline-mark
+                         ))
 ;; スペースは全角のみを可視化
 (setq whitespace-space-regexp "\\(\u3000+\\)")
 ;; 保存前に自動でクリーンアップ
 (setq whitespace-action '(auto-cleanup))
+;; 全モードでON
+(global-whitespace-mode 1)
 
 ;; メニューバーを表示しない
 (menu-bar-mode -1)

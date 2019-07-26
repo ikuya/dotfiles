@@ -10,4 +10,3 @@
 ; http://d.hatena.ne.jp/wadap/20120415/1334468285
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
-
