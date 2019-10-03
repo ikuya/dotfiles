@@ -3,7 +3,7 @@
 (add-hook 'c-mode-hook
           '(lambda()
              (c-set-style "k&r")
-             (setq indent-tabs-mode t)
+;             (setq indent-tabs-mode t)
              (setq c-basic-offset 4)))
 
 ;; 拡張子とmodeの対応
