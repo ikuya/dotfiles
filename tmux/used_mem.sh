@@ -31,7 +31,8 @@ calculate_used_mem() {
 
         USED_MEM_PERCENT=$(echo `echo "scale=4; $USED_MEM / $TOTAL_MEM * 100" | bc | sed -e 's/^\(....\).*/\1/'`)
     fi
-    echo "Mem:${USED_MEM_PERCENT}%"
+    #echo "Mem:${USED_MEM_PERCENT}%"
+    echo ${USED_MEM_PERCENT}
     return 0
 }
 
