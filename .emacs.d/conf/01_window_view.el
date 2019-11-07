@@ -65,19 +65,15 @@
 ;; モードラインの表示を詰める
 ; http://homepage1.nifty.com/blankspace/emacs/mode-line.html
 (setq-default mode-line-format
-              '("-"
+              '(
+                "-"
                 mode-line-mule-info
                 mode-line-modified
-                mode-line-frame-identification
                 mode-line-buffer-identification
                 " %[("
                 mode-name
-                mode-line-process
                 minor-mode-alist
                 "%n" ")%]--"
-                ;(which-func-mode ("" which-func-format "-"))
-                global-mode-string
-                " "
                 (line-number-mode "L%l-")
                 (column-number-mode "C%c-")
                 (-3 . "%p")
