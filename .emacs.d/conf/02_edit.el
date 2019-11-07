@@ -38,7 +38,9 @@
   (define-key global-map (kbd "C-/") 'undo-tree-undo)
   (define-key global-map (kbd "C-c u") 'undo-tree-undo)
   (define-key global-map (kbd "C-;") 'undo-tree-redo)
-  (define-key global-map (kbd "C-c r") 'undo-tree-redo))
+  (define-key global-map (kbd "C-c r") 'undo-tree-redo)
+  (define-key global-map (kbd "M--") 'undo-tree-redo))
+
 
 ;; ---------- 検索 ----------
 ;; カーソル位置の単語でi-search (このコマンドを実行後C-wで単語を検索語に追加)
