@@ -11,3 +11,4 @@ auto-save-list
 #.emacs.d/.cask
 zsh/.zcompdump
 .DS_Store
+.emacs.d/conf/99_local.el
