@@ -12,6 +12,7 @@ EMACS_VER_ENABLED=24.4
 M="mkdir"
 T="touch"
 L="ln"
+C="cp"
 
 deploy() {
     if [ $1 = $M ]; then
@@ -29,6 +30,12 @@ deploy() {
     elif [ $1 = $L ]; then
         if [ ! -e $3 ]; then
             ln -s $2 $3
+        else
+            echo $3 'is already exists.'
+        fi
+    elif [ $1 = $C ]; then
+        if [ ! -e $3 ]; then
+            cp $2 $3
         else
             echo $3 'is already exists.'
         fi
@@ -77,7 +84,7 @@ deploy $L $ZSH/zaw $HOME/.zaw
 deploy $L $TMUX/.tmux.conf $HOME/.tmux.conf
 
 # Git
-deploy $L $GIT/.gitconfig $HOME/.gitconfig
+deploy $C $GIT/.gitconfig $HOME/.gitconfig
 
 # bin
 deploy $M $HOME/bin
