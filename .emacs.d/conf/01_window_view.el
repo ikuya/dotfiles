@@ -156,7 +156,7 @@
 ;; 保存前に自動でクリーンアップ
 (setq whitespace-action '(auto-cleanup))
 ;; 全モードでON
-(global-whitespace-mode 1)
+;(global-whitespace-mode 1)
 
 ;; メニューバーを表示しない
 (menu-bar-mode -1)
