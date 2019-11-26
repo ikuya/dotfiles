@@ -3,6 +3,7 @@
 [alias]
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an:%ae>%Creset' --abbrev-commit --date=relative
     today = log --since=midnight --graph --date=format:'%Y-%m-%d %a %H:%M:%S' --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Creset(%cr) %Cgreen%cn %Cred%d %Creset%s'
+    yesterday = log --since=yesterday.midnight --graph --date=format:'%Y-%m-%d %a %H:%M:%S' --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Creset(%cr) %Cgreen%cn %Cred%d %Creset%s'
     graph = log --graph --date=format:'%Y-%m-%d %a %H:%M:%S' --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Creset(%cr) %Cgreen%cn %Cred%d %Creset%s'
     g = log --graph --date=format:'%Y-%m-%d %a %H:%M:%S' --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Creset(%cr) %Cgreen%cn %Cred%d %Creset%s'
     st = status
