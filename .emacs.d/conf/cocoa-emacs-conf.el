@@ -80,7 +80,7 @@
 
 (setq default-frame-alist
       (append (list
-               '(font . "Cica-16"))
+               '(font . "Cica-14"))
               default-frame-alist))
 
 ;; ----------  ElScreen ----------
@@ -121,4 +121,4 @@
 
 ;; ---------- misc ----------
 ;; ミニバッファでIMEを無効化
-(mac-auto-ascii-mode 1)
+;(mac-auto-ascii-mode 1)
