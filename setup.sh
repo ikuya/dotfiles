@@ -90,6 +90,7 @@ deploy $C $GIT/.gitconfig $HOME/.gitconfig
 deploy $M $HOME/bin
 deploy $L $TMUX/loadaverage.sh $HOME/bin/loadaverage
 deploy $L $TMUX/used_mem.sh $HOME/bin/used_mem
+deploy $L $MISC/search.sh $HOME/bin/search
 if [[ ${OSTYPE} =~ darwin* ]]; then
     deploy $L $MISC/mem.sh $HOME/bin/mem
 fi
