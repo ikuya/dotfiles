@@ -94,14 +94,11 @@ alias ..4='cd ../../../..'
 alias tm='tmux'
 alias tms='tmux ls'
 alias tma='tmux attach'
-alias changekey-tmux='tmux set-option -t 0 prefix C-z'
-alias revertkey-tmux='tmux set-option -t 0 prefix C-t'
 ## Misc
 alias g='git'
+alias gst='git status'
+alias gd='git diff'
 alias vag='vagrant'
-alias va='vagrant'
-alias zshrc="vi $HOME/.zshrc"
-alias psall='ps aux'
 alias grep='grep --color=auto'
 
 case ${OSTYPE} in
