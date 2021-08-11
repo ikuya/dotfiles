@@ -1,3 +1,13 @@
+# まずやること
+
+`M-x package-refresh-contents`
+
+`M-x package-list-packages`
+
+下記のパッケージを検索して `i` でインストール対象としてマーク（間違えたら`u`でマーク解除）。全部マークし終えたら`x`で実行。
+
+ちなみに、パッケージを更新するときは`U`でマーク。
+
 # MELPA Packages
 
 - bind-key
