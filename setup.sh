@@ -46,7 +46,7 @@ if [ -e /etc/debian_version ]; then
     read -s "Password? " pwd
     echo $pwd | sudo -S apt update
     echo $pwd | sudo -S apt upgrade
-    sudo apt -y install tmux zsh emacs25 bc
+    sudo apt -y install tmux zsh emacs bc
 fi
 
 # Submodules initialization

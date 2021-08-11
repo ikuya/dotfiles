@@ -1,6 +1,3 @@
-[submodule ".emacs.d/.cask"]
-	path = .emacs.d/.cask
-	url = https://github.com/cask/cask.git
 [submodule "zsh/zaw"]
 	path = zsh/zaw
 	url = https://github.com/zsh-users/zaw.git

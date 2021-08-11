@@ -4,8 +4,8 @@
 
 ;; ---------- howm ----------
 (setq howm-directory (concat user-emacs-directory "howm"))
-;(setq howm-menu-lang 'ja)
-(when (require 'howm-mode nil t)
+(setq howm-menu-lang 'ja)
+(when (require 'howm nil t)
   ; C-c , , でhowm-menu起動
   (define-key global-map (kbd "C-c ,,") 'howm-menu))
 ;; メモを保存と同値に閉じる
@@ -16,8 +16,6 @@
              (string-match "\\.howm" (buffer-file-name)))
     (save-buffer)
     (kill-buffer nil)))
-;; howm-save-buffer-and-kill
-(define-key howm-mode-map (kbd "C-c , k") 'howm-save-buffer-and-kill)
 ;; メニューに表示する最近のメモ件数
 (setq howm-menu-recent-num 30)
 
