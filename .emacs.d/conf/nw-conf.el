@@ -35,9 +35,17 @@
 
 ;;; ----- kill-ringをclipbordに送る -----
 ;;; See. https://www.reddit.com/r/emacs/comments/9qvssh/copy_text_from_emacs_to_other_programs/e8cxlfu/
+;; For Linux
 ;(defun text-to-clipboard (text &optional push)
 ;  ;; I ignore push since I dunno what it does; I suspect only older emacsen require it
 ; (with-temp-buffer
 ;  (insert text)
 ;  (call-process-region (point-min) (point-max) "xsel --clipboard --input")))
+;(setq interprogram-cut-function 'text-to-clipboard)
+;; For macOS
+;(defun text-to-clipboard (text &optional push)
+;  ;; I ignore push since I dunno what it does; I suspect only older emacsen require it
+; (with-temp-buffer
+;  (insert text)
+;  (call-process-region (point-min) (point-max) "pbcopy")))
 ;(setq interprogram-cut-function 'text-to-clipboard)
