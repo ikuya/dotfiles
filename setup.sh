@@ -64,9 +64,6 @@ if [ $? = 0 ];then
         deploy $T $EMACSD/.scratch-log
         deploy $T $EMACSD/.scratch-log-prev
         deploy $M $EMACSD/backup
-        cd $EMACSD
-        # No need to call cask init. Cask file already exists.
-        ./.cask/bin/cask
     else
         echo 'Required Emacs version ' $EMACS_VER_ENABLED ' or later.'
     fi
