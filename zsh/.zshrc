@@ -54,7 +54,7 @@ setopt no_flow_control
 
 ## LANG
 export LANGUAGE=en_US.UTF-8
-export LC_ALL=$LANGUAGE
+#export LC_ALL=$LANGUAGE
 
 ## Editor
 export EDITOR=$(which vi)
