@@ -52,3 +52,5 @@
 - undo-tree
 - jade-mode
 - diminish
+- exec-path-from-shell
+- vterm (requirements: cmake, libtool)

@@ -161,3 +161,13 @@
 ;; (setq sl-restore-scratch-p nil)
 ;; nil なら スクラッチバッファを削除できるままにする。初期値は t です。
 ;; (setq sl-prohibit-kill-scratch-buffer-p nil)
+
+
+;; ---------- emacs-libvterm ----------
+;; https://github.com/akermu/emacs-libvterm
+(require 'vterm)
+
+
+;; ---------- exec-path-from-shell ----------
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
