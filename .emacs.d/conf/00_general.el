@@ -17,6 +17,10 @@
 ;(setq make-backup-files nil)
 ;; オートセーブファイルを作らない [t/nil] default:t
 ;(setq auto-save-default nil)
+
+;; 中華フォント対策
+(set-language-environment "Japanese")
+
 ;; バックアップファイルとオートセーブファイルを.emacs.d/backupに作成
 (add-to-list 'backup-directory-alist
              (cons "." "~/.emacs.d/backup/"))
@@ -73,12 +77,3 @@
 ;; Help
 (define-key global-map (kbd "C-x ?") 'help-command)
 (define-key global-map (kbd "C-x /") 'help-command)
-
-;;; Clipboard 共有
-;; http://blog.lathi.net/articles/2007/11/07/sharing-the-mac-clipboard-with-emacs
-;(defun paste-to-osx (text &optional push)
-; (let ((process-connection-type nil))
-;     (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-;       (process-send-string proc text)
-;       (process-send-eof proc))))
-;(setq interprogram-cut-function 'paste-to-osx)

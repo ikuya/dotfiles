@@ -6,8 +6,8 @@
 
 ;; ---------- KEYBOARD ----------
 ;; CommandとOptionを入れ替え
-(setq ns-command-modifier (quote meta))
-(setq ns-alternate-modifier (quote super))
+;(setq ns-command-modifier (quote meta))
+;(setq ns-alternate-modifier (quote super))
 
 ; C-zを抑制
 (global-unset-key (kbd "C-z"))
@@ -80,7 +80,7 @@
 
 (setq default-frame-alist
       (append (list
-               '(font . "Cica-14"))
+               '(font . "Cica-15"))
               default-frame-alist))
 
 ;; ----------  ElScreen ----------
