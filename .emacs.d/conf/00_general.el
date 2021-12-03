@@ -29,6 +29,8 @@
 
 ;; Find fileのデフォルトパス
 (setq default-directory "~/")
+;; command lineのデフォルトパス
+(setq command-line-default-directory "~/")
 
 ;; ファイルが #! から始まる場合、+xを付けて保存n
 (add-hook 'after-save-hook

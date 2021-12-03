@@ -166,7 +166,8 @@
 ;; ---------- emacs-libvterm ----------
 ;; https://github.com/akermu/emacs-libvterm
 (require 'vterm)
-
+; C-t がvterm-mode-mapに奪われるので無効化
+(define-key vterm-mode-map (kbd "C-t") nil)
 
 ;; ---------- exec-path-from-shell ----------
 (when (memq window-system '(mac ns x))

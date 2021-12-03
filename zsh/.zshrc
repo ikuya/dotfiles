@@ -160,3 +160,6 @@ source $HOME/.zaw/zaw.zsh
 bindkey '^X' zaw
 bindkey '^R' zaw-history
 bindkey '^X^D' zaw-cdr
+
+# --- キーバインド無効化 ---
+bindkey -r '^T'
