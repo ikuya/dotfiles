@@ -35,11 +35,12 @@
 ;; undo-tree
 (when (require 'undo-tree nil t)
   (global-undo-tree-mode t)
-  (define-key global-map (kbd "C-/") 'undo-tree-undo)
+;  (define-key global-map (kbd "C-/") 'undo-tree-undo)
   (define-key global-map (kbd "C-c u") 'undo-tree-undo)
-  (define-key global-map (kbd "C-;") 'undo-tree-redo)
   (define-key global-map (kbd "C-c r") 'undo-tree-redo)
-  (define-key global-map (kbd "M--") 'undo-tree-redo))
+  (define-key global-map (kbd "C--") 'undo-tree-undo)
+  (define-key global-map (kbd "M--") 'undo-tree-redo)
+  )
 
 
 ;; ---------- 検索 ----------
