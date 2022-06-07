@@ -1,9 +1,7 @@
 ;; ========== Markdown mode ==========
 
-;; 公式: http://jblevins.org/projects/markdown-mode/
+;; 公式: https://jblevins.org/projects/markdown-mode/
 
-;; プレビューするためのスクリプト: http://daringfireball.net/projects/markdown/
-;;    -> .plスクリプトをpathの通っている場所に "markdown" という名で配置
 (autoload 'markdown-mode
   "markdown-mode.el" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
@@ -29,3 +27,8 @@
 (setq markdown-bold-underscore t)
 ; Italicは "_" で挟む(default "*")
 (setq markdown-italic-underscore t)
+
+;; Marked 2 でプレビューする (MacOS)
+; /Users/bin/marked2.sh を用意
+; see. https://jblevins.org/log/marked-2-command
+(setq markdown-open-command "/Users/fukumoto/bin/marked2.sh")
