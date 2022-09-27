@@ -79,3 +79,6 @@
 ;; Help
 (define-key global-map (kbd "C-x ?") 'help-command)
 (define-key global-map (kbd "C-x /") 'help-command)
+
+;; List of Keybindings
+(define-key global-map (kbd "C-x C-c /") 'describe-bindings)
