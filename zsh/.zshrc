@@ -27,6 +27,8 @@ setopt noautoremoveslash
 setopt auto_cd
 ## auto complete
 zstyle ':completion:*:default' menu select=1
+## fix: no matches found
+setopt nonomatch
 
 ## Prompt
 PROMPT="%{${fg[green]}%}[%n@%m:%~]
@@ -53,8 +55,9 @@ bindkey "^N" history-beginning-search-forward-end
 setopt no_flow_control
 
 ## LANG
+export LANG=en_US.UTF-8
 #export LANGUAGE=en_US.UTF-8
-export LANG=en_US.utf-8
+export LC_ALL=en_US.UTF-8
 
 ## Editor
 export EDITOR=$(which vi)
@@ -78,11 +81,11 @@ path=(
 ## ----------
 
 ## General
-alias ls='ls -F'
-alias lsa='ls -AF'
-alias ll='ls -lF'
-alias lla='ls -AlF'
-alias llt='ls -tlF'
+#alias ls='ls -F'
+alias lsa='ls -A'
+alias ll='ls -l'
+alias lla='ls -Al'
+alias llt='ls -tl'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
@@ -99,7 +102,7 @@ alias g='git'
 alias gst='git status'
 alias gd='git diff'
 alias vag='vagrant'
-alias grep='grep --color=auto'
+alias grep='grep --color=always'
 
 case ${OSTYPE} in
     darwin*)
