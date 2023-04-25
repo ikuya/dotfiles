@@ -42,6 +42,7 @@
 - elscreen
 - howm
 - init-loader
+- json-mode
 - json-reformat
 - markdown-mode
 - php-mode
