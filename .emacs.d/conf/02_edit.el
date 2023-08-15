@@ -41,7 +41,7 @@
   (define-key global-map (kbd "C--") 'undo-tree-undo)
   (define-key global-map (kbd "M--") 'undo-tree-redo)
   )
-
+(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 
 ;; ---------- 検索 ----------
 ;; カーソル位置の単語でi-search (このコマンドを実行後C-wで単語を検索語に追加)
