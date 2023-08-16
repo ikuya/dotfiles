@@ -2,23 +2,7 @@
 ;;   General settings
 ;; =========================
 
-;; ファイル名の文字コード
-; Mac OS X
-;(when (eq system-type 'darwin)
-;  (require 'ucs-normalize)
-;  (set-file-name-coding-system 'utf-8-hfs)
-;  (setq locale-coding-system 'utf-8-hfs))
-; Windows
-;(when (eq window-system 'w32)
-;  (set-file-name-coding-system 'cp932)
-;  (setq locale-coding-system 'cp932))
-
-;; バックアップファイルを作成しない [t/nil] default:t
-;(setq make-backup-files nil)
-;; オートセーブファイルを作らない [t/nil] default:t
-;(setq auto-save-default nil)
-
-;; 中華フォント対策
+;; 日本語環境を指定
 (set-language-environment "Japanese")
 
 ;; バックアップファイルとオートセーブファイルを.emacs.d/backupに作成
@@ -40,7 +24,6 @@
 ;;   unset keybind
 ;; -------------------------
 
-;(global-unset-key "\C-t")
 (global-unset-key (kbd "C-x C-p"))
 ;; C-x C-cをunbind (save-buffers-kill-terminalは01_keybind.elでbind
 (global-unset-key (kbd "C-x C-c"))
@@ -71,14 +54,3 @@
 
 ;; Bell無効化
 (setq ring-bell-function 'ignore)
-
-;; -------------------------
-;;   keybind
-;; -------------------------
-
-;; Help
-(define-key global-map (kbd "C-x ?") 'help-command)
-(define-key global-map (kbd "C-x /") 'help-command)
-
-;; List of Keybindings
-(define-key global-map (kbd "C-x C-c /") 'describe-bindings)

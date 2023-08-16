@@ -62,25 +62,6 @@
                 )))
 (display-time-mode t)
 
-;; モードラインの表示を詰める
-; http://homepage1.nifty.com/blankspace/emacs/mode-line.html
-(setq-default mode-line-format
-              '(
-                "-"
-                mode-line-mule-info
-                mode-line-modified
-                mode-line-buffer-identification
-                " %[("
-                mode-name
-                minor-mode-alist
-                "%n" ")%]--"
-                (line-number-mode "L%l-")
-                (column-number-mode "C%c-")
-                (-3 . "%p")
-                vc-mode
-                "-%-"
-              ))
-
 ;; 画面3分割
 ;; http://d.hatena.ne.jp/yascentur/20110621/1308585547
 (defun split-window-vertically-n (num_wins)
@@ -155,8 +136,6 @@
 (setq whitespace-space-regexp "\\(\u3000+\\)")
 ;; 保存前に自動でクリーンアップ
 (setq whitespace-action '(auto-cleanup))
-;; 全モードでON
-;(global-whitespace-mode 1)
 
 ;; メニューバーを表示しない
 (menu-bar-mode -1)
@@ -164,6 +143,13 @@
 ;; -------------------------
 ;;   keybind
 ;; -------------------------
+
+;; Help
+(define-key global-map (kbd "C-x ?") 'help-command)
+(define-key global-map (kbd "C-x /") 'help-command)
+
+;; List of Keybindings
+(define-key global-map (kbd "C-x C-c /") 'describe-bindings)
 
 ;; ウィンドウの切り替え([C-x o]と同じ)
 (define-key global-map (kbd "C-x C-o") 'other-window)

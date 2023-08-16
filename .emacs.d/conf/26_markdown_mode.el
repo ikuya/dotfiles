@@ -24,11 +24,6 @@
          (set (make-local-variable 'whitespace-action) nil)
          ))
 ; Boldは "__" で挟む(default "**")
-(setq markdown-bold-underscore t)
+;(setq markdown-bold-underscore t)
 ; Italicは "_" で挟む(default "*")
 (setq markdown-italic-underscore t)
-
-;; Marked 2 でプレビューする (MacOS)
-; /Users/bin/marked2.sh を用意
-; see. https://jblevins.org/log/marked-2-command
-(setq markdown-open-command "/Users/fukumoto/bin/marked2.sh")

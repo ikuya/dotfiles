@@ -34,23 +34,33 @@
           "/usr/bin/google-chrome" "/usr/bin/chromium"))
 
 ;;; ----- kill-ringをclipbordに送る -----
-;;; See. https://www.reddit.com/r/emacs/comments/9qvssh/copy_text_from_emacs_to_other_programs/e8cxlfu/
-
-;; For Linux
-(defun text-to-clipboard-linux (text &optional push)
-  ;; I ignore push since I dunno what it does; I suspect only older emacsen require it
- (with-temp-buffer
-  (insert text)
-  (call-process-region (point-min) (point-max) "xsel --clipboard --input")))
-
-;; For macOS
-(defun text-to-clipboard-mac (text &optional push)
-  ;; I ignore push since I dunno what it does; I suspect only older emacsen require it
- (with-temp-buffer
-  (insert text)
-  (call-process-region (point-min) (point-max) "pbcopy")))
-
-(if (eq system-type 'darwin)
-    (setq interprogram-cut-function 'text-to-clipboard-mac))
-(if (eq system-type 'gnu/linux)
-    (setq interprogram-cut-function 'text-to-clipboard-linux))
+;; copy/paste to/from x-clipboard
+;; cf. https://gist.github.com/szobov/70890efabf895a8ce7f77c4cee7ec9b6
+(defun copy-to-clipboard ()
+  "Copies selection to x-clipboard."
+  (interactive)
+  (if (display-graphic-p)
+      (progn
+        (message "Yanked region to x-clipboard!")
+        (call-interactively 'clipboard-kill-ring-save)
+        )
+    (if (region-active-p)
+        (progn
+          (shell-command-on-region (region-beginning) (region-end) "xsel --clipboard --input")
+          (message "Yanked region to clipboard!")
+          (deactivate-mark))
+      (message "No region active; can't yank to clipboard!")))
+  )
+(defun paste-from-clipboard ()
+  "Pastes from x-clipboard."
+  (interactive)
+  (if (display-graphic-p)
+      (progn
+        (clipboard-yank)
+        (message "graphics active")
+        )
+    (insert (shell-command-to-string "xsel --clipboard --output"))
+    )
+  )
+(global-set-key (kbd "C-c M-w") 'copy-to-clipboard)
+(global-set-key (kbd "C-c C-y") 'paste-from-clipboard)

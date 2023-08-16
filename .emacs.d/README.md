@@ -11,20 +11,16 @@
 # MELPA Packages
 
 - bind-key
-- cask
 - dash
 - drag-stuff
 - exec-path-from-shell
 - expand-region
 - f
 - flycheck
-- flycheck-cask
 - htmlize
 - idle-highlight-mode
 - magit
 - multiple-cursors
-- nyan-mode
-- pallet
 - prodigy
 - projectile
 - s
@@ -48,10 +44,8 @@
 - php-mode
 - popup
 - scratch-log
-- twittering-mode
 - haskell-mode
 - undo-tree
 - jade-mode
 - diminish
 - exec-path-from-shell
-- vterm (requirements: cmake, libtool)

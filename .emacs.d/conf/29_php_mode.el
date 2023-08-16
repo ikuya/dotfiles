@@ -1,3 +1,4 @@
+;; ========== PHP mode ==========
 (require 'php-mode)
 (setq php-mode-hook
       '(lambda()

@@ -30,11 +30,13 @@
 
 ;; 透明度を変更するコマンド M-x set-alpha
 ;; http://qiita.com/marcy@github/items/ba0d018a03381a964f24
-(defun set-alpha (alpha-num)
-  "set frame parameter 'alpha"
-  (interactive "nAlpha: ")
-  (set-frame-parameter nil 'alpha (cons alpha-num '(80))))
-(set-alpha '80)
+(when window-system
+  (defun set-alpha (alpha-num)
+    "set frame parameter 'alpha"
+    (interactive "nAlpha: ")
+    (set-frame-parameter nil 'alpha (cons alpha-num '(80))))
+  (set-alpha '80)
+  )
 
 ;; ツールバー非表示
 (tool-bar-mode -1)
@@ -69,19 +71,10 @@
                     :underline "turquoise")
 
 ;;; ---------- FONTS ----------
-;;; asciiフォント
-;(set-face-attribute 'default nil
-;                    :family "Ricty"
-;                    :height 150)
-;;; 日本語フォント
-;(set-fontset-font
-; nil 'japanese-jisx0208
-; (font-spec :family "Ricty"))
-
-(setq default-frame-alist
-      (append (list
-               '(font . "Cica-16"))
-              default-frame-alist))
+(when window-system
+  (set-fontset-font t 'japanese-jisx0208 (font-spec :family "Cica-11"))
+  (add-to-list 'default-frame-alist '(font . "Cica-11"))
+  )
 
 ;; ----------  ElScreen ----------
 ;(require 'elscreen nil t)
@@ -105,9 +98,6 @@
                (lookup-key (current-global-map) (kbd "M-x")))
              (linum-mode)
              ))
-;(define-key term-raw-map (kbd "C-p") 'previous-line)
-;(define-key term-raw-map (kbd "C-n") 'next-line)
-
 
 ;; Live preview in Markdown mode via Markd2.app
 (defun markdown-preview-file ()

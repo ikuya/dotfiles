@@ -1,16 +1,3 @@
-;; --------------------------------------------------
-;; Ubuntu環境用
-;; --------------------------------------------------
-;; 日本語入力にMozcを使用する。
-;; 事前に emacs-mozc emacs-mozc-bin をインストールしておく。
-;(require 'mozc)
-;(set-language-environment "Japanese")
-;(setq default-input-method "japanese-mozc")
-;; 変換候補をミニバッファに表示する
-;(setq mozc-candidate-style 'echo-area)
-;; input methodの切り替え
-;(global-set-key (kbd "C-j") 'toggle-input-method)
-
 ;; ------------------------------
 ;; MetaとSuperを入れ替える
 ;; ------------------------------
@@ -20,7 +7,9 @@
 ;;(setq x-meta-keysym 'super)
 ;;(setq x-super-keysym 'meta)
 
+;; ------------------------------
 ;; 数字列を3桁毎にcommaで区切る
+;; ------------------------------
 ;; http://www.emacswiki.org/emacs/AddCommasToNumbers
 (defun add-commas-to-numbers (number &optional separator)
   "Add commas to NUMBER and return it as a string.

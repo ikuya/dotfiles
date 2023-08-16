@@ -1,4 +1,4 @@
-;; ========== Emacs(on X)用のConfig ==========
+;; ========== Emacs(with window-system)用のConfig ==========
 
 ;; ---------- PATH ----------
 (setq exec-path (append exec-path '("/usr/local/bin")))
@@ -20,23 +20,26 @@
 
 ;; テーマ
 ;(load-theme 'tsdh-dark t)
-(load-theme 'wombat t)
+(when window-system
+  (load-theme 'wombat t))
 
 ; 起動時のウィンドウサイズ
 (if window-system (progn
                     (setq initial-frame-alist '((width . 80)
                                                 (height . 47)
                                                 (top . 0)
-                                                (left . 400)
+                                                (left . 450)
                                                 ))))
 
 ;; 透明度を変更するコマンド M-x set-alpha
 ;; http://qiita.com/marcy@github/items/ba0d018a03381a964f24
-(defun set-alpha (alpha-num)
-  "set frame parameter 'alpha"
-  (interactive "nAlpha: ")
-  (set-frame-parameter nil 'alpha (cons alpha-num '(75))))
-(set-alpha '75)
+(when window-system
+  (defun set-alpha (alpha-num)
+    "set frame parameter 'alpha"
+    (interactive "nAlpha: ")
+    (set-frame-parameter nil 'alpha (cons alpha-num '(80))))
+  (set-alpha '80)
+  )
 
 ;; スクロールバー非表示
 (set-scroll-bar-mode nil)
@@ -69,18 +72,11 @@
                     :background 'unspecified
                     :underline "turquoise")
 
-;; ---------- FONTS ----------
-;; asciiフォント
-;(set-face-attribute 'default nil
-;                    :family "Ricty"
-;                    :height 110)
-;;; 日本語フォント
-;(set-fontset-font
-; nil 'japanese-jisx0208
-; (font-spec :family "Ricty"))
 ;;; ---------- FONTS ----------
-(set-fontset-font t 'japanese-jisx0208 (font-spec :family "Ricty-14"))
-(add-to-list 'default-frame-alist '(font . "Ricty-14"))
+(when window-system
+  (set-fontset-font t 'japanese-jisx0208 (font-spec :family "Cica-11"))
+  (add-to-list 'default-frame-alist '(font . "Cica-11"))
+  )
 
 ;; ----------  ElScreen ----------
 ;; ElScreenのプレフィックス(default: C-z)
@@ -110,12 +106,3 @@
 
 ;; set windows key to meta
 (setq x-super-keysym 'meta)
-;; set alt key to meta
-;(setq x-super-keysym 'meta)
-
-
-;; browse-url を Google Chromeに
-(setq browse-url-browser-function 'browse-url-generic)
-(setq browse-url-generic-program
-      (if (file-exists-p "/usr/bin/google-chrome")
-          "/usr/bin/google-chrome" "/usr/bin/chromium"))

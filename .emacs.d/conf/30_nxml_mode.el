@@ -1,3 +1,4 @@
+;; ========== NXML mode ==========
 (use-package xml-mode
   :mode
   (("\.xml$" . nxml-mode)
