@@ -54,11 +54,6 @@ bindkey "^N" history-beginning-search-forward-end
 ## Ignore C-s, C-q
 setopt no_flow_control
 
-## LANG
-export LANG=en_US.UTF-8
-#export LANGUAGE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
 ## Editor
 export EDITOR=$(which vi)
 
@@ -70,7 +65,6 @@ export EDITOR=$(which vi)
 path=(
     $HOME/bin(N-/)
     /usr/local/bin
-    $HOME/.emacs.d/.cask/bin(N-/)
     /usr/sbin
     /sbin
     $path
@@ -89,10 +83,9 @@ alias llt='ls -tl'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
-alias ..='cd ../'
-alias ..2='cd ../..'
-alias ..3='cd ../../..'
-alias ..4='cd ../../../..'
+alias ..='cd ..'
+alias pushd='pushd -q'
+alias dirs='dirs -v'
 ## Tmux
 alias tm='tmux'
 alias tms='tmux ls'
@@ -121,7 +114,7 @@ esac
 
 ## Automatically rename tmux window using the current working directory.
 function rename_tmux_window() {
-   if [ $TERM = "screen" ]; then
+   if [[ $TERM == "tmux"* ]]; then
        local current_path=`pwd | sed -e s/\ /_/g`
        local current_dir=`basename $current_path |cut -c 1-5`
        tmux rename-window $current_dir >/dev/null 2>&1

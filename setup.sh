@@ -7,7 +7,7 @@ TMUX=$DOTFILES/tmux
 GIT=$DOTFILES/git
 MISC=$DOTFILES/misc
 
-EMACS_VER_ENABLED=24.4
+EMACS_VER_ENABLED=28.2
 
 M="mkdir"
 T="touch"
@@ -64,6 +64,7 @@ if [ $? = 0 ];then
         deploy $T $EMACSD/.scratch-log
         deploy $T $EMACSD/.scratch-log-prev
         deploy $M $EMACSD/backup
+        deploy $M $EMACSD/undo
     else
         echo 'Required Emacs version ' $EMACS_VER_ENABLED ' or later.'
     fi
@@ -72,8 +73,14 @@ else
 fi
 
 # zsh
-deploy $L $ZSH/.zshenv $HOME/.zshenv
-deploy $L $ZSH/.zshrc $HOME/.zshrc
+echo -n 'Do you want to make .zshrc symbolic link? [y/n]'
+read yn
+case $yn in
+    [Yy]* )
+        deploy $L $ZSH/.zshrc $HOME/.zshrc
+        ;;
+    "" | [Nn]* )
+        ;;
 deploy $M $HOME/.cache/shell
 deploy $L $ZSH/zaw $HOME/.zaw
 
@@ -85,12 +92,7 @@ deploy $C $GIT/.gitconfig $HOME/.gitconfig
 
 # bin
 deploy $M $HOME/bin
-deploy $L $TMUX/loadaverage.sh $HOME/bin/loadaverage
-deploy $L $TMUX/used_mem.sh $HOME/bin/used_mem
 deploy $L $MISC/search.sh $HOME/bin/search
-if [[ ${OSTYPE} =~ darwin* ]]; then
-    deploy $L $MISC/mem.sh $HOME/bin/mem
-fi
 
 ## Vi
 deploy $L $DOTFILES/.vimrc $HOME/.vimrc

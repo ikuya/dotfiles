@@ -1,5 +1,6 @@
 auto-save-list
 .emacs.d/backup/*
+.emacs.d/undo/*
 !dummy
 .emacs.d/url
 .emacs.d/howm
@@ -8,7 +9,7 @@ auto-save-list
 .emacs.d/.scratch-log
 .emacs.d/recentf
 .emacs.d/elpa
-#.emacs.d/.cask
+.emacs.d/transient/*
 zsh/.zcompdump
 .DS_Store
 .emacs.d/conf/99_local.el
