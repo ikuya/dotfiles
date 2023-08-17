@@ -114,7 +114,7 @@ esac
 
 ## Automatically rename tmux window using the current working directory.
 function rename_tmux_window() {
-   if [[ $TERM == "tmux"* ]]; then
+   if [[ $TERM == "tmux"* ]] || [[ $TERM == "screen"* ]]; then
        local current_path=`pwd | sed -e s/\ /_/g`
        local current_dir=`basename $current_path |cut -c 1-5`
        tmux rename-window $current_dir >/dev/null 2>&1
@@ -159,3 +159,11 @@ bindkey '^X^D' zaw-cdr
 
 # --- キーバインド無効化 ---
 bindkey -r '^T'
+
+
+## ----------
+## LOCALE
+## ----------
+
+export LANG=C
+export LC_CTYPE=en_US.UTF-8
