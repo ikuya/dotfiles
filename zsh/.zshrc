@@ -87,6 +87,7 @@ alias ..='cd ..'
 alias dirs='dirs -v'
 alias d='dirs -v'
 alias pushd='pushd -q'
+alias pd='pushd -q'
 ## Tmux
 alias tm='tmux'
 alias tms='tmux ls'
