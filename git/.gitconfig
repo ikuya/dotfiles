@@ -15,6 +15,7 @@
     editor = vi
     quotepath = false
     pager = LESSCHARSET=utf-8 less -m
+    autocrlf = input
 [diff]
-    ignoreSubmodules = dirty
+    ignoreSubmodules = all
 [user]
