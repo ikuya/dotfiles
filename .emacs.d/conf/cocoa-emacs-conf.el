@@ -26,7 +26,9 @@
 
 ;; テーマ
 ;; http://aoe-tk.hatenablog.com/entry/20130210/1360506829
-(load-theme 'wombat t)
+(when window-system
+  (load-theme 'wombat t)
+  )
 
 ;; 透明度を変更するコマンド M-x set-alpha
 ;; http://qiita.com/marcy@github/items/ba0d018a03381a964f24
@@ -113,3 +115,12 @@
 ;; ミニバッファでIMEを無効化
 (when (functionp 'mac-auto-ascii-mode)
   (mac-auto-ascii-mode 1))
+
+;; --- kill-ring を Pasteboard に送る
+; 選択してM-wで、選択範囲がPasteboardに送られる
+(defun text-to-pasteboard (text &optional push)
+  ;; I ignore push since I dunno what it does; I suspect only older emacsen require it
+ (with-temp-buffer
+  (insert text)
+  (call-process-region (point-min) (point-max) "pbcopy")))
+(setq interprogram-cut-function 'text-to-pasteboard)
