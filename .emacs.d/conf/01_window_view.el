@@ -49,8 +49,10 @@
                           :foreground "DarkOliveGreen"
                           :background "#131521")
       (set-face-attribute 'line-number-current-line nil
-                          :foreground "gold"))
-  )
+                          :foreground "gold")))
+; for GUI
+(setq-default indicate-empty-lines t)
+(setq-default indicate-buffer-boundaries 'left)
 
 ;; 列番号
 (setq column-number-mode t)
