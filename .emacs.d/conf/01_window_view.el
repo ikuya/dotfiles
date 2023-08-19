@@ -42,12 +42,15 @@
 (define-key global-map (kbd "C-x C-c w") 'window-resizer)
 
 ;; 行番号を表示
-(require 'linum)
-(defun linum-format-func (line)
-  (let ((w (length (number-to-string (count-lines (point-min) (point-max))))))
-     (propertize (format (format "%%%dd " w) line) 'face 'linum)))
-(setq linum-format 'linum-format-func)
-(global-linum-mode t)
+(if (version<= "26.0.50" emacs-version)
+    (progn
+      (global-display-line-numbers-mode)
+      (set-face-attribute 'line-number nil
+                          :foreground "DarkOliveGreen"
+                          :background "#131521")
+      (set-face-attribute 'line-number-current-line nil
+                          :foreground "gold"))
+  )
 
 ;; 列番号
 (setq column-number-mode t)

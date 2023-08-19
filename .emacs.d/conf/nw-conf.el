@@ -22,11 +22,6 @@
       (define-key elscreen-map (kbd "C-z") 'iconify-or-deiconify-frame)
     (define-key elscreen-map (kbd "C-z") 'suspend-emacs)))
 
-;; ---------- linum-mode ----------
-(global-linum-mode t)
-(set-face-attribute 'linum nil :foreground "red" :height 0.8)
-(setq linum-format "%4d ")
-
 ;; ---------- browse-url を Google Chromeに ----------
 (setq browse-url-browser-function 'browse-url-generic)
 (setq browse-url-generic-program

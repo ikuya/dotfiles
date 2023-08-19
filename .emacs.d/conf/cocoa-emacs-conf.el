@@ -16,14 +16,6 @@
 ;; タイトルバーにファイルのフルパスを表示
 (setq frame-title-format "%f")
 
-;; 行番号
-;; バッファ中の行番号表示
-(global-linum-mode t)
-;; 行番号のフォーマット
-;; (set-face-attribute 'linum nil :foreground "red" :height 0.8)
-(set-face-attribute 'linum nil :height 0.8)
-(setq linum-format "%4d")
-
 ;; テーマ
 ;; http://aoe-tk.hatenablog.com/entry/20130210/1360506829
 (when window-system
