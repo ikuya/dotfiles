@@ -47,9 +47,9 @@
       (global-display-line-numbers-mode)
       (set-face-attribute 'line-number nil
                           :foreground "DarkOliveGreen"
-                          :background "#131521")
+                          :background "VeryDarkBlue")
       (set-face-attribute 'line-number-current-line nil
-                          :foreground "gold")))
+                          :foreground "Gold")))
 ; for GUI
 (setq-default indicate-empty-lines t)
 (setq-default indicate-buffer-boundaries 'left)
