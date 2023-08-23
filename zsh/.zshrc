@@ -89,9 +89,9 @@ alias d='dirs -v'
 alias pushd='pushd -q'
 alias pd='pushd -q'
 ## Tmux
-alias tm='tmux'
-alias tms='tmux ls'
-alias tma='tmux attach'
+alias tm='tmux -u'
+alias tms='tmux -u ls'
+alias tma='tmux -u attach'
 ## Misc
 alias g='git'
 alias gn='git --no-pager'
@@ -162,7 +162,6 @@ bindkey '^X^D' zaw-cdr
 
 # --- キーバインド無効化 ---
 bindkey -r '^T'
-
 
 ## ----------
 ## LOCALE
