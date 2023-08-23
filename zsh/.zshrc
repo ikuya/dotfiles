@@ -94,6 +94,7 @@ alias tms='tmux ls'
 alias tma='tmux attach'
 ## Misc
 alias g='git'
+alias gn='git --no-pager'
 alias gst='git status'
 alias gd='git diff'
 alias vag='vagrant'
