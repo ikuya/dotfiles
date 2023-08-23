@@ -16,6 +16,8 @@
     quotepath = false
     pager = LESSCHARSET=utf-8 less -m
     autocrlf = input
+[pull]
+    rebase = true
 [diff]
     ignoreSubmodules = all
 [user]
