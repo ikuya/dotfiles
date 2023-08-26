@@ -83,11 +83,11 @@ alias llt='ls -tl'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
-alias ..='cd ..'
 alias dirs='dirs -v'
 alias d='dirs -v'
 alias pushd='pushd -q'
 alias pd='pushd -q'
+alias ..='pushd -q ..'
 ## Tmux
 alias tm='tmux -u'
 alias tms='tmux -u ls'
@@ -95,9 +95,6 @@ alias tma='tmux -u attach'
 ## Misc
 alias g='git'
 alias gn='git --no-pager'
-alias gst='git status'
-alias gd='git diff'
-alias vag='vagrant'
 alias grep='grep --color=always'
 
 case ${OSTYPE} in
