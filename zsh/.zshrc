@@ -75,7 +75,7 @@ path=(
 ## ----------
 
 ## General
-#alias ls='ls -F'
+alias ls='ls -F'
 alias lsa='ls -A'
 alias ll='ls -l'
 alias lla='ls -Al'
