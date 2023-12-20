@@ -145,6 +145,9 @@
 ;; メニューバーを表示しない
 (menu-bar-mode -1)
 
+;; Warning レベルのメッセージをポップアップせずに *Messages* バッファにのみ出力する
+(setq display-warning-minimum-level 'error)
+
 ;; -------------------------
 ;;   keybind
 ;; -------------------------
