@@ -10,7 +10,7 @@
 ## ----------
 
 autoload -Uz colors
-autoload -Uz compinit
+autoload -Uz compinit && compinit -i
 colors
 compinit
 
