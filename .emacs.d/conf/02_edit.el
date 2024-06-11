@@ -14,8 +14,8 @@
 ;; Automatic character pairing (e.g. parenthesis)
 (electric-pair-mode t)
 
-;; デフォルト文字コード
-(prefer-coding-system 'utf-8-auto)
+;; デフォルト文字コード(BOM抑制)
+(prefer-coding-system 'utf-8-unix)
 
 ;; M-f の改良. 「次の単語の直前のスペース」ではなく, 「次の単語の先頭」に移動する
 (defun forward-word-to-beginning (&optional n)
