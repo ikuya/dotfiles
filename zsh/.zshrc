@@ -16,6 +16,7 @@ compinit
 
 ## Key bind
 bindkey -e
+bindkey '^H' backward-delete-char
 ## Ignore ctrl-D
 setopt ignore_eof
 ## cd history
@@ -88,6 +89,7 @@ alias d='dirs -v'
 alias pushd='pushd -q'
 alias pd='pushd -q'
 alias ..='pushd -q ..'
+alias vi='vim'
 ## Tmux
 alias tm='tmux -u'
 alias tms='tmux -u ls'
