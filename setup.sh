@@ -79,8 +79,10 @@ case $yn in
     [Yy]* )
         deploy $L $ZSH/.zshrc $HOME/.zshrc
         ;;
-    "" | [Nn]* )
+    [Nn]* )
         ;;
+esac
+
 deploy $M $HOME/.cache/shell
 deploy $L $ZSH/zaw $HOME/.zaw
 
