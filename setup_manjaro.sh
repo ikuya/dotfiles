@@ -42,7 +42,7 @@ deploy() {
     fi
 }
 
-yay -S tmux emacs bc vim
+yay -S tmux emacs bc vim ttf-cica ttf-mplus-git --noconfirm --sudoloop
 
 # Submodules initialization
 cd $DOTFILES
