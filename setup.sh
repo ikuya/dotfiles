@@ -43,7 +43,8 @@ deploy() {
 }
 
 if [ -e /etc/debian_version ]; then
-    read -s "Password? " pwd
+    echo -n 'Password? '
+    read pwd
     echo $pwd | sudo -S apt update
     echo $pwd | sudo -S apt upgrade
     sudo apt -y install tmux zsh emacs bc
