@@ -37,8 +37,8 @@
   (global-undo-tree-mode t)
   (define-key global-map (kbd "C-c u") 'undo-tree-undo)
   (define-key global-map (kbd "C-c r") 'undo-tree-redo)
-  (define-key global-map (kbd "C--") 'undo-tree-undo)
-  (define-key global-map (kbd "M--") 'undo-tree-redo)
+  (define-key global-map (kbd "C-_") 'undo-tree-undo)
+  (define-key global-map (kbd "C-M-_") 'undo-tree-redo)
   )
 (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 
