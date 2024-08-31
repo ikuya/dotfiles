@@ -72,6 +72,8 @@ echo -n 'Do you want to make .zshrc symbolic link? [y/n]'
 read yn
 case $yn in
     [Yy]* )
+        cp $HOME/.zshrc $HOME/.zshrc.bk
+        mv $HOME/.zshrc $HOME/.zshenv
         deploy $L $ZSH/.zshrc $HOME/.zshrc
         ;;
     [Nn]* )
