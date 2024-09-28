@@ -1,7 +1,6 @@
 [color]
     ui = auto
 [alias]
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an:%ae>%Creset' --abbrev-commit --date=relative
     today = log --since=midnight --graph --date=format:'%Y-%m-%d %a %H:%M:%S' --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Creset(%cr) %Cgreen%cn %Cred%d %Creset%s'
     yesterday = log --since=yesterday.midnight --graph --date=format:'%Y-%m-%d %a %H:%M:%S' --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Creset(%cr) %Cgreen%cn %Cred%d %Creset%s'
     graph = log --graph --date=format:'%Y-%m-%d %a %H:%M:%S' --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Creset(%cr) %Cgreen%cn %Cred%d %Creset%s'
@@ -9,8 +8,6 @@
     gg = log --graph --date=format:'%Y-%m-%d %a %H:%M:%S' --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Creset(%cr) %Cgreen%cn %Cred%d %Creset%s' -10
     st = status
     d = diff
-    df = diff FETCH_HEAD
-    mf = merge FETCH_HEAD
     co = checkout
 [core]
     editor = vi
