@@ -14,6 +14,9 @@ autoload -Uz compinit && compinit -i
 colors
 compinit
 
+# C-s, C-q等、入力フロー制御を無効化する
+stty -ixon
+
 ## Key bind
 bindkey -e
 bindkey '^H' backward-delete-char
