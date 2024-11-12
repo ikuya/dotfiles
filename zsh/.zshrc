@@ -100,6 +100,7 @@ alias tma='tmux -u attach'
 ## Misc
 alias g='git'
 alias gn='git --no-pager'
+alias gg='git --no-pager graph -10'
 alias grep='grep --color=always'
 
 case ${OSTYPE} in
