@@ -113,6 +113,11 @@
 ;; 矩形選択 cua-set-rectangle-mark
 (define-key global-map (kbd "C-x C-c c") 'cua-set-rectangle-mark)
 
+;; 対応するカッコの先頭・最後尾に移動
+(define-key global-map (kbd "C-x C-c n") 'forward-list)
+(define-key global-map (kbd "C-x C-c p") 'backward-list)
+
+
 ;; -------------------------
 ;;   macro
 ;; -------------------------
