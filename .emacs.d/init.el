@@ -59,5 +59,6 @@
   ; 起動時に自動更新する。ただし前回実行が7日以内であれば実行されない
   ; 自動実行したくなければ下記をコメントアウトし、
   ; 手動で M-x auto-package-update-now RET する
-  (auto-package-update-maybe))
+  ;(auto-package-update-maybe)
+  )
 
