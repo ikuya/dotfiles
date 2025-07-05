@@ -41,10 +41,23 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(vterm yasnippet web-mode use-package undo-tree twittering-mode smex smartparens scratch-log projectile prodigy php-mode pallet nyan-mode multiple-cursors markdown-mode magit json-reformat jade-mode init-loader idle-highlight-mode htmlize howm helm-swoop helm-gtags helm-descbinds haskell-mode flycheck-cask expand-region exec-path-from-shell elscreen drag-stuff diminish auto-complete apel)))
+   '(auto-package-update vterm yasnippet web-mode use-package undo-tree twittering-mode smex smartparens scratch-log projectile prodigy php-mode pallet nyan-mode multiple-cursors markdown-mode magit json-reformat jade-mode init-loader idle-highlight-mode htmlize howm helm-swoop helm-gtags helm-descbinds haskell-mode flycheck-cask expand-region exec-path-from-shell elscreen drag-stuff diminish auto-complete apel)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+
+ ;; auto package update
+(use-package auto-package-update
+  :ensure t
+  :config
+  (setq auto-package-update-delete-old-versions t
+        auto-package-update-hide-results t)
+  ; 起動時に自動更新する。ただし前回実行が7日以内であれば実行されない
+  ; 自動実行したくなければ下記をコメントアウトし、
+  ; 手動で M-x auto-package-update-now RET する
+  (auto-package-update-maybe))
+
