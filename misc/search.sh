@@ -19,4 +19,4 @@ case $# in
         file=$2
     ;;
 esac
-find $dir -name "$file" -exec grep -iIHn --color=always $string {} \; 2>/dev/null;
+find $dir -name "$file" -exec grep -iIHn --color=always $string {} \; 2>/dev/null | grep -v venv |grep -v '.git'
