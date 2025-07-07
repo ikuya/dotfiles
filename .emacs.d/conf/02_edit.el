@@ -149,3 +149,6 @@
 (fset 'line-dashed
       "- - - - - - - - - - - - - - ")
 (global-set-key (kbd "C-x C-c d") 'line-dashed)
+
+;; save時にwhitespace-cleanupを実行
+(add-hook 'before-save-hook 'whitespace-cleanup)
