@@ -151,4 +151,9 @@
 (global-set-key (kbd "C-x C-c d") 'line-dashed)
 
 ;; save時にwhitespace-cleanupを実行
-(add-hook 'before-save-hook 'whitespace-cleanup)
+; ただしmarkdown-modeは除く
+(defun my/whitespace-cleanup-unless-markdown ()
+  "Run `whitespace-cleanup` unless in `markdown-mode`."
+  (unless (derived-mode-p 'markdown-mode)
+    (whitespace-cleanup)))
+(add-hook 'before-save-hook 'my/whitespace-cleanup-unless-markdown)
