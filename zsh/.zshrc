@@ -169,3 +169,9 @@ bindkey -r '^T'
 
 export LANG=C
 export LC_CTYPE=en_US.UTF-8
+
+## Manjaro Powerline
+if [[ "$OSTYPE" == "linux-gnu" && -f ~/.config/zsh/env_manjaro.zsh ]]; then
+  source ~/.config/zsh/env_manjaro.zsh
+fi
+
