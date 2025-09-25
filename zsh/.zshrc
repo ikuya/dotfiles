@@ -5,12 +5,6 @@
 # log in shell: /etc/zshenv -> $ZDOTDIR/.zshenv -> /etc/zprofile -> $ZDOTDIR/.zprofile -> /etc/zshrc -> $ZDOTDIR/.zshrc -> /etc/zlogin -> $ZDOTDIR/.zlogin
 # interactive shell: /etc/zshenv -> $ZDOTDIR/.zshenv -> /etc/zshrc -> $ZDOTDIR/.zshrc
 
-## Prompt
-PROMPT="%{${fg[green]}%}[%n@%m:%~]
-%(!.#.$)%{${reset_color}%} "
-PROMPT2="%{${fg[green]}%}%_> %{${reset_color}%}"
-#SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
-
 ## ----------
 ## General Settings
 ## ----------
@@ -19,6 +13,12 @@ autoload -Uz colors
 autoload -Uz compinit && compinit -i
 colors
 compinit
+
+## Prompt
+PROMPT="%{${fg[green]}%}[%n@%m:%~]
+%(!.#.$)%{${reset_color}%} "
+PROMPT2="%{${fg[green]}%}%_> %{${reset_color}%}"
+#SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
 
 # C-s, C-q等、入力フロー制御を無効化する
 stty -ixon
@@ -180,4 +180,3 @@ bindkey -r '^T'
 bindkey '^X' zaw
 bindkey '^R' zaw-history
 bindkey '^X^D' zaw-cdr
-
