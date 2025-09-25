@@ -152,9 +152,6 @@ zstyle ':chpwd:*' recent-dirs-pushd true
 # --- zaw ---
 # See. https://github.com/zsh-users/zaw
 source $HOME/.zaw/zaw.zsh
-bindkey '^X' zaw
-bindkey '^R' zaw-history
-bindkey '^X^D' zaw-cdr
 
 ## ----------
 ## LOCALE
@@ -175,7 +172,12 @@ fi
 ## ----------
 bindkey -e
 bindkey '^H' backward-delete-char
-
+# history
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 bindkey -r '^T'
+# zaw
+bindkey '^X' zaw
+bindkey '^R' zaw-history
+bindkey '^X^D' zaw-cdr
+
