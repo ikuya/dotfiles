@@ -5,6 +5,12 @@
 # log in shell: /etc/zshenv -> $ZDOTDIR/.zshenv -> /etc/zprofile -> $ZDOTDIR/.zprofile -> /etc/zshrc -> $ZDOTDIR/.zshrc -> /etc/zlogin -> $ZDOTDIR/.zlogin
 # interactive shell: /etc/zshenv -> $ZDOTDIR/.zshenv -> /etc/zshrc -> $ZDOTDIR/.zshrc
 
+## Prompt
+PROMPT="%{${fg[green]}%}[%n@%m:%~]
+%(!.#.$)%{${reset_color}%} "
+PROMPT2="%{${fg[green]}%}%_> %{${reset_color}%}"
+#SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
+
 ## ----------
 ## General Settings
 ## ----------
@@ -17,9 +23,7 @@ compinit
 # C-s, C-q等、入力フロー制御を無効化する
 stty -ixon
 
-## Key bind
-bindkey -e
-bindkey '^H' backward-delete-char
+
 ## Ignore ctrl-D
 setopt ignore_eof
 ## cd history
@@ -34,12 +38,6 @@ zstyle ':completion:*:default' menu select=1
 ## fix: no matches found
 setopt nonomatch
 
-## Prompt
-PROMPT="%{${fg[green]}%}[%n@%m:%~]
-%(!.#.$)%{${reset_color}%} "
-PROMPT2="%{${fg[green]}%}%_> %{${reset_color}%}"
-#SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
-
 ## Command history
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
@@ -52,8 +50,6 @@ setopt share_history        # share command history data
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-bindkey "^P" history-beginning-search-backward-end
-bindkey "^N" history-beginning-search-forward-end
 
 ## Ignore C-s, C-q
 setopt no_flow_control
@@ -160,9 +156,6 @@ bindkey '^X' zaw
 bindkey '^R' zaw-history
 bindkey '^X^D' zaw-cdr
 
-# --- キーバインド無効化 ---
-bindkey -r '^T'
-
 ## ----------
 ## LOCALE
 ## ----------
@@ -170,8 +163,19 @@ bindkey -r '^T'
 export LANG=C
 export LC_CTYPE=en_US.UTF-8
 
+## ----------
 ## Manjaro Powerline
+## ----------
 if [[ "$OSTYPE" == "linux-gnu" && -f ~/.config/zsh/env_manjaro.zsh ]]; then
   source ~/.config/zsh/env_manjaro.zsh
 fi
 
+## ----------
+## Key bind
+## ----------
+bindkey -e
+bindkey '^H' backward-delete-char
+
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
+bindkey -r '^T'
